@@ -1,11 +1,11 @@
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
-import ProblemSolution from './components/ProblemSolution'
-import Workshops from './components/Workshops'
-import Products from './components/Products'
+import About from './components/About'
+import HowItWorks from './components/HowItWorks'
 import Testimonials from './components/Testimonials'
-import AppBonus from './components/AppBonus'
-import BottomCTA from './components/BottomCTA'
+import ServicesList from './components/ServicesList'
+import Gallery from './components/Gallery'
+import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -26,17 +26,17 @@ export default function App() {
         }}
       />
       <div className="relative z-10">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <ProblemSolution />
-        <Workshops />
-        <Products />
-        <Testimonials />
-        <AppBonus />
-        <BottomCTA />
-      </main>
-      <Footer />
+        <Navbar />
+        <main>
+          <HeroSection />
+          <About />
+          <HowItWorks />
+          <Testimonials />
+          <ServicesList />
+          <Gallery />
+          <ContactForm />
+        </main>
+        <Footer />
       </div>
     </div>
   )

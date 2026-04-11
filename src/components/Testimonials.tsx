@@ -1,85 +1,97 @@
+import { useState } from 'react'
+
 const testimonials = [
+  {
+    name: 'עמית כהן',
+    detail: '10 ביקורות',
+    text: 'טל פשוט מדהימה, חינכית, מקסימה, פרגמטית, מקצוע איטיים את הדרך לנהל ולהדביר איפה חדשות, להדביר אימהות חדשות בחרות מסרטוטים, ולהדביר בחינות חרושות בחרות מסוטוס!!!!!',
+    rating: 5,
+  },
   {
     name: 'רוני כ.',
     detail: 'אמא לנועה, 4 חודשים',
-    text: 'הסדנה שינתה לי את הראש. סוף סוף מישהי שמסבירה לי *למה* נועה בוכה ב-3 בלילה — ומה לעשות. אחרי מפגש 2 כבר ראיתי שיפור אמיתי.',
-    service: 'סדנת גוזלות',
+    text: 'הסדנה שינתה לי את הראש. סוף סוף מישהי שמסבירה לי למה נועה בוכה ב-3 בלילה — ומה לעשות. אחרי מפגש 2 כבר ראיתי שיפור אמיתי.',
+    rating: 5,
   },
   {
     name: 'שירה מ.',
     detail: 'אמא לאדם, 6.5 חודשים',
     text: 'עשיתי ליווי פרטני אחרי שניסיתי כל שיטה שמצאתי בגוגל. שעה וחצי עם המומחית שלנו נתנו לי יותר מחודשיים של חיפושים עצמאיים.',
-    service: 'ליווי פרטני',
+    rating: 5,
   },
   {
     name: 'תמר ל.',
     detail: 'אמא למיה, 8 חודשים',
-    text: 'הקבוצה היא משהו אחר. לפגוש אמהות שמתמודדות בדיוק עם אותם דברים — זה בפני עצמו שווה זהב. ועל כלים ההתפתחות אני לא מדברת כבר...',
-    service: 'סדנת מתגלגלות',
-  },
-  {
-    name: 'ליאת ר.',
-    detail: 'אמא לאביגיל, 2 חודשים',
-    text: 'אני אמא לראשון שלי ומימו הוא כמו חברה שמומחית לכל דבר. תמיד שם, תמיד עונה, תמיד תומכת — גם ב-3 בלילה דרך האפליקציה.',
-    service: 'אפליקציה + סדנה',
-  },
-  {
-    name: 'מיכל ה.',
-    detail: 'אמא לרז ולנעם (תאומים!), 5 חודשים',
-    text: 'עם תאומים חשבתי שאין כוח. הסדנה הייתה מקום בטוח שהכין אותי לכל מה שבא. הצוות של מימו ידע בדיוק מה אני עוברת.',
-    service: 'ליווי פרטני',
+    text: 'הקבוצה היא משהו אחר. לפגוש אמהות שמתמודדות בדיוק עם אותם דברים — זה בפני עצמו שווה זהב.',
+    rating: 5,
   },
   {
     name: 'יעל צ.',
     detail: 'אמא לנתנאל, 7 חודשים',
     text: 'ייעוץ השינה החזיר אותי לאדם. אחרי 7 חודשים של שינה מקוטעת — 3 שבועות עם הגישה שלהם ונתנאל ישן 10 שעות רצוף.',
-    service: 'ייעוץ שינה',
+    rating: 5,
   },
 ]
 
 export default function Testimonials() {
-  return (
-    <section id="testimonials" className="py-20 px-4 sm:px-6 bg-beige-100">
-      <div className="max-w-5xl mx-auto">
+  const [current, setCurrent] = useState(0)
 
-        <div className="text-center mb-14">
-          <p className="text-mustard-500 font-bold text-sm mb-2 tracking-wide uppercase">מה אומרות האמהות</p>
-          <h2 className="text-3xl sm:text-4xl font-black text-beige-900">
-            הן כבר במסע. את מצטרפת?
-          </h2>
+  return (
+    <section id="testimonials" className="py-20 px-6 sm:px-10" style={{ background: '#d8eaea' }}>
+      <div className="max-w-3xl mx-auto">
+
+        <h2 className="text-3xl font-black text-center mb-10" style={{ color: '#4A3F35' }}>
+          משפחות מספרות
+        </h2>
+
+        {/* Card */}
+        <div className="bg-white rounded-3xl p-8 shadow-sm relative min-h-[200px]">
+          {/* Big quote mark */}
+          <div
+            className="absolute top-4 left-6 text-8xl font-black leading-none opacity-10 select-none"
+            style={{ color: '#4A3F35' }}
+          >
+            "
+          </div>
+
+          {/* Reviewer */}
+          <div className="flex items-center gap-3 mb-4">
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center font-black text-white text-sm"
+              style={{ background: '#E9C46A' }}
+            >
+              {testimonials[current].name[0]}
+            </div>
+            <div>
+              <p className="font-bold text-sm" style={{ color: '#4A3F35' }}>{testimonials[current].name}</p>
+              <p className="text-xs" style={{ color: '#9a8a7a' }}>{testimonials[current].detail}</p>
+            </div>
+            <div className="mr-auto flex gap-0.5">
+              {Array.from({ length: testimonials[current].rating }).map((_, i) => (
+                <span key={i} className="text-base" style={{ color: '#E9C46A' }}>★</span>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-sm leading-relaxed relative z-10" style={{ color: '#5a4a3a' }}>
+            "{testimonials[current].text}"
+          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t) => (
-            <div key={t.name} className="bg-white rounded-4xl p-6 border border-beige-200 shadow-sm flex flex-col gap-4">
-              {/* Stars */}
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i} className="text-mustard-400 text-base">★</span>
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-beige-700 text-sm leading-relaxed flex-1">
-                &ldquo;{t.text}&rdquo;
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center justify-between pt-3 border-t border-beige-100">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-full bg-mustard-100 flex items-center justify-center text-base shrink-0">
-                    👩
-                  </div>
-                  <div>
-                    <p className="font-bold text-beige-800 text-sm leading-tight">{t.name}</p>
-                    <p className="text-beige-400 text-xs">{t.detail}</p>
-                  </div>
-                </div>
-                <span className="text-xs font-semibold text-mustard-500 bg-mustard-50 px-2 py-0.5 rounded-full shrink-0 mr-1">
-                  {t.service}
-                </span>
-              </div>
-            </div>
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className="rounded-full transition-all duration-200"
+              style={{
+                width: i === current ? '24px' : '8px',
+                height: '8px',
+                background: i === current ? '#4A3F35' : '#a09080',
+              }}
+              aria-label={`ביקורת ${i + 1}`}
+            />
           ))}
         </div>
       </div>
