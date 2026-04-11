@@ -14,8 +14,7 @@ export default function Navbar() {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-beige-700">
           <a href="#workshops" className="hover:text-mustard-500 transition-colors">סדנאות</a>
-          <a href="#services" className="hover:text-mustard-500 transition-colors">שירותים</a>
-          <a href="#pricing" className="hover:text-mustard-500 transition-colors">מחירים</a>
+          <a href="#services" className="hover:text-mustard-500 transition-colors">מחירים</a>
           <a href="#testimonials" className="hover:text-mustard-500 transition-colors">המלצות</a>
         </div>
 
@@ -48,8 +47,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-beige-50 border-t border-beige-200 px-4 py-4 flex flex-col gap-4">
           <a href="#workshops" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>סדנאות</a>
-          <a href="#services" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>שירותים</a>
-          <a href="#pricing" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>מחירים</a>
+          <a href="#services" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>מחירים</a>
           <a href="#testimonials" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>המלצות</a>
           <a
             href="/signup"

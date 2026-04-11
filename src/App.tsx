@@ -2,8 +2,7 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import ProblemSolution from './components/ProblemSolution'
 import Workshops from './components/Workshops'
-import Services from './components/Services'
-import Pricing from './components/Pricing'
+import Products from './components/Products'
 import Testimonials from './components/Testimonials'
 import AppBonus from './components/AppBonus'
 import BottomCTA from './components/BottomCTA'
@@ -17,9 +16,8 @@ export default function App() {
         <HeroSection />
         <ProblemSolution />
         <Workshops />
-        <Services />
+        <Products />
         <Testimonials />
-        <Pricing />
         <AppBonus />
         <BottomCTA />
       </main>
