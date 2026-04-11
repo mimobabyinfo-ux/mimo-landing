@@ -10,7 +10,22 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen" dir="rtl">
+    <div className="min-h-screen relative" dir="rtl">
+      {/* Logo watermark */}
+      <div
+        aria-hidden
+        style={{
+          position: 'fixed',
+          inset: 0,
+          backgroundImage: 'url(/mimo_logo.png)',
+          backgroundRepeat: 'repeat',
+          backgroundSize: '320px auto',
+          opacity: 0.03,
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div className="relative z-10">
       <Navbar />
       <main>
         <HeroSection />
@@ -22,6 +37,7 @@ export default function App() {
         <BottomCTA />
       </main>
       <Footer />
+      </div>
     </div>
   )
 }
