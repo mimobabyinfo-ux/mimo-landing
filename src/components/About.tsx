@@ -1,51 +1,45 @@
+import aboutImg from '../assets/about-brenda.jpg'
+
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 sm:px-10" style={{ background: '#FDFBF7' }}>
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="py-24 px-6 sm:px-10" style={{ background: '#FAF8F4' }}>
+      <div className="max-w-2xl mx-auto flex flex-col gap-6">
 
-        {/* Text — right side (RTL = appears on right) */}
-        <div className="flex flex-col gap-5 order-2 md:order-1">
+        {/* Intro — small round photo next to the name, aligned to the left */}
+        <div className="flex flex-row-reverse items-center justify-end gap-5">
+          <img
+            src={aboutImg}
+            alt="ברנדה מחזיקה תינוק קטן ליד החלון"
+            className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md shrink-0"
+            style={{ objectPosition: 'center 30%' }}
+            loading="lazy"
+          />
           <div>
-            <p className="text-2xl font-light" style={{ color: '#4A3F35' }}>היי,</p>
-            <h2 className="text-4xl font-black" style={{ color: '#4A3F35' }}>אני מימו</h2>
-            <p className="text-base font-semibold mt-1" style={{ color: '#E9C46A' }}>
-              מדריכת התפתחות תינוקות ויועצת שינה מוסמכת
+            <p className="text-2xl font-light" style={{ color: '#3A352E' }}>היי,</p>
+            <h2 className="text-4xl font-black" style={{ color: '#A35C3D' }}>אני ברנדה</h2>
+            <p className="text-sm sm:text-base font-semibold mt-1" style={{ color: '#818267' }}>
+              מלווה התפתחותית ומדריכת עיסוי תינוקות
             </p>
           </div>
-
-          <p className="text-base leading-relaxed" style={{ color: '#5a4a3a' }}>
-            אני מאמינה שכל אמא יודעת הכי טוב מה טוב לתינוק שלה — היא רק צריכה את הכלים הנכונים והמקום הבטוח לגלות את זה.
-          </p>
-          <p className="text-base leading-relaxed" style={{ color: '#5a4a3a' }}>
-            עברתי את המסע הזה בעצמי, ויצאתי עם הלב פתוח ויד מושטת לכל אמא שנמצאת בדיוק שם.
-            אני כאן כדי להיות הליווי שהייתי רוצה שיהיה לי.
-          </p>
-          <p className="text-base leading-relaxed" style={{ color: '#5a4a3a' }}>
-            הסדנאות והמפגשים שלי מבוססים על שנות הכשרה וניסיון אישי — עם הרבה אהבה, הקשבה ומקצועיות.
-          </p>
-
-          <a
-            href="#services"
-            className="self-start font-bold text-sm mt-2 underline underline-offset-4"
-            style={{ color: '#E9C46A' }}
-          >
-            לקרוא עוד ←
-          </a>
         </div>
 
-        {/* Photo — left side */}
-        <div className="order-1 md:order-2 flex justify-center">
-          <div
-            className="w-72 h-80 sm:w-80 sm:h-96 rounded-3xl overflow-hidden shadow-xl"
-            style={{ background: '#EDE4D5' }}
-          >
-            {/* Placeholder — replace with real founder photo */}
-            <div className="w-full h-full flex flex-col items-center justify-center gap-3" style={{ color: '#a09080' }}>
-              <span className="text-6xl">👩</span>
-              <p className="text-sm font-medium">תמונה של המייסדת</p>
-            </div>
-          </div>
-        </div>
+        <p className="text-base leading-relaxed" style={{ color: '#3A352E' }}>
+          היי, אני ברנדה — מלווה התפתחותית ומדריכת עיסוי תינוקות, ובימים אלו גם סטודנטית להדרכת הורים, ייעוץ שינה וגמילה מחיתולים. נולדתי בארגנטינה, גרתי רוב חיי במדריד, והיום אני כאן ומלווה אמהות ותינוקות מהסטודיו שלי ברמת גן.
+        </p>
+        <p className="text-base leading-relaxed" style={{ color: '#3A352E' }}>
+          אני מאמינה שכל אמא צריכה מעטפת תומכת, במיוחד בחודשים הראשונים שאחרי הלידה — תקופה כל כך מטלטלת. אני כאן כדי לתת לכן את הכלים, את ההקשבה ואת ה"מימו" הזה: לדעת שמישהי מקשיבה, מבינה ועונה על כל שאלה או דאגה.
+        </p>
+        <p className="text-base leading-relaxed" style={{ color: '#3A352E' }}>
+          "מימו" (Mimo) בספרדית פירושו "ליטוף", וזו בדיוק המהות של המרחב שלנו: לתת לכן ולבייביז שלכן מלא מימו — דרך מגע, תנועה, תיווך, הבנה ותמיכה.
+        </p>
+
+        <a
+          href="#services"
+          className="self-start font-bold text-sm mt-1 underline underline-offset-4"
+          style={{ color: '#A35C3D' }}
+        >
+          לקרוא עוד ←
+        </a>
       </div>
     </section>
   )

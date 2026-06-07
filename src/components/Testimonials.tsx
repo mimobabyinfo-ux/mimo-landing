@@ -1,34 +1,29 @@
 import { useState } from 'react'
 
+// Testimonials. First names are placeholders — swap in the real ones when available.
 const testimonials = [
   {
-    name: 'עמית כהן',
-    detail: '10 ביקורות',
-    text: 'טל פשוט מדהימה, חינכית, מקסימה, פרגמטית, מקצוע איטיים את הדרך לנהל ולהדביר איפה חדשות, להדביר אימהות חדשות בחרות מסרטוטים, ולהדביר בחינות חרושות בחרות מסוטוס!!!!!',
+    name: 'מאיה',
+    detail: 'בוגרת סדנה',
+    text: 'בחיים לא חשבתי שאתחבר לסדנאות, ובסוף הכי נהנינו! למדנו ממך כל כך הרבה, הכרנו אמהות מהממות וילדים מהממים עוד יותר. והכי חשוב — האנרגיה שלך מדבקת והולכת איתנו כל היום. תודה על הזמן והפינוק ביחד.',
     rating: 5,
   },
   {
-    name: 'רוני כ.',
-    detail: 'אמא לנועה, 4 חודשים',
-    text: 'הסדנה שינתה לי את הראש. סוף סוף מישהי שמסבירה לי למה נועה בוכה ב-3 בלילה — ומה לעשות. אחרי מפגש 2 כבר ראיתי שיפור אמיתי.',
+    name: 'עדי',
+    detail: 'בוגרת סדנת עיסוי תינוקות',
+    text: 'היה לנו ממש כיף ונגמר מהר מדי. זכינו בקבוצת אמהות ותינוקות מתוקים ובמדריכה מספר אחת. תודה על המקצועיות, הידע, ובעיקר האכפתיות והעטיפה שלך.',
     rating: 5,
   },
   {
-    name: 'שירה מ.',
-    detail: 'אמא לאדם, 6.5 חודשים',
-    text: 'עשיתי ליווי פרטני אחרי שניסיתי כל שיטה שמצאתי בגוגל. שעה וחצי עם המומחית שלנו נתנו לי יותר מחודשיים של חיפושים עצמאיים.',
+    name: 'רוני',
+    detail: 'ליווי פרטני',
+    text: 'תודה על שעה וחצי של אהבה ולמידה. היה כל כך כיף ולמדנו המון, ואני בטוחה שהכלים שנתת לנו יעזרו לנו מאוד. רואים ומרגישים שאת עוסקת במה שאת הכי אוהבת — ונותנת את כל הלב והנשמה.',
     rating: 5,
   },
   {
-    name: 'תמר ל.',
-    detail: 'אמא למיה, 8 חודשים',
-    text: 'הקבוצה היא משהו אחר. לפגוש אמהות שמתמודדות בדיוק עם אותם דברים — זה בפני עצמו שווה זהב.',
-    rating: 5,
-  },
-  {
-    name: 'יעל צ.',
-    detail: 'אמא לנתנאל, 7 חודשים',
-    text: 'ייעוץ השינה החזיר אותי לאדם. אחרי 7 חודשים של שינה מקוטעת — 3 שבועות עם הגישה שלהם ונתנאל ישן 10 שעות רצוף.',
+    name: 'ליאת',
+    detail: 'אמא טרייה',
+    text: 'ילדתי לפני שלושה שבועות, ואת לא מבינה כמה התוכן שלך עזר לי. אתמול היה יום קשה — ובאמת שזה עזר לי.',
     rating: 5,
   },
 ]
@@ -37,10 +32,10 @@ export default function Testimonials() {
   const [current, setCurrent] = useState(0)
 
   return (
-    <section id="testimonials" className="py-20 px-6 sm:px-10" style={{ background: '#d8eaea' }}>
+    <section id="testimonials" className="py-20 px-6 sm:px-10" style={{ background: '#C3CDD2' }}>
       <div className="max-w-3xl mx-auto">
 
-        <h2 className="text-3xl font-black text-center mb-10" style={{ color: '#4A3F35' }}>
+        <h2 className="text-3xl font-black text-center mb-10" style={{ color: '#A35C3D' }}>
           משפחות מספרות
         </h2>
 
@@ -49,7 +44,7 @@ export default function Testimonials() {
           {/* Big quote mark */}
           <div
             className="absolute top-4 left-6 text-8xl font-black leading-none opacity-10 select-none"
-            style={{ color: '#4A3F35' }}
+            style={{ color: '#A35C3D' }}
           >
             "
           </div>
@@ -57,23 +52,23 @@ export default function Testimonials() {
           {/* Reviewer */}
           <div className="flex items-center gap-3 mb-4">
             <div
-              className="w-10 h-10 rounded-full flex items-center justify-center font-black text-white text-sm"
-              style={{ background: '#E9C46A' }}
+              className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm"
+              style={{ background: '#E7C78A', color: '#3A352E' }}
             >
               {testimonials[current].name[0]}
             </div>
             <div>
-              <p className="font-bold text-sm" style={{ color: '#4A3F35' }}>{testimonials[current].name}</p>
-              <p className="text-xs" style={{ color: '#9a8a7a' }}>{testimonials[current].detail}</p>
+              <p className="font-bold text-sm" style={{ color: '#3A352E' }}>{testimonials[current].name}</p>
+              <p className="text-xs" style={{ color: '#818267' }}>{testimonials[current].detail}</p>
             </div>
             <div className="mr-auto flex gap-0.5">
               {Array.from({ length: testimonials[current].rating }).map((_, i) => (
-                <span key={i} className="text-base" style={{ color: '#E9C46A' }}>★</span>
+                <span key={i} className="text-base" style={{ color: '#E7C78A' }}>★</span>
               ))}
             </div>
           </div>
 
-          <p className="text-sm leading-relaxed relative z-10" style={{ color: '#5a4a3a' }}>
+          <p className="text-sm leading-relaxed relative z-10" style={{ color: '#3A352E' }}>
             "{testimonials[current].text}"
           </p>
         </div>
@@ -88,7 +83,7 @@ export default function Testimonials() {
               style={{
                 width: i === current ? '24px' : '8px',
                 height: '8px',
-                background: i === current ? '#4A3F35' : '#a09080',
+                background: i === current ? '#A35C3D' : '#C6BDA0',
               }}
               aria-label={`ביקורת ${i + 1}`}
             />

@@ -7,30 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        beige: {
-          50: '#FAF8F5',
-          100: '#F5F1E8',
-          200: '#EDE4D5',
-          300: '#E0D3BE',
-          400: '#CEBFA4',
-          500: '#BBAA8A',
-          600: '#A49270',
-          700: '#8A7858',
-          800: '#6E5E43',
-          900: '#524530',
-        },
-        mustard: {
-          50: '#FBF6E9',
-          100: '#F5EBD0',
-          200: '#EDD8A4',
-          300: '#E2C275',
-          400: '#D4AA52',
-          500: '#C49438',
-          600: '#A87A28',
-          700: '#8A611C',
-          800: '#6E4C14',
-          900: '#52390E',
-        },
+        // Mimo palette
+        cream:   '#FAF8F4', // page background (light warm off-white)
+        ink:     '#3A352E', // body text (deep warm brown)
+        duck:    '#E7C78A', // Amarillo Patito — primary accent / buttons
+        terra:   '#A35C3D', // Rojo Tierra — strong CTA / heading accent
+        moss:    '#818267', // Verde Musgo — secondary / nature accent
+        rosa:    '#EADBDD', // Rosa Polvo — soft section background
+        celeste: '#C3CDD2', // Celeste — soft section background
+        arena:   '#C6BDA0', // Arena — neutral cards / bands
+        beige:   '#DCD4C8', // base neutral
       },
       fontFamily: {
         sans: ['Nunito', 'system-ui', '-apple-system', 'sans-serif'],

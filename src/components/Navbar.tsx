@@ -1,36 +1,37 @@
 import { useState } from 'react'
+import logoMimo from '../assets/logo-mimo.png'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-beige-50/90 backdrop-blur-md border-b border-beige-200">
+    <header className="fixed top-0 inset-x-0 z-50 bg-cream/90 backdrop-blur-md border-b border-beige">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <img src="/mimo_logo.png" alt="Mimo" className="h-9 w-auto" />
+          <img src={logoMimo} alt="Mimo" className="h-9 w-auto" />
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-beige-700">
-          <a href="#workshops" className="hover:text-mustard-500 transition-colors">סדנאות</a>
-          <a href="#services" className="hover:text-mustard-500 transition-colors">מחירים</a>
-          <a href="#testimonials" className="hover:text-mustard-500 transition-colors">המלצות</a>
+        <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-ink">
+          <a href="#services" className="hover:text-terra transition-colors">סדנאות</a>
+          <a href="#services" className="hover:text-terra transition-colors">מחירים</a>
+          <a href="#testimonials" className="hover:text-terra transition-colors">המלצות</a>
         </div>
 
         {/* CTA */}
         <div className="hidden md:block">
           <a
-            href="/signup"
-            className="bg-mustard-400 hover:bg-mustard-500 text-white font-bold px-5 py-2.5 rounded-2xl transition-colors text-sm shadow-sm"
+            href="#contact"
+            className="bg-terra hover:opacity-90 text-white font-bold px-5 py-2.5 rounded-2xl transition-opacity text-sm shadow-sm"
           >
-            התחילי בחינם
+            דברו איתי
           </a>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-xl text-beige-700"
+          className="md:hidden p-2 rounded-xl text-ink"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="תפריט"
         >
@@ -45,15 +46,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-beige-50 border-t border-beige-200 px-4 py-4 flex flex-col gap-4">
-          <a href="#workshops" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>סדנאות</a>
-          <a href="#services" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>מחירים</a>
-          <a href="#testimonials" className="text-beige-700 font-semibold text-sm" onClick={() => setMenuOpen(false)}>המלצות</a>
+        <div className="md:hidden bg-cream border-t border-beige px-4 py-4 flex flex-col gap-4">
+          <a href="#services" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>סדנאות</a>
+          <a href="#services" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>מחירים</a>
+          <a href="#testimonials" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>המלצות</a>
           <a
-            href="/signup"
-            className="bg-mustard-400 text-white font-bold px-5 py-3 rounded-2xl text-center text-sm"
+            href="#contact"
+            className="bg-terra text-white font-bold px-5 py-3 rounded-2xl text-center text-sm"
+            onClick={() => setMenuOpen(false)}
           >
-            התחילי בחינם
+            דברו איתי
           </a>
         </div>
       )}

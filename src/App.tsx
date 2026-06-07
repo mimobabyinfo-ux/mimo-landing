@@ -1,3 +1,4 @@
+import logoMimo from './assets/logo-mimo.png'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import About from './components/About'
@@ -17,10 +18,10 @@ export default function App() {
         style={{
           position: 'fixed',
           inset: 0,
-          backgroundImage: 'url(/mimo_logo.png)',
+          backgroundImage: `url(${logoMimo})`,
           backgroundRepeat: 'repeat',
           backgroundSize: '320px auto',
-          opacity: 0.03,
+          opacity: 0.04,
           pointerEvents: 'none',
           zIndex: 0,
         }}
