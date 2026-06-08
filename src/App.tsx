@@ -5,6 +5,7 @@ import Empathy from './components/Empathy'
 import About from './components/About'
 import HowItWorks from './components/HowItWorks'
 import Testimonials from './components/Testimonials'
+import VideoTestimonial from './components/VideoTestimonial'
 import ServicesList from './components/ServicesList'
 import Gallery from './components/Gallery'
 import FAQ from './components/FAQ'
@@ -37,6 +38,7 @@ export default function App() {
           <HowItWorks />
           <ServicesList />
           <Testimonials />
+          <VideoTestimonial />
           <About />
           <Gallery />
           <FAQ />
