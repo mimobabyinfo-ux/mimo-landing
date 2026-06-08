@@ -1,5 +1,6 @@
 import heroImg from '../assets/hero-brenda-babies.jpg'
 import { WhatsAppButton } from './WhatsAppButton'
+import HeroLeadForm from './HeroLeadForm'
 
 export default function HeroSection() {
   return (
@@ -47,16 +48,26 @@ export default function HeroSection() {
             סדנאות ליווי התפתחותי ועיסוי תינוקות, מלידה עד 6 חודשים · בסטודיו של מימו ברמת גן
           </p>
 
-          {/* CTAs — WhatsApp primary, scroll-to-services secondary */}
-          <div className="flex flex-wrap items-center gap-3">
-            <WhatsAppButton />
-            <a
-              href="#services"
-              className="inline-block font-bold px-7 py-3.5 rounded-full border-2 transition-all duration-200 hover:scale-105"
-              style={{ borderColor: '#A35C3D', color: '#A35C3D', background: 'transparent' }}
-            >
-              לכל הסדנאות
-            </a>
+          {/* CTAs — lead form primary, WhatsApp secondary, scroll link tertiary */}
+          <div className="max-w-sm">
+            <HeroLeadForm />
+
+            {/* Secondary — WhatsApp */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="text-sm" style={{ color: '#818267' }}>מעדיפה לדבר עכשיו?</span>
+              <WhatsAppButton />
+            </div>
+
+            {/* Tertiary — scroll to services */}
+            <div className="mt-3">
+              <a
+                href="#services"
+                className="text-sm font-bold underline underline-offset-4"
+                style={{ color: '#A35C3D' }}
+              >
+                לכל הסדנאות ←
+              </a>
+            </div>
           </div>
 
           {/* Mobile hero photo — shown on phones/tablets, hidden on desktop (where the faded side image takes over) */}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { WhatsAppButton } from './WhatsAppButton'
 
 const faqs = [
   {
@@ -60,6 +61,14 @@ export default function FAQ() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Primary action — WhatsApp */}
+        <div className="flex flex-col items-center gap-3 mt-12 text-center">
+          <p className="text-sm" style={{ color: '#818267' }}>
+            עוד שאלה? אני כאן
+          </p>
+          <WhatsAppButton />
         </div>
       </div>
     </section>

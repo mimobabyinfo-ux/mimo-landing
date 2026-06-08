@@ -1,6 +1,7 @@
 import logoMimo from './assets/logo-mimo.png'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
+import Empathy from './components/Empathy'
 import About from './components/About'
 import HowItWorks from './components/HowItWorks'
 import Testimonials from './components/Testimonials'
@@ -32,10 +33,11 @@ export default function App() {
         <Navbar />
         <main>
           <HeroSection />
-          <About />
+          <Empathy />
           <HowItWorks />
-          <Testimonials />
           <ServicesList />
+          <Testimonials />
+          <About />
           <Gallery />
           <FAQ />
           <ContactForm />

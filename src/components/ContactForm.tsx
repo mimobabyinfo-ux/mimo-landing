@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { supabase } from '../lib/supabase'
+import { submitLead } from '../lib/submitLead'
 
 const WHATSAPP_FALLBACK = 'https://wa.me/972559904274'
 
@@ -35,32 +35,10 @@ export default function ContactForm() {
       notes: form.message.trim(),
     }
 
-    // 1) Priority — save the lead to Supabase.
-    if (!supabase) {
+    const { ok } = await submitLead(lead)
+    if (!ok) {
       setStatus('error')
       return
-    }
-    const { error } = await supabase.from('leads').insert(lead)
-    if (error) {
-      setStatus('error')
-      return
-    }
-
-    // 2) Bonus — email notification. Never blocks success; the lead is already saved.
-    try {
-      await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: lead.first_name,
-          lastName: lead.last_name,
-          phone: lead.phone,
-          email: lead.email,
-          notes: lead.notes,
-        }),
-      })
-    } catch {
-      // ignore — the lead is saved, the email is a bonus
     }
 
     setStatus('sent')

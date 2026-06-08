@@ -21,7 +21,6 @@ type Service = {
   image?: string
   alt?: string
   limited?: boolean // shows the "small group / limited spots" cue
-  dateNote?: string // highlighted upcoming-cycle note
 }
 
 // NOTE: "ייעוץ שינה" and "ליווי לגנים" intentionally omitted until real content is ready.
@@ -82,7 +81,6 @@ const services: Service[] = [
     link: REGISTER.discoverers,
     cta: 'להרשמה לסדנה',
     limited: true,
-    dateNote: 'המחזור הקרוב מתחיל ב-18.6 · ימי חמישי',
   },
   {
     title: 'סדנת עיסוי תינוקות',
@@ -212,24 +210,14 @@ export default function ServicesList() {
               {/* Expanded */}
               {open === i && (
                 <div className="pb-6 pr-10 flex flex-col gap-4">
-                  {(s.limited || s.dateNote) && (
+                  {s.limited && (
                     <div className="flex flex-wrap gap-2">
-                      {s.dateNote && (
-                        <span
-                          className="text-xs font-bold px-3 py-1 rounded-full"
-                          style={{ background: '#E7C78A', color: '#3A352E' }}
-                        >
-                          🗓️ {s.dateNote}
-                        </span>
-                      )}
-                      {s.limited && (
-                        <span
-                          className="text-xs font-semibold px-3 py-1 rounded-full"
-                          style={{ background: '#EADBDD', color: '#A35C3D' }}
-                        >
-                          קבוצה קטנה · עד 7 אמהות · המקומות מוגבלים
-                        </span>
-                      )}
+                      <span
+                        className="text-xs font-semibold px-3 py-1 rounded-full"
+                        style={{ background: '#EADBDD', color: '#A35C3D' }}
+                      >
+                        קבוצה קטנה · עד 7 אמהות · המקומות מוגבלים
+                      </span>
                     </div>
                   )}
                   {s.image && (
