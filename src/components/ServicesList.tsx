@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { WhatsAppButton, WHATSAPP_URL } from './WhatsAppButton'
 
 // Studio address for all in-person services: אבא אחימאיר 10, רמת גן (שיכון ותיקים)
-const WHATSAPP = 'https://wa.me/972559904274'
 const REGISTER = {
   swaddled:    'https://mimo-baby.co.il?register=80472e20-8ee4-434e-b3f6-8c90af1f1fc1',
   discoverers: 'https://mimo-baby.co.il?register=3d2b2c93-da57-43e3-966b-de36dda973e7',
@@ -20,6 +20,8 @@ type Service = {
   cta: string
   image?: string
   alt?: string
+  limited?: boolean // shows the "small group / limited spots" cue
+  dateNote?: string // highlighted upcoming-cycle note
 }
 
 // NOTE: "ייעוץ שינה" and "ליווי לגנים" intentionally omitted until real content is ready.
@@ -30,7 +32,7 @@ const services: Service[] = [
     short: 'הפינוק המושלם לחברה שזה עתה ילדה',
     description: `הפינוק המושלם לחברה שזה עתה ילדה. אפשר להעניק כמתנה כל אחד מהשירותים של מימו: סדנת עיסוי תינוקות, סדנת ליווי התפתחותי (עטופים / מגלים) או מפגש ליווי פרטני בבית.
 מתנה שנותנת ליולדת בדיוק את מה שהיא צריכה — תמיכה, ידע וזמן איכות עם הבייבי שלה.`,
-    link: WHATSAPP,
+    link: WHATSAPP_URL,
     cta: '💬 לתיאום בוואטסאפ',
   },
   {
@@ -54,6 +56,7 @@ const services: Service[] = [
 הסטודיו: אבא אחימאיר 10, רמת גן (שיכון ותיקים).`,
     link: REGISTER.swaddled,
     cta: 'להרשמה לסדנה',
+    limited: true,
   },
   {
     title: 'סדנת מגלים · ליווי התפתחותי',
@@ -78,6 +81,8 @@ const services: Service[] = [
 הסטודיו: אבא אחימאיר 10, רמת גן (שיכון ותיקים).`,
     link: REGISTER.discoverers,
     cta: 'להרשמה לסדנה',
+    limited: true,
+    dateNote: 'המחזור הקרוב מתחיל ב-18.6 · ימי חמישי',
   },
   {
     title: 'סדנת עיסוי תינוקות',
@@ -98,6 +103,7 @@ const services: Service[] = [
 הסטודיו: אבא אחימאיר 10, רמת גן (שיכון ותיקים).`,
     link: REGISTER.massage,
     cta: 'להרשמה לסדנה',
+    limited: true,
   },
   {
     title: 'ליווי פרטני',
@@ -172,6 +178,14 @@ export default function ServicesList() {
                   <div className="text-right">
                     <p className="font-black text-lg" style={{ color: '#3A352E' }}>{s.title}</p>
                     <p className="text-sm mt-0.5" style={{ color: '#818267' }}>{s.short}</p>
+                    {s.limited && (
+                      <span
+                        className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                        style={{ background: '#E7C78A33', color: '#A35C3D' }}
+                      >
+                        מקומות מוגבלים
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -198,6 +212,26 @@ export default function ServicesList() {
               {/* Expanded */}
               {open === i && (
                 <div className="pb-6 pr-10 flex flex-col gap-4">
+                  {(s.limited || s.dateNote) && (
+                    <div className="flex flex-wrap gap-2">
+                      {s.dateNote && (
+                        <span
+                          className="text-xs font-bold px-3 py-1 rounded-full"
+                          style={{ background: '#E7C78A', color: '#3A352E' }}
+                        >
+                          🗓️ {s.dateNote}
+                        </span>
+                      )}
+                      {s.limited && (
+                        <span
+                          className="text-xs font-semibold px-3 py-1 rounded-full"
+                          style={{ background: '#EADBDD', color: '#A35C3D' }}
+                        >
+                          קבוצה קטנה · עד 7 אמהות · המקומות מוגבלים
+                        </span>
+                      )}
+                    </div>
+                  )}
                   {s.image && (
                     <img
                       src={s.image}
@@ -225,6 +259,14 @@ export default function ServicesList() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Primary action — WhatsApp */}
+        <div className="flex flex-col items-center gap-3 mt-12 text-center">
+          <p className="text-sm" style={{ color: '#818267' }}>
+            לא בטוחה מה הכי מתאים לכן? בואו נמצא יחד
+          </p>
+          <WhatsAppButton />
         </div>
       </div>
     </section>

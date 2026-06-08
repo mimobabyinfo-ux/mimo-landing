@@ -7,7 +7,9 @@ export default function Footer() {
         <div className="grid sm:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div className="flex flex-col gap-3">
-            <img src={logoMimo} alt="Mimo" className="h-10 w-auto" />
+            <div className="inline-flex self-start rounded-2xl px-4 py-2.5" style={{ background: '#FAF8F4' }}>
+              <img src={logoMimo} alt="Mimo" className="h-9 w-auto" />
+            </div>
             <p className="text-sm leading-relaxed" style={{ color: '#C6BDA0' }}>
               ליווי התפתחותי, סדנאות ומפגשים לאמהות ולתינוקות — מהסטודיו של מימו ברמת גן.
             </p>

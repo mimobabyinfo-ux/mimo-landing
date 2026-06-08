@@ -1,7 +1,16 @@
 import { useState } from 'react'
+import { WhatsAppButton } from './WhatsAppButton'
+
+type Testimonial = {
+  name: string
+  detail: string
+  text: string
+  rating: number
+  photo?: string // optional round client photo; falls back to an initial circle
+}
 
 // Testimonials. First names are placeholders — swap in the real ones when available.
-const testimonials = [
+const testimonials: Testimonial[] = [
   {
     name: 'מאיה',
     detail: 'בוגרת סדנה',
@@ -51,12 +60,21 @@ export default function Testimonials() {
 
           {/* Reviewer */}
           <div className="flex items-center gap-3 mb-4">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm"
-              style={{ background: '#E7C78A', color: '#3A352E' }}
-            >
-              {testimonials[current].name[0]}
-            </div>
+            {testimonials[current].photo ? (
+              <img
+                src={testimonials[current].photo}
+                alt={testimonials[current].name}
+                className="w-10 h-10 rounded-full object-cover shrink-0"
+                loading="lazy"
+              />
+            ) : (
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0"
+                style={{ background: '#E7C78A', color: '#3A352E' }}
+              >
+                {testimonials[current].name[0]}
+              </div>
+            )}
             <div>
               <p className="font-bold text-sm" style={{ color: '#3A352E' }}>{testimonials[current].name}</p>
               <p className="text-xs" style={{ color: '#818267' }}>{testimonials[current].detail}</p>
@@ -88,6 +106,11 @@ export default function Testimonials() {
               aria-label={`ביקורת ${i + 1}`}
             />
           ))}
+        </div>
+
+        {/* Primary action — WhatsApp */}
+        <div className="flex justify-center mt-10">
+          <WhatsAppButton />
         </div>
       </div>
     </section>

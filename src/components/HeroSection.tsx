@@ -1,4 +1,5 @@
 import heroImg from '../assets/hero-brenda-babies.jpg'
+import { WhatsAppButton } from './WhatsAppButton'
 
 export default function HeroSection() {
   return (
@@ -37,26 +38,26 @@ export default function HeroSection() {
           </h1>
 
           {/* Sub */}
-          <p className="text-lg leading-relaxed mb-8" style={{ color: '#3A352E', maxWidth: '440px' }}>
+          <p className="text-lg leading-relaxed mb-3" style={{ color: '#3A352E', maxWidth: '440px' }}>
             ללמוד, להתחבר ולגדול יחד, צעד אחר צעד.
           </p>
 
-          {/* CTA */}
-          <a
-            href="#services"
-            className="inline-block font-bold px-8 py-3.5 rounded-full transition-all duration-200 hover:scale-105"
-            style={{ background: '#E7C78A', color: '#3A352E' }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = '#A35C3D'
-              ;(e.currentTarget as HTMLAnchorElement).style.color = '#fff'
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = '#E7C78A'
-              ;(e.currentTarget as HTMLAnchorElement).style.color = '#3A352E'
-            }}
-          >
-            לכל הסדנאות
-          </a>
+          {/* Concrete what/where line */}
+          <p className="text-sm font-semibold mb-8 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
+            סדנאות ליווי התפתחותי ועיסוי תינוקות, מלידה עד 6 חודשים · בסטודיו של מימו ברמת גן
+          </p>
+
+          {/* CTAs — WhatsApp primary, scroll-to-services secondary */}
+          <div className="flex flex-wrap items-center gap-3">
+            <WhatsAppButton />
+            <a
+              href="#services"
+              className="inline-block font-bold px-7 py-3.5 rounded-full border-2 transition-all duration-200 hover:scale-105"
+              style={{ borderColor: '#A35C3D', color: '#A35C3D', background: 'transparent' }}
+            >
+              לכל הסדנאות
+            </a>
+          </div>
 
           {/* Mobile hero photo — shown on phones/tablets, hidden on desktop (where the faded side image takes over) */}
           <div className="lg:hidden mt-10 rounded-3xl overflow-hidden shadow-lg">
