@@ -16,6 +16,12 @@ export async function submitLead(lead: Lead): Promise<{ ok: boolean }> {
   const { error } = await supabase.from('leads').insert(lead)
   if (error) return { ok: false }
 
+  // Meta Pixel — fire Lead only after the lead actually saved.
+  // Guarded so an ad-blocked / missing pixel never breaks the form.
+  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+    window.fbq('track', 'Lead')
+  }
+
   try {
     await fetch('/api/lead', {
       method: 'POST',
