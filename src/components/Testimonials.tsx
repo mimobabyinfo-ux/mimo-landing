@@ -5,16 +5,19 @@ import wa3 from '../assets/testimonial-wa-3.jpg'
 import wa4 from '../assets/testimonial-wa-4.jpg'
 import wa5 from '../assets/testimonial-wa-5.jpg'
 
+// Hebrew screenshots lead; the Spanish one (wa1) is placed last.
 const screenshots = [
-  { src: wa1, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
   { src: wa2, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
   { src: wa3, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
   { src: wa4, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
   { src: wa5, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
+  { src: wa1, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
 ]
 
-// Gentle alternating tilts so the notes feel scattered and connected, not gridded.
-const tilts = [-3, 2.5, -2, 3, -2.5]
+// Gentle alternating tilts (desktop only — md:). On mobile the notes stay straight
+// and full-width so the screenshot text is comfortably readable. Static class
+// strings so Tailwind's JIT picks them up.
+const tiltClasses = ['md:-rotate-3', 'md:rotate-2', 'md:-rotate-2', 'md:rotate-3', 'md:-rotate-2']
 
 export default function Testimonials() {
   return (
@@ -30,10 +33,9 @@ export default function Testimonials() {
         {/* WhatsApp screenshots — tilted, clustered collage (natural aspect ratio, never cropped) */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-3">
           {screenshots.map((s, i) => (
-            <Reveal key={i} delay={i * 70} className="mb-3 break-inside-avoid">
+            <Reveal key={i} delay={i * 70} className="mb-4 break-inside-avoid">
               <div
-                className="rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:rotate-0 hover:scale-[1.02]"
-                style={{ transform: `rotate(${tilts[i % tilts.length]}deg)` }}
+                className={`rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 md:hover:rotate-0 md:hover:scale-[1.02] ${tiltClasses[i % tiltClasses.length]}`}
               >
                 <img
                   src={s.src}

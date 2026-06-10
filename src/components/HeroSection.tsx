@@ -32,19 +32,14 @@ export default function HeroSection() {
           </p>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl font-black leading-tight mb-6" style={{ color: '#A35C3D' }}>
+          <h1 className="text-3xl sm:text-5xl font-black leading-tight mb-5" style={{ color: '#A35C3D' }}>
             בית עוטף ומלטף
             <br />
             לך ולבייבי שלך
           </h1>
 
-          {/* Sub */}
-          <p className="text-lg leading-relaxed mb-3" style={{ color: '#3A352E', maxWidth: '440px' }}>
-            ללמוד, להתחבר ולגדול יחד, צעד אחר צעד.
-          </p>
-
-          {/* Concrete what/where line */}
-          <p className="text-sm font-semibold mb-8 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
+          {/* Sub — single concrete what/where line */}
+          <p className="text-base font-semibold mb-8 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
             סדנאות ליווי התפתחותי ועיסוי תינוקות, מלידה עד 6 חודשים · בסטודיו של מימו ברמת גן
           </p>
 
