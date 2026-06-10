@@ -11,6 +11,7 @@ import Gallery from './components/Gallery'
 import FAQ from './components/FAQ'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
+import Reveal from './components/Reveal'
 import { WhatsAppFloating } from './components/WhatsAppButton'
 
 export default function App() {
@@ -34,15 +35,15 @@ export default function App() {
         <Navbar />
         <main>
           <HeroSection />
-          <Empathy />
+          <Reveal><Empathy /></Reveal>
           <HowItWorks />
           <ServicesList />
           <Testimonials />
-          <VideoTestimonial />
-          <About />
+          <Reveal><VideoTestimonial /></Reveal>
+          <Reveal><About /></Reveal>
           <Gallery />
-          <FAQ />
-          <ContactForm />
+          <Reveal><FAQ /></Reveal>
+          <Reveal><ContactForm /></Reveal>
         </main>
         <Footer />
       </div>

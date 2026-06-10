@@ -5,6 +5,7 @@ import gallery4 from '../assets/gallery-4.jpg'
 import gallery5 from '../assets/gallery-5.jpg'
 import gallery6 from '../assets/gallery-6.jpg'
 import dadBaby from '../assets/dad-baby.jpg'
+import Reveal from './Reveal'
 
 const photos = [
   { src: gallery1, alt: 'תינוקות מתכנסים סביב שטיח פונפונים לבן בסדנה', tall: false },
@@ -24,19 +25,20 @@ export default function Gallery() {
         {/* Masonry-style 2-col grid */}
         <div className="columns-2 gap-3">
           {photos.map((p, i) => (
-            <div
-              key={i}
-              className="mb-3 rounded-2xl overflow-hidden"
-              style={{ background: '#DCD4C8' }}
-            >
-              <img
-                src={p.src}
-                alt={p.alt}
-                loading="lazy"
-                className="w-full object-cover"
-                style={{ height: p.tall ? '260px' : '180px' }}
-              />
-            </div>
+            <Reveal key={i} delay={i * 60} className="mb-3 break-inside-avoid">
+              <div
+                className="rounded-2xl overflow-hidden"
+                style={{ background: '#DCD4C8' }}
+              >
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  className="w-full object-cover"
+                  style={{ height: p.tall ? '260px' : '180px' }}
+                />
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

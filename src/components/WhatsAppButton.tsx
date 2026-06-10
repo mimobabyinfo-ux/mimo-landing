@@ -34,11 +34,10 @@ export function WhatsAppFloating() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="דברו איתי בוואטסאפ"
-      className="md:hidden fixed bottom-5 left-4 z-50 inline-flex items-center gap-2 font-bold px-4 py-3 rounded-full shadow-lg"
+      className="md:hidden fixed bottom-5 left-4 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full shadow-lg"
       style={{ background: '#25D366', color: '#fff' }}
     >
-      <WhatsAppIcon className="w-6 h-6" />
-      <span className="text-sm">וואטסאפ</span>
+      <WhatsAppIcon className="w-7 h-7" />
     </a>
   )
 }

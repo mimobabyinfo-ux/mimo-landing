@@ -1,3 +1,5 @@
+import Reveal from './Reveal'
+
 const steps = [
   {
     num: '01',
@@ -22,19 +24,19 @@ export default function HowItWorks() {
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <Reveal className="text-center mb-14">
           <h2 className="text-3xl sm:text-4xl font-black" style={{ color: '#A35C3D' }}>
             כל תינוק הוא עולם ומלואו
           </h2>
           <p className="mt-3 text-base max-w-lg mx-auto" style={{ color: '#3A352E' }}>
             כל אמא ובייבי הם עולם בפני עצמו — ולכן הליווי אצלנו אישי, רגוע ומותאם בדיוק לכן.
           </p>
-        </div>
+        </Reveal>
 
         {/* Steps — RTL grid flows right-to-left, so 01 sits on the right */}
         <div className="grid sm:grid-cols-3 gap-8">
-          {steps.map((step) => (
-            <div key={step.num} className="flex flex-col items-center text-center gap-3">
+          {steps.map((step, i) => (
+            <Reveal key={step.num} delay={i * 90} className="flex flex-col items-center text-center gap-3">
               <span
                 className="text-6xl font-black opacity-40 leading-none"
                 style={{ color: '#A35C3D' }}
@@ -43,7 +45,7 @@ export default function HowItWorks() {
               </span>
               <h3 className="text-base font-black" style={{ color: '#3A352E' }}>{step.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: '#3A352E' }}>{step.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 

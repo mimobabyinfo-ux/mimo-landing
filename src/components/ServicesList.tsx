@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { WhatsAppButton, WHATSAPP_URL } from './WhatsAppButton'
+import Reveal from './Reveal'
 
 // Studio address for all in-person services: אבא אחימאיר 10, רמת גן (שיכון ותיקים)
 const REGISTER = {
@@ -152,17 +153,19 @@ export default function ServicesList() {
     <section id="services" className="py-20 px-6 sm:px-10" style={{ background: '#FAF8F4' }}>
       <div className="max-w-4xl mx-auto">
 
-        <h2 className="text-3xl font-black text-center mb-2" style={{ color: '#A35C3D' }}>
-          איפה תוכלו לפגוש אותי
-        </h2>
-        <p className="text-center text-sm mb-12" style={{ color: '#818267' }}>
-          לחצי על שירות לפרטים נוספים
-        </p>
+        <Reveal>
+          <h2 className="text-3xl font-black text-center mb-2" style={{ color: '#A35C3D' }}>
+            איפה תוכלו לפגוש אותי
+          </h2>
+          <p className="text-center text-sm mb-12" style={{ color: '#818267' }}>
+            לחצי על שירות לפרטים נוספים
+          </p>
+        </Reveal>
 
         <div className="flex flex-col">
           {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 70}>
             <div
-              key={s.title}
               className="border-b"
               style={{ borderColor: '#DCD4C8' }}
             >
@@ -246,6 +249,7 @@ export default function ServicesList() {
                 </div>
               )}
             </div>
+            </Reveal>
           ))}
         </div>
 
