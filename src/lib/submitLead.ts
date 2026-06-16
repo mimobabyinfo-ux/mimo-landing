@@ -1,19 +1,23 @@
 import { supabase } from './supabase'
 
 export type Lead = {
-  first_name: string
-  last_name: string
+  fullName: string
   phone: string
   email: string
   notes: string
 }
 
 // Shared lead pipeline used by BOTH the Hero mini-form and the main ContactForm.
-// Priority: save the lead to Supabase. Bonus: trigger the Resend email (never blocks success).
+// Priority: save the lead to Supabase. Bonus: notify (email + CRM webhook) — never blocks success.
 export async function submitLead(lead: Lead): Promise<{ ok: boolean }> {
   if (!supabase) return { ok: false }
 
-  const { error } = await supabase.from('leads').insert(lead)
+  const { error } = await supabase.from('leads').insert({
+    first_name: lead.fullName,
+    phone: lead.phone,
+    email: lead.email,
+    notes: lead.notes,
+  })
   if (error) return { ok: false }
 
   // Meta Pixel — fire Lead only after the lead actually saved.
@@ -27,15 +31,14 @@ export async function submitLead(lead: Lead): Promise<{ ok: boolean }> {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        firstName: lead.first_name,
-        lastName: lead.last_name,
+        fullName: lead.fullName,
         phone: lead.phone,
         email: lead.email,
         notes: lead.notes,
       }),
     })
   } catch {
-    // ignore — the lead is already saved, the email is a bonus
+    // ignore — the lead is already saved, the notifications are a bonus
   }
 
   return { ok: true }

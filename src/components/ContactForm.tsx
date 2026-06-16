@@ -3,19 +3,19 @@ import { submitLead } from '../lib/submitLead'
 
 const WHATSAPP_FALLBACK = 'https://wa.me/972559904274'
 
-type Errors = { firstName?: string; phone?: string; email?: string }
+type Errors = { fullName?: string; phone?: string; email?: string }
 type Status = 'idle' | 'submitting' | 'sent' | 'error'
 
 const inputStyle = { background: '#fff', borderColor: '#C6BDA0', color: '#3A352E' }
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '', email: '', message: '' })
+  const [form, setForm] = useState({ fullName: '', phone: '', email: '', message: '' })
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<Status>('idle')
 
   const validate = (): boolean => {
     const e: Errors = {}
-    if (!form.firstName.trim()) e.firstName = 'נא למלא שם פרטי'
+    if (!form.fullName.trim()) e.fullName = 'נא למלא שם מלא'
     if (!/^[0-9+\-\s()]{9,}$/.test(form.phone.trim())) e.phone = 'נא למלא מספר טלפון תקין'
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = 'נא למלא כתובת אימייל תקינה'
     setErrors(e)
@@ -27,22 +27,19 @@ export default function ContactForm() {
     if (!validate()) return
     setStatus('submitting')
 
-    const lead = {
-      first_name: form.firstName.trim(),
-      last_name: form.lastName.trim(),
+    const { ok } = await submitLead({
+      fullName: form.fullName.trim(),
       phone: form.phone.trim(),
       email: form.email.trim(),
       notes: form.message.trim(),
-    }
-
-    const { ok } = await submitLead(lead)
+    })
     if (!ok) {
       setStatus('error')
       return
     }
 
     setStatus('sent')
-    setForm({ firstName: '', lastName: '', phone: '', email: '', message: '' })
+    setForm({ fullName: '', phone: '', email: '', message: '' })
     setErrors({})
   }
 
@@ -97,27 +94,16 @@ export default function ContactForm() {
                 </div>
               )}
 
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <input
-                    placeholder="שם פרטי *"
-                    value={form.firstName}
-                    onChange={update('firstName')}
-                    aria-invalid={!!errors.firstName}
-                    className="w-full px-4 py-3 rounded-2xl border text-sm outline-none focus:ring-2"
-                    style={inputStyle}
-                  />
-                  {errors.firstName && <p className="text-xs mt-1 pr-1" style={{ color: '#B4462E' }}>{errors.firstName}</p>}
-                </div>
-                <div>
-                  <input
-                    placeholder="שם משפחה"
-                    value={form.lastName}
-                    onChange={update('lastName')}
-                    className="w-full px-4 py-3 rounded-2xl border text-sm outline-none focus:ring-2"
-                    style={inputStyle}
-                  />
-                </div>
+              <div>
+                <input
+                  placeholder="שם מלא *"
+                  value={form.fullName}
+                  onChange={update('fullName')}
+                  aria-invalid={!!errors.fullName}
+                  className="w-full px-4 py-3 rounded-2xl border text-sm outline-none focus:ring-2"
+                  style={inputStyle}
+                />
+                {errors.fullName && <p className="text-xs mt-1 pr-1" style={{ color: '#B4462E' }}>{errors.fullName}</p>}
               </div>
 
               <div>

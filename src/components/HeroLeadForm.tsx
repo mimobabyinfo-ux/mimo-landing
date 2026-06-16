@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { submitLead } from '../lib/submitLead'
 
-type Errors = { firstName?: string; phone?: string; email?: string }
+type Errors = { fullName?: string; phone?: string; email?: string }
 type Status = 'idle' | 'submitting' | 'sent' | 'error'
 
 const inputStyle = { background: '#fff', color: '#3A352E' }
@@ -10,13 +10,13 @@ const inputClass =
 const errorColor = '#FFE2D9'
 
 export default function HeroLeadForm() {
-  const [form, setForm] = useState({ firstName: '', phone: '', email: '' })
+  const [form, setForm] = useState({ fullName: '', phone: '', email: '' })
   const [errors, setErrors] = useState<Errors>({})
   const [status, setStatus] = useState<Status>('idle')
 
   const validate = (): boolean => {
     const e: Errors = {}
-    if (!form.firstName.trim()) e.firstName = 'נא למלא שם פרטי'
+    if (!form.fullName.trim()) e.fullName = 'נא למלא שם מלא'
     if (!/^[0-9+\-\s()]{9,}$/.test(form.phone.trim())) e.phone = 'נא למלא מספר טלפון תקין'
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) e.email = 'נא למלא כתובת אימייל תקינה'
     setErrors(e)
@@ -29,8 +29,7 @@ export default function HeroLeadForm() {
     setStatus('submitting')
 
     const { ok } = await submitLead({
-      first_name: form.firstName.trim(),
-      last_name: '',
+      fullName: form.fullName.trim(),
       phone: form.phone.trim(),
       email: form.email.trim(),
       notes: '',
@@ -42,7 +41,7 @@ export default function HeroLeadForm() {
     }
 
     setStatus('sent')
-    setForm({ firstName: '', phone: '', email: '' })
+    setForm({ fullName: '', phone: '', email: '' })
     setErrors({})
   }
 
@@ -86,14 +85,14 @@ export default function HeroLeadForm() {
 
           <div>
             <input
-              placeholder="שם פרטי"
-              value={form.firstName}
-              onChange={update('firstName')}
-              aria-invalid={!!errors.firstName}
+              placeholder="שם מלא"
+              value={form.fullName}
+              onChange={update('fullName')}
+              aria-invalid={!!errors.fullName}
               className={inputClass}
               style={inputStyle}
             />
-            {errors.firstName && <p className="text-xs mt-1 pr-1" style={{ color: errorColor }}>{errors.firstName}</p>}
+            {errors.fullName && <p className="text-xs mt-1 pr-1" style={{ color: errorColor }}>{errors.fullName}</p>}
           </div>
 
           <div>

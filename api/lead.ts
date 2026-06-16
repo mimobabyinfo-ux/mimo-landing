@@ -14,8 +14,7 @@ function esc(value: unknown): string {
 }
 
 type Lead = {
-  firstName: string
-  lastName: string
+  fullName: string
   phone: string
   email: string
   notes: string
@@ -31,8 +30,7 @@ async function sendEmail(lead: Lead): Promise<'sent' | 'skipped' | 'failed'> {
   const html = `
     <div dir="rtl" style="font-family: Arial, 'Helvetica Neue', sans-serif; line-height: 1.7; color: #3A352E;">
       <h2 style="color: #A35C3D; margin-bottom: 16px;">ליד חדש מהאתר 🤍</h2>
-      <p><strong>שם פרטי:</strong> ${esc(lead.firstName) || '—'}</p>
-      <p><strong>שם משפחה:</strong> ${esc(lead.lastName) || '—'}</p>
+      <p><strong>שם מלא:</strong> ${esc(lead.fullName) || '—'}</p>
       <p><strong>טלפון:</strong> ${esc(lead.phone) || '—'}</p>
       <p><strong>אימייל:</strong> ${esc(lead.email) || '—'}</p>
       <p><strong>הערות:</strong> ${esc(lead.notes) || '—'}</p>
@@ -75,8 +73,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const body = (req.body ?? {}) as Record<string, string>
   const lead: Lead = {
-    firstName: body.firstName ?? '',
-    lastName: body.lastName ?? '',
+    fullName: body.fullName ?? '',
     phone: body.phone ?? '',
     email: body.email ?? '',
     notes: body.notes ?? '',
