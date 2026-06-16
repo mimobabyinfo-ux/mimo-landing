@@ -20,11 +20,9 @@ export async function submitLead(lead: Lead): Promise<{ ok: boolean }> {
   })
   if (error) return { ok: false }
 
-  // Meta Pixel — fire Lead only after the lead actually saved.
-  // Guarded so an ad-blocked / missing pixel never breaks the form.
-  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-    window.fbq('track', 'Lead')
-  }
+  // NOTE: the Meta Pixel "Lead" event is intentionally NOT fired here.
+  // Per marketing, it fires on the dedicated thank-you page (/thank-you.html),
+  // which the forms redirect to after a successful submit.
 
   try {
     await fetch('/api/lead', {

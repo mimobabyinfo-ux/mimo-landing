@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 // Make.com (CRM) webhook. Overridable via env; falls back to the configured hook.
 const MAKE_WEBHOOK_URL =
-  process.env.MAKE_WEBHOOK_URL || 'https://hook.eu1.make.com/ahg62woxia74gkitajcfai6p3f8vb0cs'
+  process.env.MAKE_WEBHOOK_URL || 'https://hook.eu1.make.com/1q5qtzyq78fm6letkaan51zdd05wl6tk'
 
 // Minimal HTML escaping so submitted text can't break the email markup.
 function esc(value: unknown): string {

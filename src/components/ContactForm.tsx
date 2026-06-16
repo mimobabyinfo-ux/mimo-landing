@@ -38,9 +38,8 @@ export default function ContactForm() {
       return
     }
 
-    setStatus('sent')
-    setForm({ fullName: '', phone: '', email: '', message: '' })
-    setErrors({})
+    // Hand off to the dedicated thank-you page, which fires the Meta Pixel Lead event.
+    window.location.href = '/thank-you.html'
   }
 
   const update = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
