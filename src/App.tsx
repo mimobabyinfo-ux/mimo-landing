@@ -7,6 +7,7 @@ import HowItWorks from './components/HowItWorks'
 import Testimonials from './components/Testimonials'
 import VideoTestimonial from './components/VideoTestimonial'
 import ServicesList from './components/ServicesList'
+import Products from './components/Products'
 import Gallery from './components/Gallery'
 import FAQ from './components/FAQ'
 import ContactForm from './components/ContactForm'
@@ -38,6 +39,7 @@ export default function App() {
           <Reveal><Empathy /></Reveal>
           <HowItWorks />
           <ServicesList />
+          <Products />
           <Testimonials />
           <Reveal><VideoTestimonial /></Reveal>
           <Reveal><About /></Reveal>

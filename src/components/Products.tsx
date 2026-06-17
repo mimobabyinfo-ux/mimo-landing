@@ -1,208 +1,114 @@
-const products = [
+import marakas from '../assets/marakas.jpeg'
+import rasanMeech from '../assets/rasanmeech.png'
+import rasanSratim from '../assets/rasanimsratim.png'
+import pof from '../assets/pof.jpeg'
+import Reveal from './Reveal'
+
+// Dedicated WhatsApp message for product orders (separate from the workshops CTA).
+const ORDER_MESSAGE = 'היי ברנדה! הגעתי דרך האתר ואשמח להזמין מוצר משלים 🤍'
+const ORDER_URL = `https://wa.me/972559904274?text=${encodeURIComponent(ORDER_MESSAGE)}`
+
+type Product = {
+  image: string
+  title: string
+  desc: string
+  price: string
+}
+
+const products: Product[] = [
   {
-    emoji: '🐣',
-    title: 'סדנת עיסוי תינוקות',
-    subtitle: 'מגע שיוצר חיבור',
-    info: ['4 מפגשים', 'שעה ורבע', 'רחוב אבא אחימאיר, רמת גן', 'לידה עד טרום זחילה'],
-    features: [
-      'לימוד עיסוי מלא להקלה על כאבי בטן וגזים',
-      'חוברת הסברים וסרטוני עיסוי דיגיטליים במתנה',
-      'זמן איכות לאמא: קפה, נשנושים ומתנה אישית',
-    ],
-    price: '500',
-    cta: 'להרשמה והבטחת מקום',
-    link: 'https://forms.gle/Vyuz7UGKMyJxNhg77',
-    highlight: false,
-    bg: 'bg-[#FDFBF7]',
-    border: 'border-[#E9C46A]/40',
-    tagBg: 'bg-[#E9C46A]/15 text-[#8a6f1e]',
+    image: marakas,
+    title: 'מרקס ערמונים',
+    desc: 'גירוי שמיעתי עדין לחיזוק האחיזה והקשב',
+    price: '60',
   },
   {
-    emoji: '🤍',
-    title: "סדנת 'עטופים'",
-    subtitle: 'ליווי התפתחותי מהלב',
-    info: ['5 מפגשים', 'שעה וחצי', 'רחוב אבא אחימאיר, רמת גן', 'לידה עד טרום התהפכות'],
-    features: [
-      'כלים לעידוד שכיבה על הבטן, חיזוק והתמודדות עם בכי',
-      'עבודה על ויסות, חשיפה למרקמים ושימוש נכון במנשא',
-      'קבוצת וואטסאפ לסיכומים וסרטונים',
-    ],
-    price: '700',
-    cta: 'אני רוצה להירשם',
-    link: 'https://forms.gle/Vyuz7UGKMyJxNhg77',
-    highlight: true,
-    bg: 'bg-[#E9C46A]',
-    border: 'border-[#E9C46A]',
-    tagBg: 'bg-white/30 text-[#4A3F35]',
+    image: rasanMeech,
+    title: 'רעשן מעץ',
+    desc: 'רעשן טבעי לאחיזה ראשונית ומשחק חושי',
+    price: '30',
   },
   {
-    emoji: '🎁',
-    title: 'מפגש מתנת לידה',
-    subtitle: 'נחיתה רכה לאמא ולבייבי',
-    info: ['מפגש פרטני', 'שעה', 'בבית שלך', 'מותאם אישית'],
-    features: [
-      'שאלון התפתחות מקדים לפני המפגש',
-      'כלים להרגעה ושינה טובה יותר',
-      'מקום בטוח לאמא בעולם החדש',
-    ],
-    price: null,
-    cta: 'לתיאום מפגש אישי',
-    link: 'https://wa.me/972559904274',
-    highlight: false,
-    bg: 'bg-[#FDFBF7]',
-    border: 'border-[#E9C46A]/40',
-    tagBg: 'bg-[#E9C46A]/15 text-[#8a6f1e]',
-    isWhatsApp: true,
+    image: rasanSratim,
+    title: 'רעשן עם סרטים',
+    desc: 'צבעים ומרקמים לעידוד התבוננות ומעקב',
+    price: '20',
+  },
+  {
+    image: pof,
+    title: 'פוף 110/80',
+    desc: 'מרחב רך ובטוח לשכיבה על הבטן ולמשחק',
+    price: '270',
   },
 ]
 
 export default function Products() {
   return (
-    <section id="services" className="py-20 px-4 sm:px-6" style={{ background: '#FDFBF7' }}>
-      <div className="max-w-5xl mx-auto">
+    <section id="products" className="py-20 px-6 sm:px-10" style={{ background: '#FDFBF7' }}>
+      <div className="max-w-4xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-14">
-          <p className="font-bold text-sm mb-2 tracking-wide uppercase" style={{ color: '#E9C46A' }}>
-            השירותים שלנו
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-black" style={{ color: '#4A3F35' }}>
-            בחרי את המסלול שלך
+        <Reveal>
+          <h2 className="text-3xl font-black text-center mb-2" style={{ color: '#A35C3D' }}>
+            מוצרים משלימים של מימו
           </h2>
-          <p className="mt-3 text-base max-w-lg mx-auto leading-relaxed" style={{ color: '#7a6a5a' }}>
-            כל שירות תוכנן בקפידה — לאמא ולתינוק, ביחד.
+          <p className="text-center text-sm mb-12 max-w-md mx-auto leading-relaxed" style={{ color: '#818267' }}>
+            אביזרי התפתחות שאני אוהבת ומשתמשת בהם בסדנאות — עכשיו גם אצלכם בבית
           </p>
-        </div>
+        </Reveal>
 
-        {/* Cards */}
-        <div className="grid sm:grid-cols-3 gap-6 items-stretch">
-          {products.map((p) => (
-            <div
-              key={p.title}
-              className={`rounded-3xl border-2 p-7 flex flex-col gap-5 ${p.bg} ${p.border} ${
-                p.highlight ? 'shadow-2xl scale-[1.02] sm:scale-105' : 'shadow-md'
-              }`}
-              style={{ boxShadow: p.highlight ? '0 20px 60px rgba(233,196,106,0.35)' : '0 4px 20px rgba(74,63,53,0.08)' }}
-            >
-              {/* Emoji + highlight badge */}
-              <div className="flex items-start justify-between">
-                <span className="text-4xl">{p.emoji}</span>
-                {p.highlight && (
-                  <span className="text-xs font-black bg-white text-[#8a6f1e] px-3 py-1 rounded-full shadow-sm">
-                    ✨ הכי פופולרי
-                  </span>
-                )}
+        {/* Product grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+          {products.map((p, i) => (
+            <Reveal key={p.title} delay={i * 70} className="h-full">
+              <div
+                className="h-full rounded-3xl overflow-hidden flex flex-col"
+                style={{ background: '#fff', boxShadow: '0 4px 20px rgba(74,63,53,0.08)' }}
+              >
+                <div className="h-44 flex items-center justify-center p-4" style={{ background: '#fff' }}>
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="max-w-full max-h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="px-4 pb-4 pt-1 flex flex-col gap-1.5 flex-1">
+                  <h3 className="font-black text-base leading-tight" style={{ color: '#3A352E' }}>
+                    {p.title}
+                  </h3>
+                  <p className="text-xs leading-snug" style={{ color: '#818267' }}>
+                    {p.desc}
+                  </p>
+                  <p className="text-lg font-black mt-auto pt-2" style={{ color: '#A35C3D' }}>
+                    ₪{p.price}
+                  </p>
+                </div>
               </div>
-
-              {/* Title */}
-              <div>
-                <h3
-                  className="text-xl font-black leading-tight"
-                  style={{ color: p.highlight ? '#4A3F35' : '#4A3F35' }}
-                >
-                  {p.title}
-                </h3>
-                <p
-                  className="text-sm font-semibold mt-0.5"
-                  style={{ color: p.highlight ? '#4A3F35cc' : '#8a6f1e' }}
-                >
-                  {p.subtitle}
-                </p>
-              </div>
-
-              {/* Info pills */}
-              <div className="flex flex-wrap gap-1.5">
-                {p.info.map((item) => (
-                  <span
-                    key={item}
-                    className={`text-xs font-semibold px-2.5 py-1 rounded-full ${p.tagBg}`}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              {/* Features */}
-              <ul className="flex flex-col gap-2.5 flex-1">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5">
-                    <span
-                      className="mt-0.5 text-sm font-black shrink-0"
-                      style={{ color: p.highlight ? '#4A3F35' : '#E9C46A' }}
-                    >
-                      ✓
-                    </span>
-                    <span
-                      className="text-sm leading-snug"
-                      style={{ color: p.highlight ? '#4A3F35dd' : '#5a4a3a' }}
-                    >
-                      {f}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Price */}
-              <div className="pt-2 border-t" style={{ borderColor: p.highlight ? 'rgba(74,63,53,0.2)' : '#E9C46A44' }}>
-                {p.price ? (
-                  <div className="flex items-end gap-1 mb-4">
-                    <span
-                      className="text-4xl font-black"
-                      style={{ color: p.highlight ? '#4A3F35' : '#4A3F35' }}
-                    >
-                      ₪{p.price}
-                    </span>
-                    <span
-                      className="text-sm mb-1.5"
-                      style={{ color: p.highlight ? '#4A3F35aa' : '#8a7a6a' }}
-                    >
-                      לסדנה
-                    </span>
-                  </div>
-                ) : (
-                  <div className="mb-4">
-                    <span
-                      className="text-lg font-black"
-                      style={{ color: '#4A3F35' }}
-                    >
-                      מחיר בהתאמה אישית
-                    </span>
-                  </div>
-                )}
-
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 font-black text-sm px-6 py-3.5 rounded-2xl transition-all duration-200 active:scale-95 w-full"
-                  style={
-                    p.highlight
-                      ? { background: '#4A3F35', color: '#fff', boxShadow: '0 4px 16px rgba(74,63,53,0.25)' }
-                      : { background: '#E9C46A', color: '#4A3F35', boxShadow: '0 4px 16px rgba(233,196,106,0.4)' }
-                  }
-                >
-                  {p.isWhatsApp && <span>💬</span>}
-                  {p.cta}
-                </a>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        {/* Bottom note */}
-        <p className="text-center text-sm mt-10" style={{ color: '#9a8a7a' }}>
-          יש שאלות?{' '}
-          <a
-            href="https://wa.me/972559904274"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold hover:underline"
-            style={{ color: '#E9C46A' }}
+        {/* Pickup note + order CTA */}
+        <Reveal>
+          <div
+            className="mt-10 rounded-3xl px-6 py-7 flex flex-col items-center gap-4 text-center"
+            style={{ background: '#E7C78A1f', border: '1px solid #E7C78A55' }}
           >
-            שלחי לנו בוואטסאפ
-          </a>{' '}
-          — נשמח לעזור 💛
-        </p>
+            <p className="text-sm font-semibold leading-relaxed max-w-md" style={{ color: '#3A352E' }}>
+              📦 ניתן להזמין ולאסוף את המוצרים בסדנאות ובמפגשים של מימו
+            </p>
+            <a
+              href={ORDER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-full transition-all duration-200 hover:scale-105 shadow-sm"
+              style={{ background: '#A35C3D', color: '#fff' }}
+            >
+              💬 להזמנה בוואטסאפ
+            </a>
+          </div>
+        </Reveal>
+
       </div>
     </section>
   )
