@@ -2,6 +2,8 @@ import marakas from '../assets/marakas.jpeg'
 import rasanMeech from '../assets/rasanmeech.png'
 import rasanSratim from '../assets/rasanimsratim.png'
 import pof from '../assets/pof.jpeg'
+import arnabi from '../assets/arnabimimo.jpeg'
+import tik from '../assets/tikmimo.jpeg'
 import Reveal from './Reveal'
 
 // Dedicated WhatsApp message for product orders (separate from the workshops CTA).
@@ -40,6 +42,18 @@ const products: Product[] = [
     desc: 'מרחב רך ובטוח לשכיבה על הבטן ולמשחק',
     price: '270',
   },
+  {
+    image: arnabi,
+    title: 'ארנבי של מימו',
+    desc: 'בובת ארנב רכה ומלטפת — חבר ראשון לבייבי',
+    price: '40',
+  },
+  {
+    image: tik,
+    title: 'תיק חיתולים של מימו',
+    desc: 'תיק נוח ומרווח ליציאות עם התינוק',
+    price: '60',
+  },
 ]
 
 export default function Products() {
@@ -57,7 +71,7 @@ export default function Products() {
         </Reveal>
 
         {/* Product grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
           {products.map((p, i) => (
             <Reveal key={p.title} delay={i * 70} className="h-full">
               <div
