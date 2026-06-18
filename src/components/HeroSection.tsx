@@ -1,4 +1,4 @@
-import heroImg from '../assets/hero-brenda-babies.jpg'
+import heroVideo from '../assets/entervideo _2.mp4'
 import { WhatsAppButton } from './WhatsAppButton'
 import HeroLeadForm from './HeroLeadForm'
 
@@ -8,10 +8,14 @@ export default function HeroSection() {
       className="relative min-h-[90vh] flex items-center overflow-hidden pt-16"
       style={{ background: 'linear-gradient(135deg, #E7C78A22 0%, #E7C78A44 100%)', backgroundColor: '#FAF8F4' }}
     >
-      {/* Hero photo — fades into the background on large screens */}
-      <img
-        src={heroImg}
-        alt="ברנדה מוקפת בתינוקות בסדנת התפתחות"
+      {/* Hero video — muted autoplay, fades into the background on large screens */}
+      <video
+        src={heroVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label="ברנדה מוקפת בתינוקות בסדנת התפתחות"
         className="hidden lg:block absolute inset-y-0 left-0 h-full w-[44%] object-cover"
         style={{ WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 32%)', maskImage: 'linear-gradient(to right, transparent 0%, black 32%)' }}
       />
@@ -22,7 +26,6 @@ export default function HeroSection() {
         <div className="w-10 h-10 rounded-xl" style={{ background: '#C3CDD2' }} />
         <div className="w-10 h-10 rounded-xl" style={{ background: '#A35C3D' }} />
       </div>
-      <div aria-hidden className="absolute bottom-16 left-10 opacity-50 text-5xl select-none">🐣</div>
 
       <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full py-20">
         <div className="max-w-xl">
@@ -65,11 +68,15 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Mobile hero photo — shown on phones/tablets, hidden on desktop (where the faded side image takes over) */}
+          {/* Mobile hero video — shown on phones/tablets, hidden on desktop (where the faded side video takes over) */}
           <div className="lg:hidden mt-10 rounded-3xl overflow-hidden shadow-lg">
-            <img
-              src={heroImg}
-              alt="ברנדה מוקפת בתינוקות בסדנת התפתחות"
+            <video
+              src={heroVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="ברנדה מוקפת בתינוקות בסדנת התפתחות"
               className="w-full h-64 sm:h-80 object-cover"
             />
           </div>
