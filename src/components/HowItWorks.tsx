@@ -4,12 +4,12 @@ const steps = [
   {
     num: '01',
     title: 'בוחרות את ההתאמה',
-    body: 'בוחרות יחד את הליווי שמתאים לכן ולשלב של הבייבי — סדנה קבוצתית או ליווי פרטני בבית.',
+    body: 'בוחרות יחד את הליווי שמתאים לכן ולשלב של הבייבי - סדנה קבוצתית או ליווי פרטני בבית.',
   },
   {
     num: '02',
     title: 'נפגשות ולומדות',
-    body: 'מפגשים אינטימיים בקבוצה קטנה, עם יחס אישי, מקום לשאלות ותרגול מעשי — בקצב שלכן, בלי לחץ.',
+    body: 'מפגשים אינטימיים בקבוצה קטנה, עם יחס אישי, מקום לשאלות ותרגול מעשי - בקצב שלכן, בלי לחץ.',
   },
   {
     num: '03',
@@ -29,11 +29,11 @@ export default function HowItWorks() {
             כל תינוק הוא עולם ומלואו
           </h2>
           <p className="mt-3 text-base max-w-lg mx-auto" style={{ color: '#3A352E' }}>
-            כל אמא ובייבי הם עולם בפני עצמו — ולכן הליווי אצלנו אישי, רגוע ומותאם בדיוק לכן.
+            כל אמא ובייבי הם עולם בפני עצמו - ולכן הליווי אצלנו אישי, רגוע ומותאם בדיוק לכן.
           </p>
         </Reveal>
 
-        {/* Steps — RTL grid flows right-to-left, so 01 sits on the right */}
+        {/* Steps - RTL grid flows right-to-left, so 01 sits on the right */}
         <div className="grid sm:grid-cols-3 gap-8">
           {steps.map((step, i) => (
             <Reveal key={step.num} delay={i * 90} className="flex flex-col items-center text-center gap-3">

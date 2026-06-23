@@ -45,7 +45,7 @@ const products: Product[] = [
   {
     image: arnabi,
     title: 'ארנבי של מימו',
-    desc: 'בובת ארנב רכה ומלטפת — חבר ראשון לבייבי',
+    desc: 'בובת ארנב רכה ומלטפת - חבר ראשון לבייבי',
     price: '40',
   },
   {
@@ -66,7 +66,7 @@ export default function Products() {
             מוצרים משלימים של מימו
           </h2>
           <p className="text-center text-sm mb-12 max-w-md mx-auto leading-relaxed" style={{ color: '#818267' }}>
-            אביזרי התפתחות שאני אוהבת ומשתמשת בהם בסדנאות — עכשיו גם אצלכם בבית
+            אביזרי התפתחות שאני אוהבת ומשתמשת בהם בסדנאות - עכשיו גם אצלכם בבית
           </p>
         </Reveal>
 

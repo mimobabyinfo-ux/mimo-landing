@@ -81,7 +81,7 @@ export default function HeroLeadForm() {
 
           {status === 'error' && (
             <p className="text-xs leading-relaxed" style={{ color: errorColor }}>
-              אופס, משהו השתבש — אפשר לנסות שוב, או לדבר איתי בוואטסאפ.
+              אופס, משהו השתבש - אפשר לנסות שוב, או לדבר איתי בוואטסאפ.
             </p>
           )}
 

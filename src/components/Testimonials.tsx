@@ -7,14 +7,14 @@ import wa5 from '../assets/testimonial-wa-5.jpg'
 
 // Hebrew screenshots lead; the Spanish one (wa1) is placed last.
 const screenshots = [
-  { src: wa2, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
-  { src: wa3, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
-  { src: wa4, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
-  { src: wa5, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
-  { src: wa1, alt: 'המלצה מאמא במימו — צילום מסך מוואטסאפ' },
+  { src: wa2, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa3, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa4, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa5, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa1, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
 ]
 
-// Gentle alternating tilts (desktop only — md:). On mobile the notes stay straight
+// Gentle alternating tilts (desktop only - md:). On mobile the notes stay straight
 // and full-width so the screenshot text is comfortably readable. Static class
 // strings so Tailwind's JIT picks them up.
 const tiltClasses = ['md:-rotate-3', 'md:rotate-2', 'md:-rotate-2', 'md:rotate-3', 'md:-rotate-2']
@@ -30,7 +30,7 @@ export default function Testimonials() {
           </h2>
         </Reveal>
 
-        {/* WhatsApp screenshots — tilted, clustered collage (natural aspect ratio, never cropped) */}
+        {/* WhatsApp screenshots - tilted, clustered collage (natural aspect ratio, never cropped) */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-3">
           {screenshots.map((s, i) => (
             <Reveal key={i} delay={i * 70} className="mb-4 break-inside-avoid">

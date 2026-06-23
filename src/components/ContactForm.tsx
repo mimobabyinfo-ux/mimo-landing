@@ -49,7 +49,7 @@ export default function ContactForm() {
     <section id="contact" className="py-20 px-6 sm:px-10" style={{ background: '#C6BDA0' }}>
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Left — decorative */}
+        {/* Left - decorative */}
         <div className="hidden md:flex flex-col gap-4 items-start">
           <div className="w-16 h-16 rounded-2xl" style={{ background: '#E7C78A88' }} />
           <div className="w-10 h-10 rounded-xl" style={{ background: '#C3CDD288' }} />
@@ -58,13 +58,13 @@ export default function ContactForm() {
           </p>
         </div>
 
-        {/* Right — form */}
+        {/* Right - form */}
         <div>
           <h2 className="text-2xl font-black mb-2 text-center md:text-right" style={{ color: '#A35C3D' }}>
             מעדיפה להשאיר פרטים?
           </h2>
           <p className="text-sm mb-6 text-center md:text-right leading-relaxed" style={{ color: '#3A352E' }}>
-            הכי מהיר ליצור קשר זה בוואטסאפ — אבל אם נוח לך, השאירי פרטים כאן ואחזור אלייך.
+            הכי מהיר ליצור קשר זה בוואטסאפ - אבל אם נוח לך, השאירי פרטים כאן ואחזור אלייך.
           </p>
 
           {status === 'sent' ? (
@@ -81,7 +81,7 @@ export default function ContactForm() {
                   className="rounded-2xl px-4 py-3 text-sm leading-relaxed"
                   style={{ background: '#F3E0DA', color: '#A35C3D' }}
                 >
-                  אופס, משהו השתבש — אפשר{' '}
+                  אופס, משהו השתבש - אפשר{' '}
                   <button type="button" onClick={() => setStatus('idle')} className="underline font-bold">
                     לנסות שוב
                   </button>

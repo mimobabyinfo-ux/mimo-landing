@@ -5,7 +5,7 @@ export default function About() {
     <section id="about" className="py-24 px-6 sm:px-10" style={{ background: '#FAF8F4' }}>
       <div className="max-w-2xl mx-auto flex flex-col gap-6">
 
-        {/* Intro — small round photo next to the name, aligned to the left */}
+        {/* Intro - small round photo next to the name, aligned to the left */}
         <div className="flex flex-row-reverse items-center justify-end gap-5">
           <img
             src={aboutImg}
@@ -23,7 +23,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Credentials — quiet trust */}
+        {/* Credentials - quiet trust */}
         <p className="text-xs sm:text-sm leading-relaxed" style={{ color: '#818267' }}>
           מלווה התפתחותית מוסמכת · מדריכת עיסוי תינוקות · בהכשרה להדרכת הורים, ייעוץ שינה וגמילה מחיתולים
         </p>
@@ -32,10 +32,10 @@ export default function About() {
           היי, אני ברנדה. נולדתי בארגנטינה, גרתי רוב חיי במדריד, והיום אני כאן ומלווה אמהות ותינוקות מהסטודיו שלי ברמת גן. כל החיים חיפשתי את הייעוד שלי, ומצאתי אותו ברגע שגיליתי את עולם ההתפתחות והמגע של תינוקות.
         </p>
         <p className="text-base leading-relaxed" style={{ color: '#3A352E' }}>
-          אני מאמינה שכל אמא צריכה מעטפת תומכת, במיוחד בחודשים הראשונים שאחרי הלידה — תקופה כל כך מטלטלת. אני כאן כדי לתת לכן את הכלים, את ההקשבה ואת ה"מימו" הזה: לדעת שמישהי מקשיבה, מבינה ועונה על כל שאלה או דאגה.
+          אני מאמינה שכל אמא צריכה מעטפת תומכת, במיוחד בחודשים הראשונים שאחרי הלידה - תקופה כל כך מטלטלת. אני כאן כדי לתת לכן את הכלים, את ההקשבה ואת ה"מימו" הזה: לדעת שמישהי מקשיבה, מבינה ועונה על כל שאלה או דאגה.
         </p>
         <p className="text-base leading-relaxed" style={{ color: '#3A352E' }}>
-          "מימו" (Mimo) בספרדית פירושו "ליטוף", וזו בדיוק המהות של המרחב שלנו: לתת לכן ולבייביז שלכן מלא מימו — דרך מגע, תנועה, תיווך, הבנה ותמיכה.
+          "מימו" (Mimo) בספרדית פירושו "ליטוף", וזו בדיוק המהות של המרחב שלנו: לתת לכן ולבייביז שלכן מלא מימו - דרך מגע, תנועה, תיווך, הבנה ותמיכה.
         </p>
 
         <a

@@ -11,7 +11,7 @@ export default function Footer() {
               <img src={logoMimo} alt="Mimo" className="h-9 w-auto" />
             </div>
             <p className="text-sm leading-relaxed" style={{ color: '#C6BDA0' }}>
-              ליווי התפתחותי, סדנאות ומפגשים לאמהות ולתינוקות — מהסטודיו של מימו ברמת גן.
+              ליווי התפתחותי, סדנאות ומפגשים לאמהות ולתינוקות - מהסטודיו של מימו ברמת גן.
             </p>
           </div>
 
@@ -49,7 +49,7 @@ export default function Footer() {
             </a>
             <p className="text-sm" style={{ color: '#C6BDA0' }}>אבא אחימאיר 10, רמת גן</p>
 
-            {/* Social links — Mimo colors */}
+            {/* Social links - Mimo colors */}
             <div className="flex items-center gap-3 mt-3">
               <a
                 href="https://www.instagram.com/mimo.brenlevin/"
