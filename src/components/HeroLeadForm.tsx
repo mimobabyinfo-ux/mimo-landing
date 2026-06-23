@@ -75,7 +75,7 @@ export default function HeroLeadForm() {
               לא בטוחה מה הכי מתאים לך ולבייבי?
             </p>
             <p className="text-sm mt-1.5 leading-relaxed" style={{ color: '#F4E9DF' }}>
-              שיחה קצרה ונעימה, שבה תרגישי שיש למי לפנות — ושאת לא לבד בדרך הזו.
+              שיחה קצרה ונעימה, שבה תרגישי שיש למי לפנות - ושאת לא לבד בדרך הזו.
             </p>
           </div>
 

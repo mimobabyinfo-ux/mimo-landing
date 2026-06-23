@@ -48,7 +48,7 @@ export default function HeroSection() {
 
           {/* Sub — promise: intuition + community */}
           <p className="text-base font-semibold mb-8 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
-            במימו את מתחברת חזרה לאינטואיציה שלך — יחד עם אמהות שעוברות בדיוק את מה שאת עוברת.
+            במימו את מתחברת חזרה לאינטואיציה שלך - יחד עם אמהות שעוברות בדיוק את מה שאת עוברת.
           </p>
 
           {/* Trust strip — social proof, each point on its own line */}
@@ -60,7 +60,7 @@ export default function HeroSection() {
               <span style={{ color: '#2E8B57' }}>✓</span> +100 אמהות
             </span>
             <span className="inline-flex items-center gap-1">
-              <span style={{ color: '#E7C78A', letterSpacing: '1px' }}>★★★★★</span> 5.0
+              <span style={{ color: '#E7C78A', letterSpacing: '1px' }}>★★★★★</span>
             </span>
           </div>
 
