@@ -6,7 +6,7 @@ import { track } from '../lib/track'
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-[90vh] flex items-center overflow-hidden pt-32 sm:pt-28"
+      className="relative flex items-start lg:items-center lg:min-h-[90vh] overflow-hidden pt-28 sm:pt-24 lg:pt-28"
       style={{ background: 'linear-gradient(135deg, #E7C78A22 0%, #E7C78A44 100%)', backgroundColor: '#FAF8F4' }}
     >
       {/* Hero video — muted autoplay, fades into the background on large screens */}
@@ -21,7 +21,7 @@ export default function HeroSection() {
         style={{ WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 32%)', maskImage: 'linear-gradient(to right, transparent 0%, black 32%)' }}
       />
 
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full py-20">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full pt-4 pb-12 lg:py-20">
         <div className="max-w-xl">
           {/* Tag */}
           <p className="text-sm font-bold mb-4 tracking-widest uppercase" style={{ color: '#A35C3D' }}>
