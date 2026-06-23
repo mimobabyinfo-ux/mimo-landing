@@ -20,3 +20,5 @@ export function track(event: string, params?: Record<string, unknown>) {
     // analytics must never break the page
   }
 }
+
+export {}
