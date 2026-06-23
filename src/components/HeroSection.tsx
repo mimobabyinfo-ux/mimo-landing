@@ -1,12 +1,11 @@
 import heroVideo from '../assets/entervideo _2.mp4'
-import { WHATSAPP_URL, WhatsAppIcon } from './WhatsAppButton'
+import { WhatsAppButton } from './WhatsAppButton'
 import HeroLeadForm from './HeroLeadForm'
-import { track } from '../lib/track'
 
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-[90vh] flex items-center overflow-hidden pt-32 sm:pt-28"
+      className="relative min-h-[90vh] flex items-center overflow-hidden pt-16"
       style={{ background: 'linear-gradient(135deg, #E7C78A22 0%, #E7C78A44 100%)', backgroundColor: '#FAF8F4' }}
     >
       {/* Hero video — muted autoplay, fades into the background on large screens */}
@@ -35,83 +34,27 @@ export default function HeroSection() {
             מימו · ליווי התפתחותי
           </p>
 
-          {/* Headline — outcome-driven hook with a hand-drawn underline accent */}
-          <h1 className="text-3xl sm:text-5xl font-black leading-snug mb-5" style={{ color: '#A35C3D' }}>
-            החודשים הראשונים קורים{' '}
-            <span className="relative inline-block whitespace-nowrap">
-              פעם אחת
-              <svg
-                aria-hidden
-                viewBox="0 0 200 14"
-                preserveAspectRatio="none"
-                className="absolute -bottom-2 right-0 left-0 w-full h-3"
-              >
-                <path d="M4 9 C 55 3, 140 3, 196 8" fill="none" stroke="#E7C78A" strokeWidth="6" strokeLinecap="round" />
-              </svg>
-            </span>
-            .
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-5xl font-black leading-tight mb-5" style={{ color: '#A35C3D' }}>
+            בית עוטף ומלטף
             <br />
-            בואי נעבור אותם יחד&nbsp;🤍
+            לך ולבייבי שלך
           </h1>
 
           {/* Sub — single concrete what/where line */}
-          <p className="text-base font-semibold mb-4 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
-            סדנאות ליווי התפתחותי ועיסוי תינוקות בקבוצה קטנה ואינטימית — כלים אמיתיים, ביטחון, וקהילה שלא משאירה אותך לבד.
+          <p className="text-base font-semibold mb-8 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
+            סדנאות ליווי התפתחותי ועיסוי תינוקות, מלידה עד 6 חודשים · בסטודיו של מימו ברמת גן
           </p>
-
-          {/* Trust strip — social proof high on the page */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-6 text-sm font-semibold" style={{ color: '#3A352E' }}>
-            <span className="inline-flex items-center gap-1">
-              <span style={{ color: '#2E8B57' }}>✓</span> מלווה התפתחותית מוסמכת
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <span style={{ color: '#2E8B57' }}>✓</span> +100 אמהות
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <span style={{ color: '#E7C78A', letterSpacing: '1px' }}>★★★★★</span> 5.0
-            </span>
-          </div>
-
-          {/* Offer card — gift + early-registration discount, above the fold */}
-          <div
-            className="max-w-sm rounded-3xl p-4 mb-6"
-            style={{ background: '#FFFDF8', border: '1.5px dashed #A35C3D' }}
-          >
-            <p className="font-black text-[15px] mb-2" style={{ color: '#8A4B30' }}>🎁 מצטרפות החודש מקבלות:</p>
-            <ul className="flex flex-col gap-1.5 text-sm" style={{ color: '#3A352E' }}>
-              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> <b>מתנת מימו</b> מפנקת</li>
-              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> <b>מחיר מלטף</b> — הנחה לנרשמות מוקדם</li>
-              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> מקום בקבוצה קטנה — <b>מקומות מוגבלים</b></li>
-            </ul>
-          </div>
 
           {/* CTAs — lead form primary, WhatsApp secondary, scroll link tertiary */}
           <div className="max-w-sm">
             <HeroLeadForm />
 
-            {/* Scarcity — real limited spots */}
-            <div className="mt-3 flex items-center gap-2 text-[13px] font-bold" style={{ color: '#8A4B30' }}>
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#E0533F' }} />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ background: '#E0533F' }} />
-              </span>
-              נותרו 3 מקומות לקבוצת החודש
+            {/* Secondary — WhatsApp */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="text-sm" style={{ color: '#818267' }}>מעדיפה לדבר עכשיו?</span>
+              <WhatsAppButton />
             </div>
-
-            {/* Secondary — WhatsApp, visually lighter than the primary form CTA */}
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => track('whatsapp_click', { location: 'hero' })}
-              className="mt-4 flex items-center justify-center gap-2 w-full font-bold text-sm px-5 py-3 rounded-full transition-colors hover:bg-beige/40"
-              style={{ background: '#fff', color: '#3A352E', border: '1.5px solid #DCD4C8' }}
-            >
-              <span className="inline-flex items-center justify-center w-6 h-6 rounded-full" style={{ background: '#25D366', color: '#fff' }}>
-                <WhatsAppIcon className="w-3.5 h-3.5" />
-              </span>
-              מעדיפה לשאול קודם? דברי איתי בוואטסאפ
-            </a>
 
             {/* Tertiary — scroll to services */}
             <div className="mt-3">
@@ -126,7 +69,7 @@ export default function HeroSection() {
           </div>
 
           {/* Mobile hero video — shown on phones/tablets, hidden on desktop (where the faded side video takes over) */}
-          <div className="lg:hidden mt-10 relative rounded-3xl overflow-hidden shadow-lg">
+          <div className="lg:hidden mt-10 rounded-3xl overflow-hidden shadow-lg">
             <video
               src={heroVideo}
               autoPlay
@@ -136,13 +79,6 @@ export default function HeroSection() {
               aria-label="ברנדה מוקפת בתינוקות בסדנת התפתחות"
               className="w-full h-64 sm:h-80 object-cover"
             />
-            {/* Message match — ties the page back to the campaign video */}
-            <p
-              className="absolute bottom-3 right-3 left-3 text-[13px] font-semibold text-white px-3 py-2 rounded-2xl text-center"
-              style={{ background: 'rgba(0,0,0,0.42)', backdropFilter: 'blur(2px)' }}
-            >
-              אותו הרגע מהסרטון שראית — עכשיו אצלך בבית 🤍
-            </p>
           </div>
         </div>
       </div>

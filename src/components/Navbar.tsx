@@ -5,19 +5,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50">
-      {/* Sticky offer bar — visible before any scroll */}
-      <a
-        href="#contact"
-        className="block bg-terra text-white text-center font-bold px-3 py-2 text-[12.5px] sm:text-sm leading-tight"
-      >
-        <span className="inline-block bg-duck text-ink rounded-full px-2 py-0.5 text-[11px] font-extrabold ml-1.5 align-middle">
-          החודש בלבד
-        </span>
-        מתנת מימו 🎁 + מחיר מלטף לנרשמות מוקדם
-      </a>
-
-      <div className="bg-cream/90 backdrop-blur-md border-b border-beige">
+    <header className="fixed top-0 inset-x-0 z-50 bg-cream/90 backdrop-blur-md border-b border-beige">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
@@ -55,7 +43,6 @@ export default function Navbar() {
           </svg>
         </button>
       </nav>
-      </div>
 
       {/* Mobile menu */}
       {menuOpen && (
