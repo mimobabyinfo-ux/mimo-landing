@@ -29,7 +29,7 @@ export default function HeroSection() {
           </p>
 
           {/* Headline — the hook, with a hand-drawn underline accent */}
-          <h1 className="text-3xl sm:text-5xl font-black leading-snug mb-6" style={{ color: '#A35C3D' }}>
+          <h1 className="text-3xl sm:text-5xl font-black leading-snug mb-8" style={{ color: '#A35C3D' }}>
             בעולם מוצף עצות,
             <br />
             הקול הכי חשוב הוא{' '}
@@ -47,12 +47,12 @@ export default function HeroSection() {
           </h1>
 
           {/* Sub — promise: intuition + community */}
-          <p className="text-base font-semibold mb-7 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
+          <p className="text-base font-semibold mb-8 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
             במימו את מתחברת חזרה לאינטואיציה שלך — יחד עם אמהות שעוברות בדיוק את מה שאת עוברת.
           </p>
 
-          {/* Trust strip — social proof high on the page */}
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mb-6 text-sm font-semibold" style={{ color: '#3A352E' }}>
+          {/* Trust strip — social proof, each point on its own line */}
+          <div className="flex flex-col gap-2 mb-8 text-sm font-semibold" style={{ color: '#3A352E' }}>
             <span className="inline-flex items-center gap-1">
               <span style={{ color: '#2E8B57' }}>✓</span> מלווה התפתחותית מוסמכת
             </span>
@@ -66,14 +66,14 @@ export default function HeroSection() {
 
           {/* Offer card — gift + early-registration discount, above the fold */}
           <div
-            className="max-w-sm rounded-3xl p-4 mb-6"
+            className="max-w-sm rounded-3xl p-5 mb-8"
             style={{ background: '#FFFDF8', border: '1.5px dashed #A35C3D' }}
           >
-            <p className="font-black text-[15px] mb-2" style={{ color: '#8A4B30' }}>🎁 מצטרפות החודש מקבלות:</p>
-            <ul className="flex flex-col gap-1.5 text-sm" style={{ color: '#3A352E' }}>
+            <p className="font-black text-[15px] mb-3" style={{ color: '#8A4B30' }}>🎁 מצטרפות החודש מקבלות:</p>
+            <ul className="flex flex-col gap-2.5 text-sm" style={{ color: '#3A352E' }}>
               <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> <b>מתנת מימו</b> מפנקת</li>
-              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> <b>מחיר מלטף</b> — הנחה לנרשמות מוקדם</li>
-              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> מקום בקבוצה קטנה — <b>מקומות מוגבלים</b></li>
+              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> <b>מחיר מלטף</b> למוקדמות</li>
+              <li><span style={{ color: '#A35C3D', fontWeight: 800 }}>✓</span> <b>מקומות מוגבלים</b></li>
             </ul>
           </div>
 
