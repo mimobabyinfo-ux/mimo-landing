@@ -23,10 +23,18 @@ export default function HeroSection() {
 
       <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full pt-4 pb-12 lg:py-20">
         <div className="max-w-xl">
-          {/* Headline — brand line with a hand-drawn underline accent */}
+          {/* Kicker — place + warmth */}
+          <p className="text-sm font-bold mb-4" style={{ color: '#A35C3D' }}>
+            בית עוטף ומלטף ברמת גן · לך ולבייבי 🤍
+          </p>
+
+          {/* Headline — the hook, with a hand-drawn underline accent */}
           <h1 className="text-3xl sm:text-5xl font-black leading-snug mb-6" style={{ color: '#A35C3D' }}>
+            בעולם מוצף עצות,
+            <br />
+            הקול הכי חשוב הוא{' '}
             <span className="relative inline-block whitespace-nowrap">
-              הבית
+              שלך
               <svg
                 aria-hidden
                 viewBox="0 0 200 14"
@@ -35,13 +43,12 @@ export default function HeroSection() {
               >
                 <path d="M4 9 C 55 3, 140 3, 196 8" fill="none" stroke="#E7C78A" strokeWidth="6" strokeLinecap="round" />
               </svg>
-            </span>{' '}
-            לחופשת הלידה שלך
+            </span>
           </h1>
 
-          {/* Sub — single concrete what/where line */}
-          <p className="text-base font-semibold mb-7 leading-relaxed" style={{ color: '#818267', maxWidth: '440px' }}>
-            מקום שמחבר בין האינטואיציה שלך לקהילה עוטפת וחמה.
+          {/* Sub — promise: intuition + community */}
+          <p className="text-base font-semibold mb-7 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
+            במימו את מתחברת חזרה לאינטואיציה שלך — יחד עם אמהות שעוברות בדיוק את מה שאת עוברת.
           </p>
 
           {/* Trust strip — social proof high on the page */}
