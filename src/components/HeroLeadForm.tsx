@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { submitLead } from '../lib/submitLead'
+import { track } from '../lib/track'
 
 type Errors = { fullName?: string; phone?: string; email?: string }
 type Status = 'idle' | 'submitting' | 'sent' | 'error'
@@ -39,6 +40,8 @@ export default function HeroLeadForm() {
       setStatus('error')
       return
     }
+
+    track('form_submit', { location: 'hero' })
 
     // Hand off to the dedicated thank-you page, which fires the Meta Pixel Lead event.
     window.location.href = '/thank-you.html'
