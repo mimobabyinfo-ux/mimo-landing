@@ -23,16 +23,10 @@ export default function HeroSection() {
 
       <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full pt-4 pb-12 lg:py-20">
         <div className="max-w-xl">
-          {/* Tag */}
-          <p className="text-sm font-bold mb-4 tracking-widest uppercase" style={{ color: '#A35C3D' }}>
-            מימו · ליווי התפתחותי
-          </p>
-
-          {/* Headline — outcome-driven hook with a hand-drawn underline accent */}
-          <h1 className="text-3xl sm:text-5xl font-black leading-snug mb-5" style={{ color: '#A35C3D' }}>
-            החודשים הראשונים קורים{' '}
+          {/* Headline — brand line with a hand-drawn underline accent */}
+          <h1 className="text-3xl sm:text-5xl font-black leading-snug mb-6" style={{ color: '#A35C3D' }}>
             <span className="relative inline-block whitespace-nowrap">
-              פעם אחת
+              הבית
               <svg
                 aria-hidden
                 viewBox="0 0 200 14"
@@ -41,15 +35,13 @@ export default function HeroSection() {
               >
                 <path d="M4 9 C 55 3, 140 3, 196 8" fill="none" stroke="#E7C78A" strokeWidth="6" strokeLinecap="round" />
               </svg>
-            </span>
-            .
-            <br />
-            בואי נעבור אותם יחד&nbsp;🤍
+            </span>{' '}
+            לחופשת הלידה שלך
           </h1>
 
           {/* Sub — single concrete what/where line */}
-          <p className="text-base font-semibold mb-4 leading-relaxed" style={{ color: '#818267', maxWidth: '460px' }}>
-            סדנאות ליווי התפתחותי ועיסוי תינוקות בקבוצה קטנה ואינטימית — כלים אמיתיים, ביטחון, וקהילה שלא משאירה אותך לבד.
+          <p className="text-base font-semibold mb-7 leading-relaxed" style={{ color: '#818267', maxWidth: '440px' }}>
+            מקום שמחבר בין האינטואיציה שלך לקהילה עוטפת וחמה.
           </p>
 
           {/* Trust strip — social proof high on the page */}
