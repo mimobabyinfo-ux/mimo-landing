@@ -21,13 +21,6 @@ export default function HeroSection() {
         style={{ WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 32%)', maskImage: 'linear-gradient(to right, transparent 0%, black 32%)' }}
       />
 
-      {/* Decorative blobs */}
-      <div aria-hidden className="absolute top-12 left-8 flex flex-col gap-3 opacity-70">
-        <div className="w-10 h-10 rounded-xl" style={{ background: '#E7C78A' }} />
-        <div className="w-10 h-10 rounded-xl" style={{ background: '#C3CDD2' }} />
-        <div className="w-10 h-10 rounded-xl" style={{ background: '#A35C3D' }} />
-      </div>
-
       <div className="max-w-5xl mx-auto px-6 sm:px-10 w-full py-20">
         <div className="max-w-xl">
           {/* Tag */}
@@ -126,7 +119,7 @@ export default function HeroSection() {
           </div>
 
           {/* Mobile hero video — shown on phones/tablets, hidden on desktop (where the faded side video takes over) */}
-          <div className="lg:hidden mt-10 relative rounded-3xl overflow-hidden shadow-lg">
+          <div className="lg:hidden mt-10 rounded-3xl overflow-hidden shadow-lg">
             <video
               src={heroVideo}
               autoPlay
@@ -136,13 +129,6 @@ export default function HeroSection() {
               aria-label="ברנדה מוקפת בתינוקות בסדנת התפתחות"
               className="w-full h-64 sm:h-80 object-cover"
             />
-            {/* Message match — ties the page back to the campaign video */}
-            <p
-              className="absolute bottom-3 right-3 left-3 text-[13px] font-semibold text-white px-3 py-2 rounded-2xl text-center"
-              style={{ background: 'rgba(0,0,0,0.42)', backdropFilter: 'blur(2px)' }}
-            >
-              אותו הרגע מהסרטון שראית — עכשיו אצלך בבית 🤍
-            </p>
           </div>
         </div>
       </div>
