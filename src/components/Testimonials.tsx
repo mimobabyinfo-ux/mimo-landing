@@ -4,6 +4,7 @@ import wa2 from '../assets/testimonial-wa-2.jpg'
 import wa3 from '../assets/testimonial-wa-3.jpg'
 import wa4 from '../assets/testimonial-wa-4.jpg'
 import wa5 from '../assets/testimonial-wa-5.jpg'
+import wa6 from '../assets/testimonial-wa-6.jpeg'
 
 // Hebrew screenshots lead; the Spanish one (wa1) is placed last.
 const screenshots = [
@@ -11,13 +12,14 @@ const screenshots = [
   { src: wa3, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
   { src: wa4, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
   { src: wa5, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa6, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
   { src: wa1, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
 ]
 
 // Gentle alternating tilts (desktop only - md:). On mobile the notes stay straight
 // and full-width so the screenshot text is comfortably readable. Static class
 // strings so Tailwind's JIT picks them up.
-const tiltClasses = ['md:-rotate-3', 'md:rotate-2', 'md:-rotate-2', 'md:rotate-3', 'md:-rotate-2']
+const tiltClasses = ['md:-rotate-3', 'md:rotate-2', 'md:-rotate-2', 'md:rotate-3', 'md:-rotate-2', 'md:rotate-3']
 
 export default function Testimonials() {
   return (
