@@ -39,13 +39,13 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <p className="font-bold text-sm mb-1" style={{ color: '#FAF8F4' }}>יצירת קשר</p>
             <a
-              href="https://wa.me/972559904274"
+              href="https://wa.me/972533041277"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm transition-colors hover:text-[#E7C78A]"
               style={{ color: '#C6BDA0' }}
             >
-              וואטסאפ: 055-9904274
+              וואטסאפ: 053-3041277
             </a>
             <p className="text-sm" style={{ color: '#C6BDA0' }}>אבא אחימאיר 10, רמת גן</p>
 

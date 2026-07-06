@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { submitLead } from '../lib/submitLead'
 
-const WHATSAPP_FALLBACK = 'https://wa.me/972559904274'
+const WHATSAPP_FALLBACK = 'https://wa.me/972533041277'
 
 type Errors = { fullName?: string; phone?: string; email?: string }
 type Status = 'idle' | 'submitting' | 'sent' | 'error'

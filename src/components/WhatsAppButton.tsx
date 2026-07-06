@@ -1,6 +1,6 @@
 // Single source of truth for the primary WhatsApp action across the page.
 const WHATSAPP_MESSAGE = 'היי ברנדה! הגעתי דרך האתר ואשמח לשמוע פרטים על הסדנאות 🤍'
-export const WHATSAPP_URL = `https://wa.me/972559904274?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+export const WHATSAPP_URL = `https://wa.me/972533041277?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
 
 export function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (

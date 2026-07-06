@@ -23,7 +23,7 @@ export default function BottomCTA() {
             לסדנאות שלנו ←
           </a>
           <a
-            href="https://wa.me/972500000000"
+            href="https://wa.me/972533041277"
             className="border-2 border-beige-600 hover:border-mustard-400 text-beige-300 hover:text-mustard-300 font-bold text-base px-7 py-4 rounded-3xl transition-colors text-center"
           >
             💬 שלחי לנו ב-WhatsApp
