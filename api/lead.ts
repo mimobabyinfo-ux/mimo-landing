@@ -1,8 +1,11 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
-// Make.com (CRM) webhook. Overridable via env; falls back to the configured hook.
-const MAKE_WEBHOOK_URL =
-  process.env.MAKE_WEBHOOK_URL || 'https://hook.eu1.make.com/1q5qtzyq78fm6letkaan51zdd05wl6tk'
+// CRM webhook. Prefer the More Than (GoHighLevel) inbound-webhook when configured;
+// fall back to the legacy Make.com hook only if the More Than URL isn't set.
+// Set MORE_THAN_WEBHOOK_URL in the Vercel env to the workflow's Inbound Webhook URL.
+const CRM_WEBHOOK_URL =
+  process.env.MORE_THAN_WEBHOOK_URL ||
+  'https://services.leadconnectorhq.com/hooks/zcdg19h82AGIAbya6T0r/webhook-trigger/95621202-05c6-46c1-9abe-333618e519c5'
 
 // Minimal HTML escaping so submitted text can't break the email markup.
 function esc(value: unknown): string {
@@ -54,10 +57,23 @@ async function sendEmail(lead: Lead): Promise<'sent' | 'skipped' | 'failed'> {
 // Forward the lead to the Make.com (CRM) webhook. Returns 'sent' | 'failed'.
 async function sendToCrm(lead: Lead): Promise<'sent' | 'failed'> {
   try {
-    const r = await fetch(MAKE_WEBHOOK_URL, {
+    // Send the raw contact fields (first_name/phone/email) so the More Than
+    // inbound webhook can create/update the contact directly, plus the original
+    // camelCase fields for backward compatibility with the Make hook.
+    const r = await fetch(CRM_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...lead, source: 'mimo-landing' }),
+      body: JSON.stringify({
+        first_name: lead.fullName,
+        full_name: lead.fullName,
+        phone: lead.phone,
+        email: lead.email,
+        notes: lead.notes,
+        fullName: lead.fullName,
+        submittedAt: lead.submittedAt,
+        source: 'mimo-landing',
+        tag: 'ליד מהאתר',
+      }),
     })
     return r.ok ? 'sent' : 'failed'
   } catch {
