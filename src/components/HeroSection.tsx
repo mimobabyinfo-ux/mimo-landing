@@ -1,7 +1,6 @@
 import heroVideo from '../assets/entervideo _2.mp4'
 import { WHATSAPP_URL, WhatsAppIcon } from './WhatsAppButton'
 import HeroLeadForm from './HeroLeadForm'
-import { track } from '../lib/track'
 
 export default function HeroSection() {
   return (
@@ -95,7 +94,7 @@ export default function HeroSection() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => track('whatsapp_click', { location: 'hero' })}
+              data-wa-location="hero"
               className="mt-4 flex items-center justify-center gap-2 w-full font-bold text-sm px-5 py-3 rounded-full transition-colors hover:bg-beige/40"
               style={{ background: '#fff', color: '#3A352E', border: '1.5px solid #DCD4C8' }}
             >
