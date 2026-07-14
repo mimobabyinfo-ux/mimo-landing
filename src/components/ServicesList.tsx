@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { WhatsAppButton, WHATSAPP_URL } from './WhatsAppButton'
 import Reveal from './Reveal'
+import { fetchNextCohorts, type NextCohortInfo } from '../lib/nextCohorts'
 
 // Studio address for all in-person services: אבא אחימאיר 10, רמת גן (שיכון ותיקים)
 const REGISTER = {
@@ -145,8 +146,60 @@ const services: Service[] = [
   },
 ]
 
+// Extract the app workshop-id out of a register link so the nearest-cohort
+// lookup can key on it. WhatsApp links (no register=) return null.
+function workshopIdFromLink(link: string): string | null {
+  const m = link.match(/[?&]register=([0-9a-f-]{36})/)
+  return m ? m[1] : null
+}
+
+// One-line live status chip: nearest cohort date + availability, straight
+// from the app's DB. Renders nothing while loading / when the workshop has
+// no upcoming cohorts, so the page looks identical until data arrives.
+function NextCohortChip({ info }: { info: NextCohortInfo | undefined }) {
+  if (!info) return null
+  let text: string
+  if (info.kind === 'open') {
+    const when = `${info.date}${info.time ? ` · ${info.time}` : ''}`
+    const spots =
+      info.spotsLeft == null
+        ? 'ההרשמה פתוחה'
+        : info.spotsLeft === 1
+          ? 'מקום אחרון!'
+          : info.spotsLeft <= 3
+            ? `נותרו ${info.spotsLeft} מקומות`
+            : 'ההרשמה פתוחה'
+    text = `🗓️ המחזור הקרוב: ${when} · ${spots}`
+  } else if (info.kind === 'nearest-full') {
+    text = `המחזור הקרוב מלא · מחזור חדש נפתח ב-${info.nextOpenDate}`
+  } else {
+    text = 'המחזורים הקרובים מלאים · דברי איתי ונמצא פתרון'
+  }
+  return (
+    <span
+      className="inline-block mt-1.5 text-xs font-bold px-2.5 py-0.5 rounded-full"
+      style={{ background: '#E7C78A33', color: '#A35C3D' }}
+    >
+      {text}
+    </span>
+  )
+}
+
 export default function ServicesList() {
   const [open, setOpen] = useState<number | null>(null)
+  // workshop_id → nearest-cohort info, fetched once on mount.
+  const [nextCohorts, setNextCohorts] = useState<Record<string, NextCohortInfo>>({})
+
+  useEffect(() => {
+    const ids = services
+      .map(s => workshopIdFromLink(s.link))
+      .filter((id): id is string => id != null)
+    let cancelled = false
+    fetchNextCohorts([...new Set(ids)]).then(res => {
+      if (!cancelled) setNextCohorts(res)
+    })
+    return () => { cancelled = true }
+  }, [])
 
   return (
     <section id="services" className="py-20 px-6 sm:px-10" style={{ background: '#FAF8F4' }}>
@@ -178,14 +231,22 @@ export default function ServicesList() {
                   <div className="text-right">
                     <p className="font-black text-lg" style={{ color: '#3A352E' }}>{s.title}</p>
                     <p className="text-sm mt-0.5" style={{ color: '#818267' }}>{s.short}</p>
-                    {s.limited && (
-                      <span
-                        className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full"
-                        style={{ background: '#E7C78A33', color: '#A35C3D' }}
-                      >
-                        מקומות מוגבלים
-                      </span>
-                    )}
+                    {/* Live nearest-cohort line when the app has upcoming
+                        cohorts for this workshop; otherwise the static
+                        "limited spots" cue as before. */}
+                    {(() => {
+                      const wid = workshopIdFromLink(s.link)
+                      const info = wid ? nextCohorts[wid] : undefined
+                      if (info) return <NextCohortChip info={info} />
+                      return s.limited ? (
+                        <span
+                          className="inline-block mt-1.5 text-xs font-semibold px-2.5 py-0.5 rounded-full"
+                          style={{ background: '#E7C78A33', color: '#A35C3D' }}
+                        >
+                          מקומות מוגבלים
+                        </span>
+                      ) : null
+                    })()}
                   </div>
                 </div>
 
