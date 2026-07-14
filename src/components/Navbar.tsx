@@ -26,9 +26,10 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-ink">
+            <a href="#about" className="hover:text-terra transition-colors">מי אני</a>
             <a href="#services" className="hover:text-terra transition-colors">סדנאות</a>
-            <a href="#services" className="hover:text-terra transition-colors">מחירים</a>
             <a href="#testimonials" className="hover:text-terra transition-colors">המלצות</a>
+            <a href="#faq" className="hover:text-terra transition-colors">שאלות ותשובות</a>
           </div>
 
           {/* CTA */}
@@ -60,9 +61,10 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-cream border-t border-beige px-4 py-4 flex flex-col gap-4">
+          <a href="#about" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>מי אני</a>
           <a href="#services" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>סדנאות</a>
-          <a href="#services" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>מחירים</a>
           <a href="#testimonials" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>המלצות</a>
+          <a href="#faq" className="text-ink font-semibold text-sm" onClick={() => setMenuOpen(false)}>שאלות ותשובות</a>
           <a
             href="#contact"
             className="bg-terra text-white font-bold px-5 py-3 rounded-2xl text-center text-sm"
