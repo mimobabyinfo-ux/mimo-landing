@@ -30,6 +30,13 @@ function ddmm(dateStr: string): string {
   return `${parseInt(d, 10)}.${parseInt(m, 10)}`
 }
 
+// Today's date (YYYY-MM-DD) in Israel time. The landing hides a cohort from
+// midnight at the start of its day — i.e. a 15.07 cohort disappears at 00:00
+// on 15.07 and the next date is shown instead.
+function todayIsrael(): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Jerusalem' }).format(new Date())
+}
+
 export async function fetchNextCohorts(
   workshopIds: string[],
 ): Promise<Record<string, NextCohortInfo>> {
@@ -39,8 +46,11 @@ export async function fetchNextCohorts(
   })
   if (error || !data) return {}
 
+  const today = todayIsrael()
   const byWorkshop = new Map<string, PublicCohortRow[]>()
   for (const row of data as PublicCohortRow[]) {
+    // Skip cohorts happening today — the landing only advertises future dates.
+    if (row.start_date <= today) continue
     const list = byWorkshop.get(row.workshop_id)
     if (list) list.push(row)
     else byWorkshop.set(row.workshop_id, [row])
