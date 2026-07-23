@@ -7,6 +7,7 @@ import wa6 from '../assets/testimonial-wa-6.jpeg'
 import wa7 from '../assets/testimonial-wa-7.jpg'
 import wa8 from '../assets/testimonial-wa-8.jpg'
 import wa9 from '../assets/testimonial-wa-9.jpg'
+import wa10 from '../assets/testimonial-wa-10.jpeg'
 
 // Hebrew screenshots lead; the Spanish one (wa1) is placed last.
 const screenshots = [
@@ -17,6 +18,7 @@ const screenshots = [
   { src: wa7, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
   { src: wa8, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
   { src: wa9, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa10, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
   { src: wa1, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
 ]
 
