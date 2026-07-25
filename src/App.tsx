@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials'
 import VideoTestimonial from './components/VideoTestimonial'
 import ServicesList from './components/ServicesList'
 import Products from './components/Products'
+import FriendPromo from './components/FriendPromo'
 import Gallery from './components/Gallery'
 import FAQ from './components/FAQ'
 import ContactForm from './components/ContactForm'
@@ -40,6 +41,7 @@ export default function App() {
           <HowItWorks />
           <ServicesList />
           <Products />
+          <Reveal><FriendPromo /></Reveal>
           <Testimonials />
           <Reveal><VideoTestimonial /></Reveal>
           <Reveal><About /></Reveal>

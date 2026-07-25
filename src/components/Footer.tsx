@@ -47,6 +47,20 @@ export default function Footer() {
             >
               וואטסאפ: 053-3041277
             </a>
+            <a
+              href="tel:+972533041277"
+              className="text-sm transition-colors hover:text-[#E7C78A]"
+              style={{ color: '#C6BDA0' }}
+            >
+              טלפון: 053-3041277
+            </a>
+            <a
+              href="mailto:mimobaby.info@gmail.com"
+              className="text-sm transition-colors hover:text-[#E7C78A]"
+              style={{ color: '#C6BDA0' }}
+            >
+              mimobaby.info@gmail.com
+            </a>
             <p className="text-sm" style={{ color: '#C6BDA0' }}>אבא אחימאיר 10, רמת גן</p>
 
             {/* Social links - Mimo colors */}
@@ -77,6 +91,19 @@ export default function Footer() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Studio location map */}
+        <div className="mb-10 rounded-2xl overflow-hidden" style={{ border: '1px solid #5A5247' }}>
+          <iframe
+            title="הסטודיו של מימו - אבא אחימאיר 10, רמת גן"
+            src="https://www.google.com/maps?q=%D7%90%D7%91%D7%90%20%D7%90%D7%97%D7%99%D7%9E%D7%90%D7%99%D7%A8%2010%2C%20%D7%A8%D7%9E%D7%AA%20%D7%92%D7%9F&hl=he&z=16&output=embed"
+            className="w-full block"
+            style={{ height: 280, border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
         </div>
 
         <div
