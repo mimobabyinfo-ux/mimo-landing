@@ -58,7 +58,7 @@ const products: Product[] = [
 
 export default function Products() {
   return (
-    <section id="products" className="py-20 px-6 sm:px-10" style={{ background: '#FDFBF7' }}>
+    <section id="products" className="py-20 px-6 sm:px-10" style={{ background: '#FAF8F4' }}>
       <div className="max-w-4xl mx-auto">
 
         <Reveal>
@@ -109,7 +109,7 @@ export default function Products() {
             style={{ background: '#E7C78A1f', border: '1px solid #E7C78A55' }}
           >
             <p className="text-sm font-semibold leading-relaxed max-w-md" style={{ color: '#3A352E' }}>
-              📦 ניתן להזמין ולאסוף את המוצרים בסדנאות ובמפגשים של מימו
+              ניתן להזמין ולאסוף את המוצרים בסדנאות ובמפגשים של מימו
             </p>
             <a
               href={ORDER_URL}
@@ -118,7 +118,7 @@ export default function Products() {
               className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-full transition-all duration-200 hover:scale-105 shadow-sm"
               style={{ background: '#A35C3D', color: '#fff' }}
             >
-              💬 להזמנה בוואטסאפ
+              להזמנה בוואטסאפ
             </a>
           </div>
         </Reveal>

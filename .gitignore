@@ -3,3 +3,6 @@ dist
 .env
 .env.local
 vite.config.ts.timestamp-*.mjs
+
+_to_delete/
+_preview-v2/

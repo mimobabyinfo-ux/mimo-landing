@@ -1,51 +1,65 @@
 import Reveal from './Reveal'
-import wa1 from '../assets/testimonial-wa-1.jpg'
+import videoSrc from '../assets/recomentation.MP4?url'
+import videoPoster from '../assets/recomentation-poster.jpg'
 import wa3 from '../assets/testimonial-wa-3.jpg'
 import wa4 from '../assets/testimonial-wa-4.jpg'
 import wa5 from '../assets/testimonial-wa-5.jpg'
 import wa6 from '../assets/testimonial-wa-6.jpeg'
 import wa7 from '../assets/testimonial-wa-7.jpg'
 import wa8 from '../assets/testimonial-wa-8.jpg'
-import wa9 from '../assets/testimonial-wa-9.jpg'
 
-// Hebrew screenshots lead; the Spanish one (wa1) is placed last.
+// 6 screenshots, straight (no tilts), in white bordered cards.
 const screenshots = [
-  { src: wa3, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa4, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa5, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa6, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa7, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa8, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa9, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
-  { src: wa1, alt: 'המלצה מאמא במימו - צילום מסך מוואטסאפ' },
+  { src: wa3, w: 915, h: 474 },
+  { src: wa4, w: 906, h: 492 },
+  { src: wa5, w: 941, h: 367 },
+  { src: wa6, w: 767, h: 703 },
+  { src: wa7, w: 978, h: 541 },
+  { src: wa8, w: 1020, h: 539 },
 ]
-
-// Gentle alternating tilts (desktop only - md:). On mobile the notes stay straight
-// and full-width so the screenshot text is comfortably readable. Static class
-// strings so Tailwind's JIT picks them up.
-const tiltClasses = ['md:-rotate-3', 'md:rotate-2', 'md:-rotate-2', 'md:rotate-3', 'md:-rotate-2', 'md:rotate-3']
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 px-6 sm:px-10 overflow-hidden" style={{ background: '#C3CDD2' }}>
-      <div className="max-w-4xl mx-auto">
-
-        <Reveal>
-          <h2 className="text-3xl font-black text-center mb-12" style={{ color: '#A35C3D' }}>
+    <section id="testimonials" className="px-5 py-[68px]" style={{ background: '#FAF8F4' }}>
+      <div className="max-w-[1080px] mx-auto">
+        <Reveal className="text-center mb-8">
+          <h2 className="m-0 mb-2 text-[30px] sm:text-[34px] font-black" style={{ color: '#A35C3D' }}>
             משפחות מספרות
           </h2>
+          <p className="m-0 text-[15px]" style={{ color: '#818267' }}>
+            הודעות אמיתיות מאמהות שסיימו סדנה במימו
+          </p>
         </Reveal>
 
-        {/* WhatsApp screenshots - tilted, clustered collage (natural aspect ratio, never cropped) */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-3">
+        {/* Video testimonial — above the screenshots, loads metadata only */}
+        <div
+          className="max-w-[560px] mx-auto mb-8 rounded-3xl overflow-hidden border"
+          style={{ borderColor: '#E6DFD3', background: '#EADBDD' }}
+        >
+          <video
+            src={videoSrc}
+            poster={videoPoster}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full h-auto block"
+            aria-label="המלצת וידאו מאמא במימו"
+          />
+        </div>
+
+        {/* WhatsApp screenshots */}
+        <div style={{ columnWidth: 280, columnGap: 14 }}>
           {screenshots.map((s, i) => (
-            <Reveal key={i} delay={i * 70} className="mb-4 break-inside-avoid">
+            <Reveal key={i} delay={i * 60} className="mb-3.5 break-inside-avoid">
               <div
-                className={`rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 md:hover:rotate-0 md:hover:scale-[1.02] ${tiltClasses[i % tiltClasses.length]}`}
+                className="rounded-[20px] overflow-hidden border"
+                style={{ borderColor: '#E6DFD3', background: '#fff' }}
               >
                 <img
                   src={s.src}
-                  alt={s.alt}
+                  alt="המלצה מאמא במימו - צילום מסך מוואטסאפ"
+                  width={s.w}
+                  height={s.h}
                   loading="lazy"
                   className="w-full h-auto block"
                 />

@@ -9,35 +9,3 @@ export function WhatsAppIcon({ className = 'w-5 h-5' }: { className?: string }) 
     </svg>
   )
 }
-
-// Primary repeating CTA — same link & look everywhere.
-export function WhatsAppButton({ label = 'דברו איתי בוואטסאפ' }: { label?: string }) {
-  return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-full transition-all duration-200 hover:scale-105 shadow-sm"
-      style={{ background: '#A35C3D', color: '#fff' }}
-    >
-      <WhatsAppIcon />
-      {label}
-    </a>
-  )
-}
-
-// Sticky floating button — mobile only, always visible while scrolling.
-export function WhatsAppFloating() {
-  return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="דברו איתי בוואטסאפ"
-      className="md:hidden fixed bottom-5 left-4 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full shadow-lg"
-      style={{ background: '#25D366', color: '#fff' }}
-    >
-      <WhatsAppIcon className="w-7 h-7" />
-    </a>
-  )
-}

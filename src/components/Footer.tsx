@@ -1,33 +1,39 @@
 import logoMimo from '../assets/logo-mimo.png'
 
+// Opens Google Maps for navigation — replaces the heavy embedded iframe.
+const MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent('אבא אחימאיר 10, רמת גן')
+
 export default function Footer() {
   return (
-    <footer className="py-12 px-4 sm:px-6" style={{ background: '#3A352E', color: '#DCD4C8' }}>
-      <div className="max-w-5xl mx-auto">
-        <div className="grid sm:grid-cols-3 gap-8 mb-10">
+    <footer className="py-12 px-5" style={{ background: '#3A352E', color: '#C6BDA0' }}>
+      <div className="max-w-[1080px] mx-auto">
+        <div className="grid sm:grid-cols-3 gap-8 mb-9">
           {/* Brand */}
           <div className="flex flex-col gap-3">
             <div className="inline-flex self-start rounded-2xl px-4 py-2.5" style={{ background: '#FAF8F4' }}>
-              <img src={logoMimo} alt="Mimo" className="h-9 w-auto" />
+              <img src={logoMimo} alt="Mimo" width={2250} height={1458} className="h-8 w-auto block" />
             </div>
-            <p className="text-sm leading-relaxed" style={{ color: '#C6BDA0' }}>
+            <p className="m-0 text-sm" style={{ color: '#C6BDA0', lineHeight: 1.65 }}>
               ליווי התפתחותי, סדנאות ומפגשים לאמהות ולתינוקות - מהסטודיו של מימו ברמת גן.
             </p>
           </div>
 
           {/* Links */}
           <div className="flex flex-col gap-2">
-            <p className="font-bold text-sm mb-1" style={{ color: '#FAF8F4' }}>ניווט</p>
+            <p className="m-0 mb-1 font-bold text-sm" style={{ color: '#FAF8F4' }}>ניווט</p>
             {[
               { label: 'אודות', href: '#about' },
               { label: 'סדנאות ומחירים', href: '#services' },
               { label: 'המלצות', href: '#testimonials' },
-              { label: 'צרו קשר', href: '#contact' },
+              { label: 'מוצרים משלימים', href: '#products' },
+              { label: 'צרו קשר', href: '#lead' },
             ].map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm transition-colors hover:text-[#E7C78A]"
+                className="text-sm no-underline transition-colors hover:text-[#E7C78A]"
                 style={{ color: '#C6BDA0' }}
               >
                 {link.label}
@@ -37,33 +43,43 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="flex flex-col gap-2">
-            <p className="font-bold text-sm mb-1" style={{ color: '#FAF8F4' }}>יצירת קשר</p>
+            <p className="m-0 mb-1 font-bold text-sm" style={{ color: '#FAF8F4' }}>יצירת קשר</p>
             <a
               href="https://wa.me/972533041277"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm transition-colors hover:text-[#E7C78A]"
+              className="text-sm no-underline transition-colors hover:text-[#E7C78A]"
               style={{ color: '#C6BDA0' }}
             >
               וואטסאפ: 053-3041277
             </a>
             <a
               href="tel:+972533041277"
-              className="text-sm transition-colors hover:text-[#E7C78A]"
+              className="text-sm no-underline transition-colors hover:text-[#E7C78A]"
               style={{ color: '#C6BDA0' }}
             >
               טלפון: 053-3041277
             </a>
             <a
               href="mailto:mimobaby.info@gmail.com"
-              className="text-sm transition-colors hover:text-[#E7C78A]"
+              className="text-sm no-underline transition-colors hover:text-[#E7C78A]"
               style={{ color: '#C6BDA0' }}
             >
               mimobaby.info@gmail.com
             </a>
-            <p className="text-sm" style={{ color: '#C6BDA0' }}>אבא אחימאיר 10, רמת גן</p>
+            <p className="m-0 text-sm" style={{ color: '#C6BDA0' }}>אבא אחימאיר 10, רמת גן</p>
+            {/* Static navigation link instead of the Google Maps iframe */}
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold underline underline-offset-4 transition-colors hover:text-[#E7C78A]"
+              style={{ color: '#E7C78A' }}
+            >
+              לניווט לסטודיו ←
+            </a>
 
-            {/* Social links - Mimo colors */}
+            {/* Social links */}
             <div className="flex items-center gap-3 mt-3">
               <a
                 href="https://www.instagram.com/mimo.brenlevin/"
@@ -93,25 +109,12 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Studio location map */}
-        <div className="mb-10 rounded-2xl overflow-hidden" style={{ border: '1px solid #5A5247' }}>
-          <iframe
-            title="הסטודיו של מימו - אבא אחימאיר 10, רמת גן"
-            src="https://www.google.com/maps?q=%D7%90%D7%91%D7%90%20%D7%90%D7%97%D7%99%D7%9E%D7%90%D7%99%D7%A8%2010%2C%20%D7%A8%D7%9E%D7%AA%20%D7%92%D7%9F&hl=he&z=16&output=embed"
-            className="w-full block"
-            style={{ height: 280, border: 0 }}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-        </div>
-
         <div
-          className="border-t pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs"
+          className="border-t pt-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs"
           style={{ borderColor: '#5A5247', color: '#A39A88' }}
         >
-          <p>© 2026 מימו. כל הזכויות שמורות.</p>
-          <p>עשוי עם 💛 לאמהות</p>
+          <p className="m-0">© 2026 מימו. כל הזכויות שמורות.</p>
+          <p className="m-0">עשוי עם מימו לאמהות</p>
         </div>
       </div>
     </footer>

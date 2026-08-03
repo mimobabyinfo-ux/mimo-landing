@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { WhatsAppButton } from './WhatsAppButton'
 
+// 8 questions. Pricing question removed (prices are visible on the cards);
+// "מלווה נוסף" and "איך נרשמים" moved to WhatsApp conversations.
 const faqs = [
   {
     q: 'מאיזה גיל מתאימות הסדנאות?',
@@ -11,40 +12,28 @@ const faqs = [
     a: 'בסטודיו של מימו, אבא אחימאיר 10, רמת גן (שיכון ותיקים).',
   },
   {
-    q: 'אני בהריון - הסדנאות מתאימות לי?',
-    a: 'בוקר של מימו פתוח גם לנשים בהריון. לשאר הסדנאות מצטרפים אחרי הלידה, ואשמח לשמור לכן מקום במחזור הקרוב.',
-  },
-  {
-    q: 'כמה זה עולה?',
-    a: 'המחירים מופיעים באתר לצד כל סדנה, באופן שקוף. עיסוי תינוקות 450 ₪, סדנאות התפתחותיות 800 ₪, ליווי פרטני 400 ₪ לשעה, ובוקר של מימו 150 ₪.',
-  },
-  {
     q: 'כמה אמהות יש בקבוצה ומה משך כל מפגש?',
     a: 'קבוצה קטנה של עד 8 אמהות, עם יחס אישי לכל אחת. כל מפגש נמשך שעה וחצי (בסדנת עיסוי תינוקות - שעה ורבע).',
-  },
-  {
-    q: 'אפשר להגיע עם מלווה נוסף?',
-    a: 'בטח! אפשר להגיע עם בן זוג, אמא או כל מלווה אחר שתרצו - רק עדכנו אותי מראש כדי שאדאג שיהיה מקום נוח לכולם.',
-  },
-  {
-    q: 'צריך להביא משהו מיוחד?',
-    a: 'רק טטרה גדולה, אתכן והבייבי כמובן 🤍 כל שאר הציוד - מזרנים, פופים, כדורי פיזיו ואביזרים - כבר מחכה לכן בסטודיו, וגם קפה ונשנושים ממני.',
   },
   {
     q: 'מה אם התינוק שלי בוכה, רעב או נרדם במהלך המפגש?',
     a: 'טבעי ומובן לגמרי! עוצרות, מאכילות, מרגיעות - וממשיכים בקצב שלהם. הסדנאות בנויות בדיוק בשביל זה.',
   },
   {
+    q: 'צריך להביא משהו מיוחד?',
+    a: 'רק טטרה גדולה, אתכן והבייבי כמובן 🤍 כל שאר הציוד - מזרנים, פופים, כדורי פיזיו ואביזרים - כבר מחכה לכן בסטודיו, וגם קפה ונשנושים ממני.',
+  },
+  {
     q: 'מה אם אפספס מפגש?',
-    a: 'קורה, וזה בסדר! כל מפגש מסוכם בקבוצת הוואטסאפ של הסדנה, וניתן להשלים את המפגש החסר עם קבוצה אחרת.',
+    a: 'קורה, וזה בסדר! כל מפגש מסוכם בקבוצת הוואטסאפ של הסדנה, וניתן להשלים את המפגש החסר עם קבוצה אחרת - על בסיס מקום פנוי.',
   },
   {
     q: 'מה ההבדל בין סדנה לליווי פרטני?',
     a: 'הסדנאות מתקיימות בסטודיו בקבוצה קטנה, לאורך כמה מפגשים ולפי שלבי ההתפתחות. הליווי הפרטני הוא מפגש אישי אצלכן בבית, שמותאם בדיוק לתינוק/ת שלכן. אפשר גם לשלב בין השניים.',
   },
   {
-    q: 'איך נרשמים?',
-    a: 'הכי פשוט - בוואטסאפ. כתבו לי ואתאם אתכן הכול אישית.',
+    q: 'אני בהריון - הסדנאות מתאימות לי?',
+    a: 'בוקר של מימו פתוח גם לנשים בהריון. לשאר הסדנאות מצטרפים אחרי הלידה, ואשמח לשמור לכן מקום במחזור הקרוב.',
   },
 ]
 
@@ -52,47 +41,43 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-20 px-6 sm:px-10" style={{ background: '#EADBDD' }}>
-      <div className="max-w-3xl mx-auto">
+    <section id="faq" className="px-5 py-[68px]" style={{ background: '#FAF8F4' }}>
+      <div className="max-w-[760px] mx-auto">
+        <div className="text-center mb-[30px]">
+          <h2 className="m-0 mb-2 text-[30px] sm:text-[34px] font-black" style={{ color: '#A35C3D' }}>
+            שאלות נפוצות
+          </h2>
+          <p className="m-0 text-[15px]" style={{ color: '#818267' }}>
+            כל מה שחשוב לדעת לפני שמתחילים
+          </p>
+        </div>
 
-        <h2 className="text-3xl font-black text-center mb-2" style={{ color: '#A35C3D' }}>
-          שאלות נפוצות
-        </h2>
-        <p className="text-center text-sm mb-12" style={{ color: '#818267' }}>
-          כל מה שחשוב לדעת לפני שמתחילים
-        </p>
-
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-2.5">
           {faqs.map((item, i) => (
-            <div key={item.q} className="border-b" style={{ borderColor: '#D8C4C8' }}>
+            <div
+              key={item.q}
+              className="rounded-[18px] border overflow-hidden"
+              style={{ background: '#FFFDF8', borderColor: '#E6DFD3' }}
+            >
               <button
-                className="w-full py-5 flex items-center gap-4 text-right"
+                className="w-full flex items-center gap-3.5 text-right bg-transparent border-0 cursor-pointer px-5 py-[17px]"
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
               >
-                <p className="flex-1 font-bold text-base" style={{ color: '#3A352E' }}>{item.q}</p>
-                <span
-                  className="text-2xl leading-none shrink-0 transition-transform duration-200"
-                  style={{ color: '#A35C3D', transform: open === i ? 'rotate(45deg)' : 'none' }}
-                >
-                  +
+                <span className="flex-1 text-base font-bold" style={{ color: '#3A352E' }}>
+                  {item.q}
+                </span>
+                <span className="text-[22px] leading-none shrink-0" style={{ color: '#A35C3D' }}>
+                  {open === i ? '−' : '+'}
                 </span>
               </button>
-
               {open === i && (
-                <p className="pb-5 text-sm leading-relaxed" style={{ color: '#5a4a3a' }}>
+                <p className="m-0 px-5 pb-[18px] text-[15px]" style={{ color: '#5F5A4E', lineHeight: 1.7 }}>
                   {item.a}
                 </p>
               )}
             </div>
           ))}
-        </div>
-
-        {/* Primary action - WhatsApp */}
-        <div className="flex flex-col items-center gap-3 mt-12 text-center">
-          <p className="text-sm" style={{ color: '#818267' }}>
-            עוד שאלה? אני כאן
-          </p>
-          <WhatsAppButton />
         </div>
       </div>
     </section>

@@ -20,44 +20,30 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 px-6 sm:px-10" style={{ background: '#EADBDD' }}>
-      <div className="max-w-5xl mx-auto">
-
+    <section className="px-5 py-16" style={{ background: '#EADBDD' }}>
+      <div className="max-w-[900px] mx-auto">
         {/* Header */}
-        <Reveal className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-black" style={{ color: '#A35C3D' }}>
+        <Reveal className="text-center mb-10">
+          <h2 className="m-0 mb-2 text-[28px] sm:text-[32px] font-black" style={{ color: '#A35C3D' }}>
             כל תינוק הוא עולם ומלואו
           </h2>
-          <p className="mt-3 text-base max-w-lg mx-auto" style={{ color: '#3A352E' }}>
+          <p className="m-0 mx-auto max-w-[480px] text-[15.5px]" style={{ color: '#3A352E', lineHeight: 1.6 }}>
             כל אמא ובייבי הם עולם בפני עצמו - ולכן הליווי אצלנו אישי, רגוע ומותאם בדיוק לכן.
           </p>
         </Reveal>
 
         {/* Steps - RTL grid flows right-to-left, so 01 sits on the right */}
-        <div className="grid sm:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-3 gap-7">
           {steps.map((step, i) => (
-            <Reveal key={step.num} delay={i * 90} className="flex flex-col items-center text-center gap-3">
-              <span
-                className="text-6xl font-black opacity-40 leading-none"
-                style={{ color: '#A35C3D' }}
-              >
+            <Reveal key={step.num} delay={i * 90} className="flex flex-col gap-2.5">
+              <span className="text-[15px] font-black" style={{ color: '#A35C3D', letterSpacing: 1 }}>
                 {step.num}
               </span>
-              <h3 className="text-base font-black" style={{ color: '#3A352E' }}>{step.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: '#3A352E' }}>{step.body}</p>
+              <span style={{ height: 2, background: '#C9A76A80', width: 34 }} />
+              <h3 className="m-0 mt-1 text-lg font-black" style={{ color: '#3A352E' }}>{step.title}</h3>
+              <p className="m-0 text-[14.5px]" style={{ color: '#5F5A4E', lineHeight: 1.65 }}>{step.body}</p>
             </Reveal>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <a
-            href="#services"
-            className="inline-block font-bold px-8 py-3.5 rounded-full border-2 transition-all duration-200"
-            style={{ borderColor: '#A35C3D', color: '#A35C3D' }}
-          >
-            קראו עוד
-          </a>
         </div>
       </div>
     </section>
