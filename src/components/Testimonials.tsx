@@ -47,8 +47,36 @@ export default function Testimonials() {
           />
         </div>
 
-        {/* WhatsApp screenshots */}
-        <div style={{ columnWidth: 280, columnGap: 14 }}>
+        {/* WhatsApp screenshots — mobile: horizontal swipe row (keeps the page short) */}
+        <div className="md:hidden">
+          <div
+            className="flex gap-3 overflow-x-auto pb-2 -mx-5 px-5"
+            style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
+          >
+            {screenshots.map((s, i) => (
+              <div
+                key={i}
+                className="w-[280px] shrink-0 rounded-[20px] overflow-hidden border self-start"
+                style={{ borderColor: '#E6DFD3', background: '#fff', scrollSnapAlign: 'center' }}
+              >
+                <img
+                  src={s.src}
+                  alt="המלצה מאמא במימו - צילום מסך מוואטסאפ"
+                  width={s.w}
+                  height={s.h}
+                  loading="lazy"
+                  className="w-full h-auto block"
+                />
+              </div>
+            ))}
+          </div>
+          <p className="m-0 mt-2 text-center text-[13px] font-semibold" style={{ color: '#818267' }}>
+            החליקי לעוד המלצות ←
+          </p>
+        </div>
+
+        {/* Desktop: masonry columns */}
+        <div className="hidden md:block" style={{ columnWidth: 280, columnGap: 14 }}>
           {screenshots.map((s, i) => (
             <Reveal key={i} delay={i * 60} className="mb-3.5 break-inside-avoid">
               <div

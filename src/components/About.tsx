@@ -18,16 +18,17 @@ export default function About() {
       className="px-5 py-[68px] border-y"
       style={{ background: '#FFFDF8', borderColor: '#EDE6DA' }}
     >
-      <div className="max-w-[1000px] mx-auto grid gap-11 md:grid-cols-2 items-start">
-        {/* Photos */}
-        <div className="flex flex-col gap-3.5">
+      <div className="max-w-[1000px] mx-auto grid gap-8 md:gap-11 md:grid-cols-2 items-start">
+        {/* Photos — below the text on mobile, right column on desktop */}
+        <div className="flex flex-col gap-3.5 order-2 md:order-1">
+          {/* Big portrait — desktop only; on mobile it sits next to the heading */}
           <img
             src={aboutImg}
             alt="ברנדה, מלווה התפתחותית ומדריכת עיסוי תינוקות"
             width={1024}
             height={1024}
             loading="lazy"
-            className="w-full max-w-[300px] rounded-full object-cover block"
+            className="hidden md:block w-full max-w-[300px] rounded-full object-cover"
             style={{ aspectRatio: '1 / 1' }}
           />
           <div style={{ columns: 2, columnGap: 10 }}>
@@ -45,10 +46,29 @@ export default function About() {
           </div>
         </div>
 
-        {/* Text */}
-        <div className="flex flex-col gap-4">
-          <p className="m-0 text-xl font-light" style={{ color: '#818267' }}>היי,</p>
-          <h2 className="m-0 -mt-2.5 text-[36px] sm:text-[40px] font-black" style={{ color: '#A35C3D' }}>
+        {/* Text — first on mobile */}
+        <div className="flex flex-col gap-4 order-1 md:order-2">
+          {/* Mobile: round photo next to the heading */}
+          <div className="flex md:hidden items-center gap-4">
+            <img
+              src={aboutImg}
+              alt="ברנדה, מלווה התפתחותית ומדריכת עיסוי תינוקות"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="w-24 h-24 rounded-full object-cover shrink-0"
+              style={{ objectPosition: 'center 30%' }}
+            />
+            <div>
+              <p className="m-0 text-xl font-light" style={{ color: '#818267' }}>היי,</p>
+              <h2 className="m-0 text-[32px] font-black" style={{ color: '#A35C3D' }}>
+                אני ברנדה
+              </h2>
+            </div>
+          </div>
+          {/* Desktop heading */}
+          <p className="m-0 text-xl font-light hidden md:block" style={{ color: '#818267' }}>היי,</p>
+          <h2 className="m-0 -mt-2.5 text-[36px] sm:text-[40px] font-black hidden md:block" style={{ color: '#A35C3D' }}>
             אני ברנדה
           </h2>
           <p className="m-0 text-sm font-bold" style={{ color: '#818267', lineHeight: 1.6 }}>
