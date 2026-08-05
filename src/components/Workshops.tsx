@@ -6,7 +6,7 @@ import { track } from '../lib/track'
 import { REGISTER } from '../lib/registerLinks'
 
 // "חברה מביאה חברה" — both friends get 10% off when signing up together.
-const PROMO_MESSAGE = 'היי ברנדה! אנחנו חברות שרוצות להירשם יחד לסדנה ולקבל את ההנחה 🤍'
+const PROMO_MESSAGE = 'היי ברנדה! אנחנו חברות שרוצות להירשם יחד לסדנה ולקבל את ההנחה 💛'
 const PROMO_URL = `https://wa.me/972533041277?text=${encodeURIComponent(PROMO_MESSAGE)}`
 
 type Workshop = {

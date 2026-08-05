@@ -7,7 +7,7 @@ import tik from '../assets/tikmimo.jpeg'
 import Reveal from './Reveal'
 
 // Dedicated WhatsApp message for product orders (separate from the workshops CTA).
-const ORDER_MESSAGE = 'היי ברנדה! הגעתי דרך האתר ואשמח להזמין מוצר משלים 🤍'
+const ORDER_MESSAGE = 'היי ברנדה! הגעתי דרך האתר ואשמח להזמין מוצר משלים 💛'
 const ORDER_URL = `https://wa.me/972533041277?text=${encodeURIComponent(ORDER_MESSAGE)}`
 
 type Product = {
