@@ -36,14 +36,12 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-/* Headings site-wide. No component needs a font class. */
 h1, h2, h3, h4 {
-  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-family: 'Varela Round', system-ui, sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-/* Inputs: never below 16px, or iOS zooms the page on focus. */
 input, textarea, select {
   font-family: inherit;
   font-size: max(16px, 1rem);
@@ -54,9 +52,8 @@ input, textarea, select {
     text-wrap: balance;
   }
 
-  /* Short handwritten kickers only. */
   .font-script {
-    font-family: 'Gveret Levin', 'Gveret Levin AlefAlefAlef', 'Assistant', cursive;
+    font-family: 'Varela Round', system-ui, sans-serif;
     font-weight: 400;
   }
 }

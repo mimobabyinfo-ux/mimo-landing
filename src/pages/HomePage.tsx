@@ -371,10 +371,11 @@ export default function HomePage() {
             >
               בית עוטף ומלטף · רמת גן
             </span>
-            {/* 36px is the design size, but at 390px "הקול הכי חשוב הוא שלך" wraps to a
-                third line and climbs out of the dark part of the gradient. */}
+            {/* The design says 36px, but that was set in a serif. Varela Round runs
+                wider, and anything above 30px breaks "הקול הכי חשוב הוא שלך" onto a
+                third line that climbs out of the dark part of the gradient. */}
             <h1
-              className="m-0 font-display text-[32px] font-bold leading-[1.15] min-[420px]:text-[36px]"
+              className="m-0 font-display text-[30px] font-bold leading-[1.15] min-[420px]:text-[34px]"
               style={{ color: '#FFFDF8', textShadow: ON_PHOTO_SHADOW }}
             >
               בעולם מוצף עצות,
@@ -441,7 +442,7 @@ export default function HomePage() {
       {/* Empathy */}
       <section className="flex flex-col items-center gap-3.5 px-[22px] pb-12 pt-14 text-center">
         <img src={mimoGoose} alt="" className="block h-auto w-[84px]" style={{ opacity: 0.9 }} />
-        <span className="font-script text-[26px] leading-none" style={{ color: '#818267' }}>
+        <span className="font-script text-[19px] leading-none" style={{ color: '#818267' }}>
           רגע, נשימה
         </span>
         <h2 className="m-0 font-display text-[30px] font-bold leading-[1.25]" style={{ color: '#A35C3D' }}>
@@ -471,7 +472,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-[22px]">
             <span
-              className="font-script text-[30px] leading-[1.1]"
+              className="font-script text-[22px] leading-[1.1]"
               style={{ color: '#E7C78A', textShadow: ON_PHOTO_SHADOW }}
             >
               קבוצה קטנה, יחס אישי
@@ -497,7 +498,7 @@ export default function HomePage() {
         }}
       >
         <div className="mb-[26px] flex flex-col items-center gap-2 text-center">
-          <span className="font-script text-[25px] leading-none" style={{ color: '#818267' }}>
+          <span className="font-script text-[18px] leading-none" style={{ color: '#818267' }}>
             בואי נכיר
           </span>
           <h2 className="m-0 font-display text-[29px] font-bold" style={{ color: '#A35C3D' }}>
@@ -688,7 +689,7 @@ export default function HomePage() {
         }}
       >
         <div className="mb-[22px] flex flex-col items-center gap-2 px-[22px] text-center">
-          <span className="font-script text-[25px] leading-none" style={{ color: '#818267' }}>
+          <span className="font-script text-[18px] leading-none" style={{ color: '#818267' }}>
             תודה שסיפרתן
           </span>
           <h2 className="m-0 font-display text-[29px] font-bold" style={{ color: '#A35C3D' }}>
@@ -754,7 +755,7 @@ export default function HomePage() {
             style={{ width: 104, height: 104, objectFit: 'cover', objectPosition: 'center 30%' }}
           />
           <div className="flex flex-col">
-            <span className="font-script text-[28px] leading-[1.1]" style={{ color: '#818267' }}>
+            <span className="font-script text-[20px] leading-[1.1]" style={{ color: '#818267' }}>
               היי,
             </span>
             <h2 className="m-0 font-display text-[34px] font-bold" style={{ color: '#A35C3D' }}>
@@ -818,7 +819,7 @@ export default function HomePage() {
         style={{ background: '#FFFDF8', borderTop: '1px solid #EDE6DA' }}
       >
         <div className="mb-[22px] flex flex-col items-center gap-2 text-center">
-          <span className="font-script text-[25px] leading-none" style={{ color: '#818267' }}>
+          <span className="font-script text-[18px] leading-none" style={{ color: '#818267' }}>
             כל מה ששאלתן
           </span>
           <h2 className="m-0 font-display text-[29px] font-bold" style={{ color: '#A35C3D' }}>

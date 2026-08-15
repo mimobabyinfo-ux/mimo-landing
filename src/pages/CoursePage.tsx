@@ -95,7 +95,7 @@ export default function CoursePage() {
     <Shell>
       <div className="flex flex-col items-center gap-1 px-[18px] pb-3 pt-[18px]">
         <img src={logoMimo} alt="Mimo" className="block h-[42px] w-auto" />
-        <span className="font-script text-[22px] leading-none" style={{ color: '#818267' }}>
+        <span className="font-script text-[16px] leading-none" style={{ color: '#818267' }}>
           בית עוטף ומלטף
         </span>
       </div>
@@ -230,7 +230,7 @@ export default function CoursePage() {
               style={{ width: 88, height: 88, objectFit: 'cover', objectPosition: 'center 30%' }}
             />
             <div className="flex flex-col">
-              <span className="font-script text-[25px] leading-[1.1]" style={{ color: '#818267' }}>
+              <span className="font-script text-[18px] leading-[1.1]" style={{ color: '#818267' }}>
                 מי מלמדת
               </span>
               <h2 className="m-0 font-display text-[28px] font-bold" style={{ color: '#A35C3D' }}>

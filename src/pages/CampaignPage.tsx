@@ -69,7 +69,7 @@ export default function CampaignPage() {
           <div className="absolute inset-x-0 bottom-0 flex flex-col gap-[11px] p-[22px]">
             <div className="flex flex-wrap items-center gap-2.5">
               <span
-                className="font-script text-[27px] leading-[1.2]"
+                className="font-script text-[19px] leading-[1.2]"
                 style={{ color: '#E7C78A', textShadow: ON_PHOTO_SHADOW }}
               >
                 {v.workshopName}
@@ -131,7 +131,7 @@ export default function CampaignPage() {
             style={{ background: '#E7C78A33' }}
           >
             <span
-              className="font-script text-[23px] leading-[1.25]"
+              className="font-script text-[17px] leading-[1.25]"
               style={{ color: '#A35C3D' }}
             >
               חברה מביאה חברה
@@ -281,7 +281,7 @@ export default function CampaignPage() {
           />
           <div className="absolute inset-x-0 bottom-0 p-5">
             <span
-              className="font-script text-[28px] leading-[1.15]"
+              className="font-script text-[20px] leading-[1.15]"
               style={{ color: '#E7C78A', textShadow: ON_PHOTO_SHADOW }}
             >
               {v.bandText}
@@ -301,7 +301,7 @@ export default function CampaignPage() {
             style={{ width: 92, height: 92, objectFit: 'cover', objectPosition: 'center 30%' }}
           />
           <div className="flex flex-col">
-            <span className="font-script text-[26px] leading-[1.1]" style={{ color: '#818267' }}>
+            <span className="font-script text-[19px] leading-[1.1]" style={{ color: '#818267' }}>
               היי,
             </span>
             <h2 className="m-0 font-display text-[30px] font-bold" style={{ color: '#A35C3D' }}>
