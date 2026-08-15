@@ -2,7 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "comment": "The site is a single bundle serving /, /lp and /course. Without this, a visitor clicking an ad straight to /lp?w=discoverers gets a 404, because no such file exists on disk. Anything with a dot in it (thank-you.html, mimo_logo.png, /assets/*) and anything under /api is served as-is.",
       "source": "/((?!api/)(?!.*\\.).*)",
       "destination": "/index.html"
     }

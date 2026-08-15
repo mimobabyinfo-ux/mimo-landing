@@ -5,8 +5,13 @@
 // /lp?w=...    → the campaign page (one component, two variants)
 // /course      → the digital course page
 //
-// Vercel rewrites every unknown path to index.html, so anything we don't
+// `vercel.json` rewrites every path without a dot (and not under /api) to
+// index.html, so a click from an ad straight to /lp?w=discoverers reaches this
+// bundle instead of 404ing — no such file exists on disk. Anything we don't
 // recognise falls back to the home page rather than rendering nothing.
+//
+// Note for future edits: vercel.json is validated against a strict schema.
+// Extra keys inside a rewrite object (even "comment") fail the whole build.
 
 export type Page = 'home' | 'lp' | 'course'
 
