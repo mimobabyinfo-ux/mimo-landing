@@ -3,6 +3,7 @@ import Shell from '../components/shared/Shell'
 import StickyBar from '../components/shared/StickyBar'
 import FaqAccordion from '../components/shared/FaqAccordion'
 import FitCard from '../components/shared/FitCard'
+import MimoLeaf from '../components/shared/MimoLeaf'
 import { track, setTrackingVariant } from '../lib/track'
 import { REGISTER } from '../lib/registerLinks'
 
@@ -155,14 +156,23 @@ export default function CoursePage() {
 
       {/* Empathy */}
       <section className="px-4 pt-[34px]">
-        <div className="flex flex-col gap-3 rounded-[28px] p-6" style={{ background: '#EADBDD' }}>
-          <p className="m-0 text-[17.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
+        <div
+          className="relative flex flex-col gap-3 overflow-hidden rounded-[28px] p-6"
+          style={{ background: '#EADBDD' }}
+        >
+          <MimoLeaf
+            variant="blush"
+            size={125}
+            rotate={-40}
+            style={{ position: 'absolute', right: -32, top: -26, opacity: 0.45 }}
+          />
+          <p className="relative m-0 text-[17.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
             את מכירה את הרגע הזה. הוא מכווץ את הרגליים, בוכה, ואת עומדת מעליו ולא יודעת מה לעשות.
           </p>
-          <p className="m-0 text-[17.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
+          <p className="relative m-0 text-[17.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
             גוגל אומר לך חמישה דברים סותרים, והקבוצה בוואטסאפ עוד עשרה.
           </p>
-          <p className="m-0 text-[17.5px] font-bold leading-[1.8]" style={{ color: '#3A352E' }}>
+          <p className="relative m-0 text-[17.5px] font-bold leading-[1.8]" style={{ color: '#3A352E' }}>
             ואת רק רוצה לדעת מה לעשות עכשיו, עם הידיים שלך.
           </p>
         </div>
@@ -218,10 +228,16 @@ export default function CoursePage() {
       {/* Who teaches */}
       <section className="px-4 pt-[34px]">
         <div
-          className="rounded-[28px] p-[22px]"
+          className="relative overflow-hidden rounded-[28px] p-[22px]"
           style={{ background: '#FFFDF8', border: '1px solid #E6DFD3' }}
         >
-          <div className="mb-3.5 flex items-center gap-[15px]">
+          <MimoLeaf
+            variant="sand-2"
+            size={120}
+            rotate={-18}
+            style={{ position: 'absolute', left: -34, bottom: -26, opacity: 0.5 }}
+          />
+          <div className="relative mb-3.5 flex items-center gap-[15px]">
             <img
               src={aboutBrenda}
               alt="ברנדה, מדריכת עיסוי תינוקות"
@@ -238,11 +254,11 @@ export default function CoursePage() {
               </h2>
             </div>
           </div>
-          <p className="m-0 mb-3 text-[16.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
+          <p className="relative m-0 mb-3 text-[16.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
             מייסדת מימו, מלווה התפתחותית מוסמכת ומדריכת עיסוי תינוקות. אני מלמדת עיסוי תינוקות
             בסדנאות אינטימיות בקבוצות קטנות, בגינה הירוקה של מימו ברמת גן.
           </p>
-          <p className="m-0 text-[16.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
+          <p className="relative m-0 text-[16.5px] leading-[1.8]" style={{ color: '#3A352E' }}>
             הקורס הדיגיטלי הוא בדיוק אותו תוכן: אותו סדר, אותה שפה, אותן תנועות. רק שאת עושה אותו
             בבית, בקצב שלך, וחוזרת אליו מתי שבא לך.
           </p>
@@ -265,9 +281,15 @@ export default function CoursePage() {
           className="absolute h-auto w-[110px]"
           style={{ left: -14, bottom: -10, opacity: 0.45 }}
         />
+        <MimoLeaf
+          variant="clay"
+          size={140}
+          rotate={128}
+          style={{ position: 'absolute', right: -46, top: -52, opacity: 0.32 }}
+        />
         <div className="relative flex flex-col items-center gap-3.5 text-center">
           <h2
-            className="m-0 font-display text-[32px] font-bold leading-[1.25]"
+            className="relative m-0 font-display text-[32px] font-bold leading-[1.25]"
             style={{ color: '#A35C3D' }}
           >
             97 ₪. פעם אחת. שלך לתמיד.

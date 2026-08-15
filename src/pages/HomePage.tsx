@@ -4,6 +4,7 @@ import StickyBar from '../components/shared/StickyBar'
 import LeadForm from '../components/shared/LeadForm'
 import FaqAccordion from '../components/shared/FaqAccordion'
 import NextCohortChip, { useNextCohort } from '../components/shared/NextCohortChip'
+import MimoLeaf from '../components/shared/MimoLeaf'
 import { track } from '../lib/track'
 import { REGISTER } from '../lib/registerLinks'
 
@@ -440,7 +441,13 @@ export default function HomePage() {
       </section>
 
       {/* Empathy */}
-      <section className="flex flex-col items-center gap-3.5 px-[22px] pb-12 pt-14 text-center">
+      <section className="relative flex flex-col items-center gap-3.5 overflow-hidden px-[22px] pb-12 pt-14 text-center">
+        <MimoLeaf
+          variant="sky-1"
+          size={130}
+          rotate={34}
+          style={{ position: 'absolute', right: -38, top: 18, opacity: 0.4 }}
+        />
         <img src={mimoGoose} alt="" className="block h-auto w-[84px]" style={{ opacity: 0.9 }} />
         <span className="font-script text-[19px] leading-none" style={{ color: '#818267' }}>
           רגע, נשימה
@@ -574,8 +581,18 @@ export default function HomePage() {
       </section>
 
       {/* Digital course */}
-      <section id="course" className="px-4 py-12" style={{ background: '#EADBDD' }}>
-        <div className="flex flex-col items-start gap-3.5">
+      <section
+        id="course"
+        className="relative overflow-hidden px-4 py-12"
+        style={{ background: '#EADBDD' }}
+      >
+        <MimoLeaf
+          variant="clay"
+          size={150}
+          rotate={-62}
+          style={{ position: 'absolute', left: -40, bottom: -30, opacity: 0.35 }}
+        />
+        <div className="relative flex flex-col items-start gap-3.5">
           <span
             className="rounded-full px-3.5 py-[7px] text-[12.5px] font-extrabold"
             style={{ background: '#FFFDF8', color: '#A35C3D' }}
@@ -681,14 +698,20 @@ export default function HomePage() {
       {/* Testimonials */}
       <section
         id="testimonials"
-        className="py-12"
+        className="relative overflow-hidden py-12"
         style={{
           background: '#FFFDF8',
           borderTop: '1px solid #EDE6DA',
           borderBottom: '1px solid #EDE6DA',
         }}
       >
-        <div className="mb-[22px] flex flex-col items-center gap-2 px-[22px] text-center">
+        <MimoLeaf
+          variant="blush"
+          size={118}
+          rotate={16}
+          style={{ position: 'absolute', right: -32, top: -22, opacity: 0.45 }}
+        />
+        <div className="relative mb-[22px] flex flex-col items-center gap-2 px-[22px] text-center">
           <span className="font-script text-[18px] leading-none" style={{ color: '#818267' }}>
             תודה שסיפרתן
           </span>
@@ -833,8 +856,18 @@ export default function HomePage() {
       </section>
 
       {/* Lead */}
-      <section id="lead" className="px-4 py-[52px]" style={{ background: '#A35C3D' }}>
-        <div className="mb-[22px] flex flex-col gap-4">
+      <section
+        id="lead"
+        className="relative overflow-hidden px-4 py-[52px]"
+        style={{ background: '#A35C3D' }}
+      >
+        <MimoLeaf
+          variant="sand-1"
+          size={175}
+          rotate={152}
+          style={{ position: 'absolute', right: -46, top: -44, opacity: 0.16 }}
+        />
+        <div className="relative mb-[22px] flex flex-col gap-4">
           <h2
             className="m-0 font-display text-[34px] font-bold leading-[1.2]"
             style={{ color: '#FFFDF8' }}
@@ -846,6 +879,7 @@ export default function HomePage() {
             התחייבות.
           </p>
         </div>
+        <div className="relative">
         <LeadForm
           location="home"
           pageVariant="home"
@@ -873,7 +907,8 @@ export default function HomePage() {
             </div>
           }
         />
-        <div className="mt-5 flex flex-col gap-2 text-[15.5px]" style={{ color: '#F0DCCF' }}>
+        </div>
+        <div className="relative mt-5 flex flex-col gap-2 text-[15.5px]" style={{ color: '#F0DCCF' }}>
           <span>אבא אחימאיר 10, רמת גן (שיכון ותיקים)</span>
           <a
             href={WA_GENERAL}
@@ -889,8 +924,14 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section id="products" className="px-4 py-[52px]">
-        <div className="mb-[26px] flex flex-col items-center gap-2 text-center">
+      <section id="products" className="relative overflow-hidden px-4 py-[52px]">
+        <MimoLeaf
+          variant="sand-2"
+          size={128}
+          rotate={-96}
+          style={{ position: 'absolute', left: -36, top: 24, opacity: 0.38 }}
+        />
+        <div className="relative mb-[26px] flex flex-col items-center gap-2 text-center">
           <h2 className="m-0 font-display text-[28px] font-bold" style={{ color: '#A35C3D' }}>
             מוצרים משלימים של מימו
           </h2>

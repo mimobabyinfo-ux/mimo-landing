@@ -4,6 +4,7 @@ import StickyBar from '../components/shared/StickyBar'
 import LeadForm from '../components/shared/LeadForm'
 import FaqAccordion from '../components/shared/FaqAccordion'
 import FitCard from '../components/shared/FitCard'
+import MimoLeaf from '../components/shared/MimoLeaf'
 import { useNextCohort, cohortText } from '../components/shared/NextCohortChip'
 import { track, setTrackingVariant } from '../lib/track'
 import { VARIANTS, CAMPAIGN_FAQ, variantFromSearch } from '../lib/workshopVariants'
@@ -226,8 +227,17 @@ export default function CampaignPage() {
 
       {/* Takeaway */}
       <section className="px-4 pt-[38px]">
-        <div className="flex flex-col gap-3.5 rounded-[28px] p-6" style={{ background: '#EADBDD' }}>
-          <div className="flex items-center justify-between gap-3">
+        <div
+          className="relative flex flex-col gap-3.5 overflow-hidden rounded-[28px] p-6"
+          style={{ background: '#EADBDD' }}
+        >
+          <MimoLeaf
+            variant="sand-2"
+            size={130}
+            rotate={-118}
+            style={{ position: 'absolute', left: -36, bottom: -28, opacity: 0.4 }}
+          />
+          <div className="relative flex items-center justify-between gap-3">
             <p className="m-0 font-display text-2xl font-bold" style={{ color: '#A35C3D' }}>
               {v.takeawayTitle}
             </p>
@@ -239,7 +249,7 @@ export default function CampaignPage() {
             />
           </div>
           {v.bullets.map((b) => (
-            <div key={b} className="flex items-start gap-3">
+            <div key={b} className="relative flex items-start gap-3">
               <span
                 className="mt-2 shrink-0 rounded-full"
                 style={{ width: 8, height: 8, background: '#A35C3D' }}
@@ -249,7 +259,7 @@ export default function CampaignPage() {
               </span>
             </div>
           ))}
-          <div className="mt-1 flex flex-wrap gap-2">
+          <div className="relative mt-1 flex flex-wrap gap-2">
             {['קבוצת וואטסאפ עם סיכומים', 'קפה ונשנושים בגינה', 'מתנה אישית בסיום'].map((c) => (
               <span
                 key={c}
@@ -291,8 +301,14 @@ export default function CampaignPage() {
       </section>
 
       {/* About */}
-      <section className="px-4 pt-[38px]">
-        <div className="mb-3.5 flex items-center gap-[15px]">
+      <section className="relative overflow-hidden px-4 pt-[38px]">
+        <MimoLeaf
+          variant="sky-2"
+          size={120}
+          rotate={72}
+          style={{ position: 'absolute', right: -34, bottom: -18, opacity: 0.38 }}
+        />
+        <div className="relative mb-3.5 flex items-center gap-[15px]">
           <img
             src={aboutBrenda}
             alt="ברנדה, מלווה התפתחותית ומדריכת עיסוי תינוקות"
@@ -309,10 +325,10 @@ export default function CampaignPage() {
             </h2>
           </div>
         </div>
-        <p className="m-0 mb-3 text-sm font-bold leading-[1.55]" style={{ color: '#818267' }}>
+        <p className="relative m-0 mb-3 text-sm font-bold leading-[1.55]" style={{ color: '#818267' }}>
           מלווה התפתחותית מוסמכת · מדריכת עיסוי תינוקות
         </p>
-        <p className="m-0 text-[17px] leading-[1.8]" style={{ color: '#3A352E' }}>
+        <p className="relative m-0 text-[17px] leading-[1.8]" style={{ color: '#3A352E' }}>
           נולדתי בארגנטינה, גרתי רוב חיי במדריד, והיום אני מלווה אמהות ותינוקות מהסטודיו שלי ברמת גן.
           "מימו" בספרדית זה "ליטוף", וזו בדיוק המהות של המרחב הזה: לתת לך ולבייבי מלא מימו, דרך מגע,
           תנועה, הבנה ותמיכה.
@@ -325,16 +341,27 @@ export default function CampaignPage() {
       </section>
 
       {/* Close */}
-      <section id="lead" className="mt-[38px] px-4 py-11" style={{ background: '#A35C3D' }}>
+      <section
+        id="lead"
+        className="relative mt-[38px] overflow-hidden px-4 py-11"
+        style={{ background: '#A35C3D' }}
+      >
+        <MimoLeaf
+          variant="sand-1"
+          size={165}
+          rotate={-146}
+          style={{ position: 'absolute', left: -44, top: -40, opacity: 0.16 }}
+        />
         <h2
-          className="m-0 mb-2.5 font-display text-[30px] font-bold leading-[1.2]"
+          className="relative m-0 mb-2.5 font-display text-[30px] font-bold leading-[1.2]"
           style={{ color: '#FFFDF8' }}
         >
           {v.closeTitle}
         </h2>
-        <p className="m-0 mb-5 text-[16.5px] leading-[1.7]" style={{ color: '#F0DCCF' }}>
+        <p className="relative m-0 mb-5 text-[16.5px] leading-[1.7]" style={{ color: '#F0DCCF' }}>
           {v.closeSub}
         </p>
+        <div className="relative">
         <LeadForm
           location={`lp-${v.trackingId}`}
           pageVariant={v.trackingId}
@@ -350,6 +377,7 @@ export default function CampaignPage() {
             </p>
           }
         />
+        </div>
       </section>
 
       <footer
