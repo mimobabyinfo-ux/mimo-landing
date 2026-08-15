@@ -22,8 +22,14 @@ export default {
         muted:   '#5F5A4E', // secondary body text
       },
       fontFamily: {
-        sans: ['Nunito', 'system-ui', '-apple-system', 'sans-serif'],
-        hebrew: ['"Heebo"', '"Assistant"', 'system-ui', 'sans-serif'],
+        // Body text everywhere.
+        sans: ['"Assistant"', 'system-ui', '-apple-system', 'sans-serif'],
+        hebrew: ['"Assistant"', 'system-ui', 'sans-serif'],
+        // Headings. Hebrew counterpart of the brand book's Coustard.
+        display: ['"Frank Ruhl Libre"', 'Georgia', 'serif'],
+        // Short handwritten kickers ONLY, never paragraphs.
+        // Both names kept: machines with the font installed locally resolve the long one.
+        script: ['"Gveret Levin"', '"Gveret Levin AlefAlefAlef"', '"Assistant"', 'cursive'],
       },
       borderRadius: {
         '4xl': '2rem',

@@ -21,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Heebo', 'Assistant', system-ui, sans-serif;
+  font-family: 'Assistant', system-ui, sans-serif;
   background-color: #FAF8F4;
   color: #3A352E;
   -webkit-font-smoothing: antialiased;
@@ -36,8 +36,27 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
+/* Headings site-wide. No component needs a font class. */
+h1, h2, h3, h4 {
+  font-family: 'Frank Ruhl Libre', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Inputs: never below 16px, or iOS zooms the page on focus. */
+input, textarea, select {
+  font-family: inherit;
+  font-size: max(16px, 1rem);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Short handwritten kickers only. */
+  .font-script {
+    font-family: 'Gveret Levin', 'Gveret Levin AlefAlefAlef', 'Assistant', cursive;
+    font-weight: 400;
   }
 }
