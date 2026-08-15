@@ -8,13 +8,23 @@ declare global {
   }
 }
 
+// Which page fired the event: 'home' | 'swaddled' | 'discoverers' | 'course'.
+// Set once on boot so every event carries it without each call site repeating
+// itself. That's what lets the reports compare conversion between the two ages.
+let pageVariant = 'home'
+
+export function setTrackingVariant(variant: string) {
+  pageVariant = variant
+}
+
 export function track(event: string, params?: Record<string, unknown>) {
   try {
+    const payload = { variant: pageVariant, ...(params || {}) }
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-      window.fbq('trackCustom', event, params || {})
+      window.fbq('trackCustom', event, payload)
     }
     if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      window.gtag('event', event, params || {})
+      window.gtag('event', event, payload)
     }
   } catch {
     // analytics must never break the page

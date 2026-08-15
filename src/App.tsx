@@ -1,35 +1,17 @@
-import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
-import Empathy from './components/Empathy'
-import Workshops from './components/Workshops'
-import HowItWorks from './components/HowItWorks'
-import Testimonials from './components/Testimonials'
-import About from './components/About'
-import FAQ from './components/FAQ'
-import ContactSection from './components/ContactSection'
-import Products from './components/Products'
-import Footer from './components/Footer'
-import Reveal from './components/Reveal'
-import StickyCTA from './components/StickyCTA'
+import { currentPage } from './lib/router'
+import HomePage from './pages/HomePage'
+import CampaignPage from './pages/CampaignPage'
+import CoursePage from './pages/CoursePage'
 
+// Three entry points, one bundle. Each page sets its own tracking variant on
+// mount, so every event knows which page it came from.
 export default function App() {
-  return (
-    // padding-bottom clears the fixed StickyCTA bar
-    <div className="min-h-screen" dir="rtl" style={{ paddingBottom: 76 }}>
-      <Navbar />
-      <main>
-        <HeroSection />
-        <Empathy />
-        <Workshops />
-        <HowItWorks />
-        <Testimonials />
-        <Reveal><About /></Reveal>
-        <Reveal><FAQ /></Reveal>
-        <ContactSection />
-        <Reveal><Products /></Reveal>
-      </main>
-      <Footer />
-      <StickyCTA />
-    </div>
-  )
+  switch (currentPage()) {
+    case 'lp':
+      return <CampaignPage />
+    case 'course':
+      return <CoursePage />
+    default:
+      return <HomePage />
+  }
 }

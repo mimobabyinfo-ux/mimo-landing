@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>מימו | בית עוטף ומלטף לך ולבייבי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Assistant:wght@300;400;500;600;700;800&family=Gveret+Levin&family=Coustard:wght@400;900&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAF8F4; color: #3A352E; font-family: 'Assistant', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  a { color: #A35C3D; }
+  a:hover { color: #8A4A2E; }
+  input:focus { outline: 2px solid #E7C78A; outline-offset: 1px; }
+  ::-webkit-scrollbar { height: 0; width: 0; }
+</style>
+</helmet>
+<div dir="rtl" style="background:#FAF8F4;max-width:520px;margin:0 auto;padding-bottom:96px;overflow-x:hidden;position:relative">
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(250,248,244,0.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #EDE6DA">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px">
+      <a href="#top" style="display:flex;align-items:center"><img src="assets/logo-mimo.png" alt="Mimo" style="height:38px;width:auto;display:block" /></a>
+      <a href="#lead" style="background:#A35C3D;color:#fff;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;min-height:46px;display:flex;align-items:center">השאירי פרטים</a>
+    </div>
+    <div style="display:flex;gap:8px;overflow-x:auto;padding:0 18px 10px;scrollbar-width:none">
+      <a href="#services" style="flex-shrink:0;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#5F5A4E;text-decoration:none;background:#FFFDF8;border:1px solid #EDE6DA;border-radius:999px;padding:0 16px">סדנאות</a>
+      <a href="#course" style="flex-shrink:0;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#5F5A4E;text-decoration:none;background:#FFFDF8;border:1px solid #EDE6DA;border-radius:999px;padding:0 16px">הקורס הדיגיטלי</a>
+      <a href="#testimonials" style="flex-shrink:0;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#5F5A4E;text-decoration:none;background:#FFFDF8;border:1px solid #EDE6DA;border-radius:999px;padding:0 16px">המלצות</a>
+      <a href="#about" style="flex-shrink:0;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#5F5A4E;text-decoration:none;background:#FFFDF8;border:1px solid #EDE6DA;border-radius:999px;padding:0 16px">מי אני</a>
+      <a href="#faq" style="flex-shrink:0;display:flex;align-items:center;min-height:44px;font-size:14px;font-weight:600;color:#5F5A4E;text-decoration:none;background:#FFFDF8;border:1px solid #EDE6DA;border-radius:999px;padding:0 16px">שאלות</a>
+    </div>
+  </header>
+
+  <section id="top" style="padding:14px 16px 0">
+    <div style="position:relative;border-radius:34px;overflow:hidden;background:#EADBDD">
+      <img src="assets/hero-brenda-babies.jpg" alt="ברנדה מוקפת בתינוקות בסדנת התפתחות" style="width:100%;aspect-ratio:4/3.4;object-fit:cover;object-position:center 55%;display:block" />
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(58,53,46,0.86) 0%, rgba(58,53,46,0.42) 38%, rgba(58,53,46,0) 66%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:24px 22px;display:flex;flex-direction:column;gap:12px">
+        <span style="align-self:flex-start;font-size:12.5px;font-weight:700;letter-spacing:.3px;color:#3A352E;background:#E7C78A;border-radius:999px;padding:6px 13px">בית עוטף ומלטף · רמת גן</span>
+        <h1 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:36px;line-height:1.15;color:#FFFDF8">בעולם מוצף עצות,<br />הקול הכי חשוב <span style="color:#E7C78A">הוא שלך</span></h1>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:20px 16px 0;display:flex;flex-direction:column;gap:14px">
+    <p style="margin:0;font-size:18px;line-height:1.7;color:#3A352E;text-wrap:pretty">במימו את מתחברת חזרה לאינטואיציה שלך - יחד עם אמהות שעוברות בדיוק את מה שאת עוברת.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span style="font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#FFFDF8;border:1px solid #E6DFD3;color:#3A352E">מלווה התפתחותית מוסמכת</span>
+      <span style="font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#FFFDF8;border:1px solid #E6DFD3;color:#3A352E">+200 אמהות</span>
+      <span style="font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#FFFDF8;border:1px solid #E6DFD3;color:#3A352E">קבוצות של עד 8</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:2px">
+      <a href="#lead" style="text-align:center;background:#A35C3D;color:#fff;font-weight:800;font-size:18px;padding:18px;border-radius:999px;text-decoration:none;min-height:56px">בואי נדבר · שיחה בלי התחייבות</a>
+      <a href="#services" style="text-align:center;background:#FFFDF8;border:1px solid #E6DFD3;color:#3A352E;font-weight:700;font-size:17px;padding:16px;border-radius:999px;text-decoration:none;min-height:52px">לסדנאות ולמחירים</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:13px;background:#EADBDD;border-radius:24px;padding:14px 18px">
+      <img src="assets/about-brenda.jpg" alt="ברנדה" style="width:50px;height:50px;border-radius:999px;object-fit:cover;object-position:center 30%;flex-shrink:0;display:block" />
+      <p style="margin:0;font-size:14.5px;line-height:1.55;color:#3A352E">אני ברנדה, מלווה התפתחותית ומדריכת עיסוי תינוקות. <b>אחזור אלייך אישית.</b></p>
+    </div>
+  </section>
+
+  <section style="padding:56px 22px 48px;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+    <img src="assets/mimo-goose.png" alt="" style="width:84px;height:auto;display:block;opacity:.9" />
+    <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:26px;color:#818267;line-height:1">רגע, נשימה</span>
+    <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:30px;line-height:1.25;color:#A35C3D">הימים הראשונים מתוקים - וגם מטלטלים</h2>
+    <p style="margin:0;font-size:17px;line-height:1.8;color:#3A352E;text-wrap:pretty">המון אהבה, ולצידה המון שאלות, מעט שינה, והרגשה שאת לבד מול הכל. כל אמא מכירה את זה - ואת באמת לא לבד. במימו את מקבלת כלים, יד מלווה והרבה מימו, בשבילך ובשביל הבייבי.</p>
+  </section>
+
+  <section style="padding:0 16px 8px">
+    <div style="position:relative;border-radius:32px;overflow:hidden;background:#EADBDD">
+      <img src="assets/gallery-1.jpg" alt="תינוקות בקבוצה סביב מזרן חושי בסדנה של מימו" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" />
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(58,53,46,0.78) 0%, rgba(58,53,46,0) 52%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:22px;display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:30px;color:#E7C78A;line-height:1.1">קבוצה קטנה, יחס אישי</span>
+        <span style="font-size:15.5px;line-height:1.5;color:#FFFDF8">עד 8 אמהות במפגש, בסטודיו של מימו ברמת גן</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="padding:40px 16px 48px;background:#FFFDF8;border-top:1px solid #EDE6DA;border-bottom:1px solid #EDE6DA">
+    <div style="text-align:center;margin-bottom:26px;display:flex;flex-direction:column;gap:8px;align-items:center">
+      <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:25px;color:#818267;line-height:1">בואי נכיר</span>
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:29px;color:#A35C3D">איפה תוכלו לפגוש אותי</h2>
+      <p style="margin:0;font-size:16px;color:#818267">שלוש סדנאות לפי גיל הבייבי - וליווי אישי לכל שלב</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ workshops }}" as="w" hint-placeholder-count="3">
+        <div style="background:#FAF8F4;border:1px solid #E6DFD3;border-radius:28px;display:flex;flex-direction:column;padding:22px">
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px">
+            <span style="font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:999px;color:#A35C3D;background:#E7C78A55">{{ w.age }}</span>
+            <span style="font-size:12.5px;font-weight:700;padding:6px 12px;border-radius:999px;color:#6E7157;background:#8182671f">מקומות מוגבלים</span>
+          </div>
+          <h3 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:23px;line-height:1.3;color:#3A352E">{{ w.title }}</h3>
+          <p style="margin:6px 0 0;font-size:14.5px;line-height:1.55;color:#818267">{{ w.meta }}</p>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:14px">
+            <span style="font-family:'Frank Ruhl Libre',serif;font-size:32px;font-weight:900;color:#A35C3D">{{ w.price }}</span>
+            <span style="font-size:13.5px;color:#818267">{{ w.priceNote }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:14px">
+            <sc-for list="{{ w.bullets }}" as="b" hint-placeholder-count="4">
+              <div style="display:flex;align-items:flex-start;gap:9px;font-size:15px;line-height:1.5;color:#3A352E">
+                <span style="color:#A35C3D;font-weight:800">✓</span><span>{{ b }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ w.isOpen }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:14px 0 0;font-size:14.5px;line-height:1.8;color:#5F5A4E;white-space:pre-line">{{ w.description }}</p>
+          </sc-if>
+          <button type="button" onClick="{{ w.toggle }}" style="margin-top:12px;align-self:stretch;display:flex;align-items:center;min-height:44px;white-space:nowrap;background:transparent;border:0;padding:0;font-family:'Assistant',sans-serif;font-size:14.5px;font-weight:700;color:#A35C3D;cursor:pointer;text-decoration:underline;text-underline-offset:4px">{{ w.toggleLabel }}</button>
+          <a href="{{ w.link }}" target="_blank" rel="noopener noreferrer" style="margin-top:16px;text-align:center;background:#A35C3D;color:#fff;font-weight:800;font-size:17px;padding:17px;border-radius:999px;text-decoration:none;min-height:54px">להרשמה לסדנה</a>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:18px;background:#FAF8F4;border:1px solid #E6DFD3;border-radius:28px;padding:22px">
+      <p style="margin:0 0 14px;font-size:16px;font-weight:800;color:#3A352E">ליווי אישי ומפגשים נוספים</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ extras }}" as="e" hint-placeholder-count="3">
+          <a href="{{ e.link }}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;background:#FFFDF8;border:1px solid #EDE6DA;border-radius:20px;padding:15px 17px;min-height:56px">
+            <span style="display:flex;flex-direction:column;gap:3px">
+              <span style="font-size:15.5px;font-weight:800;color:#3A352E">{{ e.title }}</span>
+              <span style="font-size:13px;color:#818267">{{ e.short }}</span>
+            </span>
+            <span style="font-size:15.5px;font-weight:900;white-space:nowrap;color:#A35C3D">{{ e.price }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;background:#E7C78A2e;border:1px dashed #C9A76A;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:12px">
+      <p style="margin:0;font-size:16px;line-height:1.55;color:#3A352E"><b style="color:#A35C3D">חברה מביאה חברה</b> · נרשמות יחד לאותה סדנה ומקבלות 10% הנחה כל אחת</p>
+      <a href="{{ promoUrl }}" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:800;text-decoration:none;color:#A35C3D">אנחנו בעניין ←</a>
+    </div>
+  </section>
+
+  <section id="course" style="padding:48px 16px;background:#EADBDD">
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+      <span style="font-size:12.5px;font-weight:800;padding:7px 14px;border-radius:999px;background:#FFFDF8;color:#A35C3D">מגיל לידה ועד 6 חודשים · מהבית</span>
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:30px;line-height:1.22;color:#A35C3D">עיסוי תינוקות - הקורס הדיגיטלי של מימו</h2>
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#3A352E">גזים, אי־נוחות וקושי להירגע ולהירדם - יש משהו שאת יכולה לעשות עם הידיים שלך. 12 שיעורים ו־6 סרטונים שבהם אני מדגימה כל תנועה, צעד אחר צעד.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:999px;background:#FFFDF8;color:#3A352E">גישה מיידית</span>
+        <span style="font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:999px;background:#FFFDF8;color:#3A352E">מהטלפון</span>
+        <span style="font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:999px;background:#FFFDF8;color:#3A352E">שלך לתמיד</span>
+      </div>
+      <div style="width:100%;background:#FFFDF8;border-radius:26px;padding:20px;display:flex;flex-direction:column;gap:9px;margin-top:4px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:4px">
+          <h3 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:21px;color:#3A352E">מה יש בפנים</h3>
+          <span style="font-size:12.5px;font-weight:700;color:#A35C3D">12 שיעורים · 6 סרטונים</span>
+        </div>
+        <sc-for list="{{ lessons }}" as="l" hint-placeholder-count="6">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;background:#FAF8F4;border-radius:15px;padding:12px 15px">
+            <span style="font-size:15px;font-weight:600;color:#3A352E">{{ l.title }}</span>
+            <span style="font-size:12.5px;color:#818267;white-space:nowrap">{{ l.kind }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <a href="https://mimo-baby.co.il/?register=649fbd87-00c7-4214-a676-73117733c3ad" target="_blank" rel="noopener noreferrer" style="width:100%;text-align:center;background:#E7C78A;color:#3A352E;font-weight:800;font-size:18px;padding:18px;border-radius:999px;text-decoration:none;min-height:56px;margin-top:4px">לרכישה · 97 ₪ ←</a>
+      <span style="font-size:14px;color:#5F5A4E;align-self:center">תשלום אחד. בלי מנוי, בלי תאריך תפוגה.</span>
+    </div>
+  </section>
+
+  <section style="padding:52px 22px">
+    <div style="text-align:center;margin-bottom:30px;display:flex;flex-direction:column;gap:8px;align-items:center">
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:29px;color:#A35C3D">כל תינוק הוא עולם ומלואו</h2>
+      <p style="margin:0;font-size:16.5px;line-height:1.6;color:#3A352E">כל אמא ובייבי הם עולם בפני עצמו - ולכן הליווי אצלנו אישי, רגוע ומותאם בדיוק לכן.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="font-family:'Coustard',serif;font-size:30px;line-height:1;color:#E7C78A;flex-shrink:0">{{ s.num }}</span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h3 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:20px;color:#3A352E">{{ s.title }}</h3>
+            <p style="margin:0;font-size:15.5px;line-height:1.7;color:#5F5A4E">{{ s.body }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="testimonials" style="padding:48px 0;background:#FFFDF8;border-top:1px solid #EDE6DA;border-bottom:1px solid #EDE6DA">
+    <div style="text-align:center;margin-bottom:22px;display:flex;flex-direction:column;gap:8px;align-items:center;padding:0 22px">
+      <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:25px;color:#818267;line-height:1">תודה שסיפרתן</span>
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:29px;color:#A35C3D">משפחות מספרות</h2>
+      <p style="margin:0;font-size:16px;color:#818267">הודעות אמיתיות מאמהות שסיימו סדנה במימו</p>
+    </div>
+    <div style="padding:0 16px;margin-bottom:20px">
+      <div style="border-radius:26px;overflow:hidden;border:1px solid #E6DFD3;background:#EADBDD">
+        <video src="assets/recomentation.MP4" poster="assets/recomentation-poster.jpg" controls="" playsinline="" preload="metadata" aria-label="המלצת וידאו מאמא במימו" style="width:100%;height:auto;display:block"></video>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;overflow-x:auto;padding:0 16px 8px;scroll-snap-type:x mandatory">
+      <sc-for list="{{ shots }}" as="s" hint-placeholder-count="6">
+        <div style="width:270px;flex-shrink:0;align-self:flex-start;border-radius:20px;overflow:hidden;border:1px solid #E6DFD3;background:#fff;scroll-snap-align:center">
+          <img src="{{ s }}" alt="המלצה מאמא במימו - צילום מסך מוואטסאפ" loading="lazy" style="width:100%;height:auto;display:block" />
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:10px 0 0;text-align:center;font-size:13.5px;font-weight:600;color:#818267">החליקי לעוד המלצות ←</p>
+  </section>
+
+  <section id="about" style="padding:52px 16px">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px">
+      <img src="assets/about-brenda.jpg" alt="ברנדה, מלווה התפתחותית ומדריכת עיסוי תינוקות" loading="lazy" style="width:104px;height:104px;border-radius:999px;object-fit:cover;object-position:center 30%;flex-shrink:0;display:block" />
+      <div style="display:flex;flex-direction:column">
+        <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:28px;color:#818267;line-height:1.1">היי,</span>
+        <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:34px;color:#A35C3D">אני ברנדה</h2>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <p style="margin:0;font-size:14.5px;font-weight:700;line-height:1.6;color:#818267">מלווה התפתחותית מוסמכת · מדריכת עיסוי תינוקות · בהכשרה להדרכת הורים, ייעוץ שינה וגמילה מחיתולים</p>
+      <p style="margin:0;font-size:17px;line-height:1.85;color:#3A352E">נולדתי בארגנטינה, גרתי רוב חיי במדריד, והיום אני כאן ומלווה אמהות ותינוקות מהסטודיו שלי ברמת גן. כל החיים חיפשתי את הייעוד שלי, ומצאתי אותו ברגע שגיליתי את עולם ההתפתחות והמגע של תינוקות.</p>
+      <p style="margin:0;font-size:17px;line-height:1.85;color:#3A352E">אני מאמינה שכל אמא צריכה מעטפת תומכת, במיוחד בחודשים הראשונים שאחרי הלידה - תקופה כל כך מטלטלת. אני כאן כדי לתת לכן את הכלים, את ההקשבה ואת ה"מימו" הזה: לדעת שמישהי מקשיבה, מבינה ועונה על כל שאלה או דאגה.</p>
+      <p style="margin:0;background:#EADBDD;border-radius:22px;padding:20px;font-size:17px;line-height:1.85;color:#3A352E">"מימו" (Mimo) בספרדית פירושו "ליטוף", וזו בדיוק המהות של המרחב שלנו: לתת לכן ולבייביז שלכן מלא מימו - דרך מגע, תנועה, תיווך, הבנה ותמיכה.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <img src="assets/gallery-2.jpg" alt="תינוק על הבטן בליווי הידיים של ברנדה" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block" />
+        <img src="assets/gallery-4.jpg" alt="תינוק בתנוחת תינוק שמח" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block" />
+        <img src="assets/gallery-3.jpg" alt="אמא ותינוק על כדור הפיזיו בסדנה" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block" />
+        <img src="assets/dad-baby.jpg" alt="אבא עם תינוק במפגש אבות" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block" />
+      </div>
+      <img src="assets/gallery-5.jpg" alt="ברנדה עם תינוק בשכיבה על הבטן" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;border-radius:22px;display:block" />
+    </div>
+  </section>
+
+  <section id="faq" style="padding:48px 16px;background:#FFFDF8;border-top:1px solid #EDE6DA">
+    <div style="text-align:center;margin-bottom:22px;display:flex;flex-direction:column;gap:8px;align-items:center">
+      <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:25px;color:#818267;line-height:1">כל מה ששאלתן</span>
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:29px;color:#A35C3D">שאלות נפוצות</h2>
+      <p style="margin:0;font-size:16px;color:#818267">כל מה שחשוב לדעת לפני שמתחילים</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="8">
+        <div style="background:#FAF8F4;border:1px solid #E6DFD3;border-radius:20px;overflow:hidden">
+          <button type="button" onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;gap:14px;text-align:right;background:transparent;border:0;cursor:pointer;padding:18px;min-height:56px;font-family:'Assistant',sans-serif">
+            <span style="flex:1;font-size:16.5px;font-weight:700;color:#3A352E">{{ f.q }}</span>
+            <span style="font-size:24px;line-height:1;color:#A35C3D">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 18px 18px;font-size:15.5px;line-height:1.75;color:#5F5A4E">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="lead" style="padding:52px 16px;background:#A35C3D">
+    <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:22px">
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:34px;line-height:1.2;color:#FFFDF8">נשמח לשמוע ממך</h2>
+      <p style="margin:0;font-size:17px;line-height:1.75;color:#F0DCCF">השאירי שם וטלפון ואחזור אלייך אישית, נדבר על הבייבי ונמצא יחד את הליווי שמתאים לכן. בלי התחייבות.</p>
+    </div>
+    <div style="background:#FFFDF8;border-radius:28px;padding:22px;box-shadow:0 16px 40px rgba(58,53,46,0.2)">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:18px 4px;text-align:center">
+          <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:34px;color:#A35C3D">תודה!</span>
+          <p style="margin:0;font-size:16.5px;line-height:1.7;color:#3A352E">קיבלתי את הפרטים ואחזור אלייך אישית. עד אז - מוזמנת לכתוב לי בוואטסאפ.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:13px">
+          <span style="align-self:flex-start;font-size:12.5px;font-weight:800;padding:6px 13px;border-radius:999px;background:#E7C78A;color:#3A352E">שיחת היכרות · בלי התחייבות</span>
+          <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:22px;line-height:1.3;color:#A35C3D">לא בטוחה מה הכי מתאים לך ולבייבי?</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#5F5A4E">שיחה קצרה ונעימה, שבה תרגישי שיש למי לפנות - ושאת לא לבד בדרך הזו.</p>
+          <input placeholder="שם מלא" value="{{ fullName }}" onChange="{{ onName }}" autocomplete="name" style="width:100%;background:#fff;color:#3A352E;border:1px solid #DCD4C8;border-radius:16px;padding:16px;font-size:16px;font-family:'Assistant',sans-serif" />
+          <input placeholder="טלפון" type="tel" inputmode="tel" value="{{ phone }}" onChange="{{ onPhone }}" autocomplete="tel" style="width:100%;background:#fff;color:#3A352E;border:1px solid #DCD4C8;border-radius:16px;padding:16px;font-size:16px;font-family:'Assistant',sans-serif" />
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size:13.5px;font-weight:700;color:#B4462E">{{ error }}</span>
+          </sc-if>
+          <button type="submit" style="width:100%;border:0;border-radius:999px;padding:18px;font-family:'Assistant',sans-serif;font-size:18px;font-weight:800;background:#A35C3D;color:#fff;cursor:pointer;min-height:58px">בואי נדבר</button>
+          <p style="margin:0;text-align:center;font-size:13px;color:#818267">אני חוזרת אלייך אישית, בלי דיוור ובלי ספאם</p>
+          <span style="height:1px;background:#EDE6DA"></span>
+          <a href="https://wa.me/972533041277" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:9px;font-size:15px;font-weight:700;text-decoration:none;color:#3A352E;min-height:44px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:999px;background:#25D366;color:#fff;flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:13px;height:13px;display:block"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+            </span>
+            מעדיפה לשאול קודם? דברי איתי בוואטסאפ
+          </a>
+        </form>
+      </sc-if>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:15.5px;color:#F0DCCF;margin-top:20px">
+      <span>אבא אחימאיר 10, רמת גן (שיכון ותיקים)</span>
+      <a href="https://wa.me/972533041277" target="_blank" rel="noopener noreferrer" style="font-weight:700;text-decoration:none;color:#FFFDF8">וואטסאפ · 053-3041277</a>
+    </div>
+  </section>
+
+  <section id="products" style="padding:52px 16px">
+    <div style="text-align:center;margin-bottom:26px;display:flex;flex-direction:column;gap:8px;align-items:center">
+      <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:28px;color:#A35C3D">מוצרים משלימים של מימו</h2>
+      <p style="margin:0;font-size:15.5px;line-height:1.6;color:#818267">אביזרי התפתחות שאני אוהבת ומשתמשת בהם בסדנאות - עכשיו גם אצלכם בבית</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <sc-for list="{{ products }}" as="p" hint-placeholder-count="6">
+        <div style="background:#FFFDF8;border:1px solid #E6DFD3;border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="height:140px;display:flex;align-items:center;justify-content:center;padding:14px;background:#fff">
+            <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain;display:block" />
+          </div>
+          <div style="padding:12px 15px 16px;display:flex;flex-direction:column;gap:5px;flex:1">
+            <h3 style="margin:0;font-size:15.5px;font-weight:800;line-height:1.25;color:#3A352E">{{ p.title }}</h3>
+            <p style="margin:0;font-size:12.5px;line-height:1.45;color:#818267">{{ p.desc }}</p>
+            <p style="margin:auto 0 0;padding-top:8px;font-family:'Frank Ruhl Libre',serif;font-size:18px;font-weight:900;color:#A35C3D">{{ p.price }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:20px;background:#E7C78A1f;border:1px solid #E7C78A55;border-radius:24px;padding:22px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+      <p style="margin:0;font-size:15.5px;font-weight:600;line-height:1.6;color:#3A352E">ניתן להזמין ולאסוף את המוצרים בסדנאות ובמפגשים של מימו</p>
+      <a href="{{ orderUrl }}" target="_blank" rel="noopener noreferrer" style="background:#A35C3D;color:#fff;font-weight:700;font-size:16px;padding:15px 28px;border-radius:999px;text-decoration:none;min-height:50px;display:flex;align-items:center">להזמנה בוואטסאפ</a>
+    </div>
+  </section>
+
+  <footer style="padding:44px 20px;background:#3A352E;color:#C6BDA0">
+    <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="align-self:flex-start;background:#FAF8F4;border-radius:18px;padding:10px 18px"><img src="assets/logo-mimo.png" alt="Mimo" style="height:32px;width:auto;display:block" /></span>
+        <p style="margin:0;font-size:14.5px;line-height:1.7;color:#C6BDA0">ליווי התפתחותי, סדנאות ומפגשים לאמהות ולתינוקות - מהסטודיו של מימו ברמת גן.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <p style="margin:0 0 2px;font-size:15px;font-weight:700;color:#FAF8F4">יצירת קשר</p>
+        <a href="https://wa.me/972533041277" target="_blank" rel="noopener noreferrer" style="font-size:15px;text-decoration:none;color:#C6BDA0">וואטסאפ: 053-3041277</a>
+        <a href="tel:+972533041277" style="font-size:15px;text-decoration:none;color:#C6BDA0">טלפון: 053-3041277</a>
+        <a href="mailto:mimobaby.info@gmail.com" style="font-size:15px;text-decoration:none;color:#C6BDA0">mimobaby.info@gmail.com</a>
+        <span style="font-size:15px">אבא אחימאיר 10, רמת גן</span>
+        <a href="{{ mapsUrl }}" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px;color:#E7C78A">לניווט לסטודיו ←</a>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:10px">
+          <a href="https://www.instagram.com/mimo.brenlevin/" target="_blank" rel="noopener noreferrer" aria-label="מימו באינסטגרם" style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:999px;background:#E7C78A;color:#3A352E;text-decoration:none">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:21px;height:21px;display:block"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38c-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.25.06-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.51 4.01 15.14 4 12 4Zm0 3.06A4.94 4.94 0 1 1 12 16.94 4.94 4.94 0 0 1 12 7.06Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.15-.93a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0Z" /></svg>
+          </a>
+          <a href="https://www.facebook.com/mimo.brenlevin" target="_blank" rel="noopener noreferrer" aria-label="מימו בפייסבוק" style="display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:999px;background:#E7C78A;color:#3A352E;text-decoration:none">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:21px;height:21px;display:block"><path d="M14 8.5V7c0-.7.5-1 1-1h1.5V3.2L14.3 3c-2.3 0-3.8 1.4-3.8 3.8v1.7H8v2.8h2.5V21h3.2v-9.7h2.4l.4-2.8H14Z" /></svg>
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="#services" style="font-size:14.5px;text-decoration:none;color:#C6BDA0">סדנאות</a>
+        <a href="#course" style="font-size:14.5px;text-decoration:none;color:#C6BDA0">הקורס הדיגיטלי</a>
+        <a href="#testimonials" style="font-size:14.5px;text-decoration:none;color:#C6BDA0">המלצות</a>
+        <a href="#about" style="font-size:14.5px;text-decoration:none;color:#C6BDA0">אודות</a>
+        <a href="#products" style="font-size:14.5px;text-decoration:none;color:#C6BDA0">מוצרים</a>
+      </div>
+      <img src="assets/mimo-goose.png" alt="" style="width:72px;height:auto;display:block;opacity:.55" />
+      <div style="border-top:1px solid #5A5247;padding-top:16px;display:flex;flex-direction:column;gap:6px;font-size:12.5px;color:#A39A88">
+        <p style="margin:0">© 2026 מימו. כל הזכויות שמורות.</p>
+        <p style="margin:0">עשוי עם מימו לאמהות</p>
+      </div>
+    </div>
+  </footer>
+
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(250,248,244,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid #E6DFD3">
+    <a href="#lead" style="flex:1;text-align:center;background:#A35C3D;color:#fff;font-weight:800;font-size:16px;padding:16px 10px;border-radius:999px;text-decoration:none;min-height:54px">השאירי פרטים ואחזור אלייך</a>
+    <a href="https://wa.me/972533041277" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ" style="flex-shrink:0;width:54px;height:54px;border-radius:999px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:27px;height:27px;display:block"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:932}}">
+const WA = 'https://wa.me/972533041277';
+const REG = 'https://mimo-baby.co.il/';
+
+const WORKSHOPS = [
+  {
+    title: 'סדנת עטופים · ליווי התפתחותי',
+    age: 'מלידה עד 3.5 חודשים',
+    meta: '5 מפגשים של שעה וחצי · קבוצה של עד 8 אמהות',
+    price: '800 ₪', priceNote: 'לכל הסדנה', link: REG,
+    bullets: ['הסתגלות הדרגתית מהרחם אל העולם', 'עידוד שכיבה על הבטן וחיזוק השרירים', 'כלים להרגעה, הרפיה והקלה על גזים', 'קבוצת וואטסאפ עם סיכומים ומתנה בסיום'],
+    description: 'מה נלמד ונחווה:\n• ניצול חלונות ערות\n• חיבור ותקשורת דרך מגע, קול ומבט\n• חשיפה למרקמים וחוויות תחושתיות\n• שימוש בפוף, מנשא בד וכדור פיזיו\n• שיווי משקל ותנועה במרחב\n\nכולל קבוצת וואטסאפ עם סיכומים וליווי בין המפגשים, זמן בגינה הירוקה של מימו עם קפה ונשנושים, ומתנה אישית בסיום.\nהסטודיו: אבא אחימאיר 10, רמת גן (שיכון ותיקים).',
+  },
+  {
+    title: 'סדנת מגלים · ליווי התפתחותי',
+    age: 'מגיל 3/3.5 עד 6 חודשים',
+    meta: '5 מפגשים של שעה וחצי · קבוצה של עד 8 אמהות',
+    price: '800 ₪', priceNote: 'לכל הסדנה', link: REG,
+    bullets: ['גיל 4 חודשים המופלא והשינויים שמגיעים איתו', 'התהפכות מהבטן לגב ומהגב לבטן', 'הכנת הגוף לקראת זחילה', 'קבוצת וואטסאפ עם סיכומים ומתנה בסיום'],
+    description: 'מה נלמד ונחווה:\n• עידוד שכיבה על הבטן וחיזוק חגורת הכתפיים\n• חשיבות קו האמצע וחצייתו\n• גילוי כפות הידיים והרגליים ומודעות לגוף\n• העברות משקל, שיווי משקל ותנועה במרחב\n• מרקמים, משחקי תקשורת וחוויות תחושתיות\n• שימוש בפוף, כדור פיזיו ואביזרים מהבית\n• כלים להרגעה, הרפיה וזמן איכות משותף\n\nזמן בשבילך בגינה הירוקה של מימו, עם קפה ונשנושים מפנקים ממני, ומתנה אישית בסיום הסדנה.\nהסטודיו: אבא אחימאיר 10, רמת גן.',
+  },
+  {
+    title: 'סדנת עיסוי תינוקות',
+    age: 'מלידה עד טרום זחילה',
+    meta: '3 מפגשים של שעה ורבע · קבוצה של עד 7 אמהות',
+    price: '450 ₪', priceNote: 'לכל הסדנה', link: REG,
+    bullets: ['לימוד עיסוי תינוקות צעד אחר צעד', 'עזרה במצבים של גזים, כאבי בטן וקושי להירדם', 'כלים פשוטים שתומכים בהתפתחות של הבייבי', 'בונוס: ספר הליווי הדיגיטלי של מימו'],
+    description: 'מה כוללת הסדנה:\n• עיסוי בצורה נעימה ובטוחה לאזורים שונים בגוף: רגליים, ידיים, בטן, בית חזה, גב, עורף, טוסיק ופנים\n• קבוצת וואטסאפ עם סיכומים וליווי בין המפגשים\n• זמן בגינה הירוקה של מימו עם קפה ונשנושים\n• מתנה אישית בסיום\n\nבונוס מיוחד למשתתפות: "ספר הליווי הדיגיטלי של מימו" - הסברים, שלבי העיסוי וסרטונים שבהם אני מדגימה, כדי שתוכלי לחזור לזה גם בבית.\nהסטודיו: אבא אחימאיר 10, רמת גן (שיכון ותיקים).',
+  },
+];
+
+const FAQS = [
+  { q: 'מאיזה גיל מתאימות הסדנאות?', a: 'יש סדנאות מגיל לידה: עטופים (לידה עד 3.5 חודשים), עיסוי תינוקות (לידה עד טרום זחילה), ומגלים (3 עד 6 חודשים). לא בטוחה מה מתאים לכן? כתבו לי ונמצא יחד.' },
+  { q: 'איפה הסדנאות מתקיימות?', a: 'בסטודיו של מימו, אבא אחימאיר 10, רמת גן (שיכון ותיקים).' },
+  { q: 'כמה אמהות יש בקבוצה ומה משך כל מפגש?', a: 'קבוצה קטנה של עד 8 אמהות, עם יחס אישי לכל אחת. כל מפגש נמשך שעה וחצי (בסדנת עיסוי תינוקות - שעה ורבע).' },
+  { q: 'מה אם התינוק שלי בוכה, רעב או נרדם במהלך המפגש?', a: 'טבעי ומובן לגמרי! עוצרות, מאכילות, מרגיעות - וממשיכים בקצב שלהם. הסדנאות בנויות בדיוק בשביל זה.' },
+  { q: 'צריך להביא משהו מיוחד?', a: 'רק טטרה גדולה, אתכן והבייבי כמובן. כל שאר הציוד - מזרנים, פופים, כדורי פיזיו ואביזרים - כבר מחכה לכן בסטודיו, וגם קפה ונשנושים ממני.' },
+  { q: 'מה אם אפספס מפגש?', a: 'קורה, וזה בסדר! כל מפגש מסוכם בקבוצת הוואטסאפ של הסדנה, וניתן להשלים עד שני מפגשים עם קבוצה אחרת, על בסיס מקום פנוי.' },
+  { q: 'מה ההבדל בין סדנה לליווי פרטני?', a: 'הסדנאות מתקיימות בסטודיו בקבוצה קטנה, לאורך כמה מפגשים ולפי שלבי ההתפתחות. הליווי הפרטני הוא מפגש אישי אצלכן בבית, שמותאם בדיוק לתינוק/ת שלכן. אפשר גם לשלב בין השניים.' },
+  { q: 'אני בהריון - הסדנאות מתאימות לי?', a: 'בוקר של מימו פתוח גם לנשים בהריון. לשאר הסדנאות מצטרפים אחרי הלידה, ואשמח לשמור לכן מקום במחזור הקרוב.' },
+];
+
+class Component extends DCLogic {
+  state = { openWorkshop: -1, openFaq: -1, fullName: '', phone: '', error: '', sent: false };
+
+  renderVals() {
+    const st = this.state;
+    return {
+      workshops: WORKSHOPS.map((w, i) => ({
+        ...w,
+        isOpen: st.openWorkshop === i,
+        toggleLabel: st.openWorkshop === i ? 'פחות פרטים' : 'כל הפרטים על הסדנה',
+        toggle: () => this.setState({ openWorkshop: st.openWorkshop === i ? -1 : i }),
+      })),
+      faqs: FAQS.map((f, i) => ({
+        ...f,
+        isOpen: st.openFaq === i,
+        sign: st.openFaq === i ? '−' : '+',
+        toggle: () => this.setState({ openFaq: st.openFaq === i ? -1 : i }),
+      })),
+      extras: [
+        { title: 'ליווי פרטני בבית', short: 'מפגש של שעה אצלך בבית - אני מגיעה אלייך', price: '400 ₪', link: REG },
+        { title: 'מפגש אבות', short: 'מרחב מיוחד לאבות טריים', price: '150 ₪', link: REG },
+        { title: 'מתנת לידה', short: 'הפינוק המושלם לחברה שזה עתה ילדה', price: 'בתיאום', link: WA },
+      ],
+      lessons: [
+        { title: 'ברוכה הבאה', kind: 'לקריאה' },
+        { title: 'לפני שמתחילות', kind: 'לקריאה' },
+        { title: 'עיסוי רגליים ומפרקים', kind: '1 סרטון' },
+        { title: 'עיסוי בטן והקלה על גזים', kind: '1 סרטון' },
+        { title: 'עיסוי ידיים ומפרקים', kind: '1 סרטון' },
+        { title: 'עיסוי בית החזה', kind: '1 סרטון' },
+        { title: 'עיסוי גב, עורף וטוסיק', kind: '1 סרטון' },
+        { title: 'עיסוי פנים', kind: '1 סרטון' },
+      ],
+      steps: [
+        { num: '01', title: 'בוחרות את ההתאמה', body: 'בוחרות יחד את הליווי שמתאים לכן ולשלב של הבייבי - סדנה קבוצתית או ליווי פרטני בבית.' },
+        { num: '02', title: 'נפגשות ולומדות', body: 'מפגשים אינטימיים בקבוצה קטנה, עם יחס אישי, מקום לשאלות ותרגול מעשי - בקצב שלכן, בלי לחץ.' },
+        { num: '03', title: 'ממשיכות יחד', body: 'קבוצת וואטסאפ עם סיכומים וליווי בין המפגשים, קהילה תומכת ומתנה אישית בסיום. אתן לא לבד בדרך.' },
+      ],
+      shots: ['assets/testimonial-wa-3.jpg', 'assets/testimonial-wa-4.jpg', 'assets/testimonial-wa-5.jpg', 'assets/testimonial-wa-6.jpeg', 'assets/testimonial-wa-7.jpg', 'assets/testimonial-wa-8.jpg'],
+      products: [
+        { image: 'assets/marakas.jpeg', title: 'מרקס ערמונים', desc: 'גירוי שמיעתי עדין לחיזוק האחיזה והקשב', price: '₪60' },
+        { image: 'assets/rasanmeech.png', title: 'רעשן מעץ', desc: 'רעשן טבעי לאחיזה ראשונית ומשחק חושי', price: '₪30' },
+        { image: 'assets/rasanimsratim.png', title: 'רעשן עם סרטים', desc: 'צבעים ומרקמים לעידוד התבוננות ומעקב', price: '₪20' },
+        { image: 'assets/pof.jpeg', title: 'פוף 110/80', desc: 'מרחב רך ובטוח לשכיבה על הבטן ולמשחק', price: '₪270' },
+        { image: 'assets/arnabimimo.jpeg', title: 'ארנבי של מימו', desc: 'בובת ארנב רכה ומלטפת - חבר ראשון לבייבי', price: '₪40' },
+        { image: 'assets/tikmimo.jpeg', title: 'תיק חיתולים של מימו', desc: 'תיק נוח ומרווח ליציאות עם התינוק', price: '₪60' },
+      ],
+      promoUrl: WA + '?text=' + encodeURIComponent('היי ברנדה! אנחנו חברות שרוצות להירשם יחד לסדנה ולקבל את ההנחה'),
+      orderUrl: WA + '?text=' + encodeURIComponent('היי ברנדה! הגעתי דרך האתר ואשמח להזמין מוצר משלים'),
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('אבא אחימאיר 10, רמת גן'),
+      fullName: st.fullName,
+      phone: st.phone,
+      error: st.error,
+      hasError: !!st.error,
+      sent: st.sent,
+      notSent: !st.sent,
+      onName: (e) => this.setState({ fullName: e.target.value, error: '' }),
+      onPhone: (e) => this.setState({ phone: e.target.value, error: '' }),
+      submit: (e) => {
+        e.preventDefault();
+        if (!this.state.fullName.trim()) return this.setState({ error: 'נא למלא שם מלא' });
+        if (!/^[0-9+\-\s()]{9,}$/.test(this.state.phone.trim())) return this.setState({ error: 'נא למלא מספר טלפון תקין' });
+        this.setState({ sent: true });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -6,3 +6,9 @@ vite.config.ts.timestamp-*.mjs
 
 _to_delete/
 _preview-v2/
+
+# Design references: the .dc.html files are worth keeping, their asset copies
+# are not (same images as src/assets, plus a 13MB video).
+design-refs/assets/
+design-refs/support.js
+design-refs/uploads/

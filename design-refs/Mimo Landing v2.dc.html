@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>מימו | סדנאות ליווי התפתחותי ברמת גן</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Assistant:wght@300;400;500;600;700;800&family=Gveret+Levin&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FAF8F4; color: #3A352E; font-family: 'Assistant', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #A35C3D; }
+  a:hover { color: #8A4A2E; }
+  input:focus { outline: 2px solid #E7C78A; outline-offset: 1px; }
+  ::-webkit-scrollbar { height: 0; width: 0; }
+</style>
+</helmet>
+<div dir="rtl" style="background:#FAF8F4;max-width:520px;margin:0 auto;padding-bottom:98px;overflow-x:hidden;position:relative">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px">
+    <img src="assets/logo-mimo.png" alt="Mimo" style="height:38px;width:auto;display:block" />
+    <span style="font-size:13.5px;font-weight:600;color:#818267">אבא אחימאיר 10, רמת גן</span>
+  </div>
+
+  <section style="padding:0 16px">
+    <div style="position:relative;border-radius:32px;overflow:hidden;background:#EADBDD">
+      <sc-if value="{{ isSwaddled }}" hint-placeholder-val="{{ true }}">
+        <img src="assets/lp-swaddled-hero.jpg" alt="תינוקות בפופים במפגש של סדנת עטופים" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 45%;display:block" />
+      </sc-if>
+      <sc-if value="{{ isDiscoverers }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/lp-discoverers-hero.jpg" alt="תינוקות על הבטן ליד החלון במפגש של סדנת מגלים" style="width:100%;aspect-ratio:1/1;object-fit:cover;object-position:center 45%;display:block" />
+      </sc-if>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(58,53,46,0.9) 0%, rgba(58,53,46,0.35) 42%, rgba(58,53,46,0) 68%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:22px;display:flex;flex-direction:column;gap:11px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+          <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:27px;color:#E7C78A;line-height:1">{{ workshopName }}</span>
+          <span style="font-size:12.5px;font-weight:800;color:#3A352E;background:#E7C78A;border-radius:999px;padding:7px 14px">{{ ageLabel }}</span>
+        </div>
+        <h1 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:34px;line-height:1.18;color:#FFFDF8">{{ headline }}</h1>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:18px 16px 0;display:flex;flex-direction:column;gap:14px">
+    <p style="margin:0;font-size:17.5px;line-height:1.7;color:#3A352E;text-wrap:pretty">{{ sub }}</p>
+
+    <div style="background:#FFFDF8;border:1px solid #E6DFD3;border-radius:26px;padding:20px;display:flex;flex-direction:column;gap:12px">
+      <p style="margin:0;font-size:15px;font-weight:700;color:#3A352E">{{ workshopName }}</p>
+      <div style="display:flex;align-items:baseline;gap:9px">
+        <span style="font-family:'Frank Ruhl Libre',serif;font-size:38px;font-weight:900;color:#A35C3D;line-height:1">{{ price }}</span>
+        <span style="font-size:14px;color:#818267">{{ meta }}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:11px;background:#E7C78A33;border-radius:16px;padding:12px 14px">
+        <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:23px;color:#A35C3D;line-height:1;white-space:nowrap">חברה מביאה חברה</span>
+        <span style="font-size:14px;line-height:1.4;color:#3A352E">נרשמות יחד? <b>{{ friendPrice }} לכל אחת</b></span>
+      </div>
+      <a href="{{ registerLink }}" target="_blank" rel="noopener noreferrer" style="text-align:center;background:#A35C3D;color:#fff;font-weight:800;font-size:18px;padding:18px;border-radius:999px;text-decoration:none;min-height:58px">{{ ctaLabel }}</a>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;justify-content:center">
+        <span style="font-size:12.5px;font-weight:600;color:#5F5A4E;background:#FAF8F4;border:1px solid #EDE6DA;border-radius:999px;padding:6px 12px">קבוצה של עד 8 אמהות</span>
+        <span style="font-size:12.5px;font-weight:600;color:#5F5A4E;background:#FAF8F4;border:1px solid #EDE6DA;border-radius:999px;padding:6px 12px">+200 אמהות</span>
+        <span style="font-size:12.5px;font-weight:600;color:#5F5A4E;background:#FAF8F4;border:1px solid #EDE6DA;border-radius:999px;padding:6px 12px">מלווה מוסמכת</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:34px 0 0">
+    <p style="margin:0 0 14px;padding:0 20px;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:22px;color:#A35C3D">אמהות שהיו כאן לפניך</p>
+    <div style="padding:0 16px 14px">
+      <div style="border-radius:24px;overflow:hidden;border:1px solid #E6DFD3;background:#EADBDD">
+        <video src="assets/recomentation.MP4" poster="assets/recomentation-poster.jpg" controls="" playsinline="" preload="metadata" aria-label="המלצת וידאו מאמא במימו" style="width:100%;height:auto;display:block"></video>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;overflow-x:auto;padding:0 16px 6px;scroll-snap-type:x mandatory">
+      <sc-for list="{{ shots }}" as="s" hint-placeholder-count="4">
+        <div style="width:265px;flex-shrink:0;align-self:flex-start;border-radius:18px;overflow:hidden;border:1px solid #E6DFD3;background:#fff;scroll-snap-align:center">
+          <img src="{{ s }}" alt="הודעת תודה מאמא שסיימה סדנה במימו" loading="lazy" style="width:100%;height:auto;display:block" />
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:8px 0 0;text-align:center;font-size:13px;font-weight:600;color:#818267">החליקי לעוד ←</p>
+  </section>
+
+  <section style="padding:38px 16px 0">
+    <div style="background:#FFFDF8;border:1px solid #E6DFD3;border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:12px">
+      <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:21px;color:#6E7157">זה בשבילך אם</p>
+      <sc-for list="{{ forYou }}" as="f" hint-placeholder-count="4">
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:999px;background:#8182671f;color:#6E7157;font-size:14px;font-weight:800">✓</span>
+          <span style="font-size:16px;line-height:1.55;color:#3A352E">{{ f }}</span>
+        </div>
+      </sc-for>
+      <span style="height:1px;background:#EDE6DA;margin:6px 0"></span>
+      <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:21px;color:#A35C3D">זה לא בשבילך אם</p>
+      <sc-for list="{{ notForYou }}" as="n" hint-placeholder-count="2">
+        <div style="display:flex;align-items:flex-start;gap:10px">
+          <span style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:999px;background:#EADBDD;color:#A35C3D;font-size:14px;font-weight:800">✕</span>
+          <span style="font-size:16px;line-height:1.55;color:#5F5A4E">{{ n }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:38px 16px 0">
+    <div style="background:#EADBDD;border-radius:28px;padding:24px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:24px;color:#A35C3D">{{ takeawayTitle }}</p>
+        <img src="assets/mimo-goose.png" alt="" style="width:58px;height:auto;display:block;flex-shrink:0;opacity:.9" />
+      </div>
+      <sc-for list="{{ bullets }}" as="b" hint-placeholder-count="4">
+        <div style="display:flex;align-items:flex-start;gap:11px">
+          <span style="flex-shrink:0;width:8px;height:8px;border-radius:999px;background:#A35C3D;margin-top:8px"></span>
+          <span style="font-size:16.5px;line-height:1.6;color:#3A352E">{{ b }}</span>
+        </div>
+      </sc-for>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+        <span style="font-size:13px;font-weight:600;color:#3A352E;background:#FFFDF8;border-radius:999px;padding:8px 14px">קבוצת וואטסאפ עם סיכומים</span>
+        <span style="font-size:13px;font-weight:600;color:#3A352E;background:#FFFDF8;border-radius:999px;padding:8px 14px">קפה ונשנושים בגינה</span>
+        <span style="font-size:13px;font-weight:600;color:#3A352E;background:#FFFDF8;border-radius:999px;padding:8px 14px">מתנה אישית בסיום</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:32px 16px 0">
+    <div style="position:relative;border-radius:28px;overflow:hidden;background:#EADBDD">
+      <sc-if value="{{ isDiscoverers }}" hint-placeholder-val="{{ false }}">
+        <img src="assets/lp-window-moms.jpg" alt="אמהות ותינוקות ליד החלון בסטודיו של מימו" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" />
+      </sc-if>
+      <sc-if value="{{ notDiscoverers }}" hint-placeholder-val="{{ true }}">
+        <img src="assets/lp-group-circle.jpg" alt="אמהות ותינוקות במעגל בסטודיו של מימו" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" />
+      </sc-if>
+      <div style="position:absolute;inset:0;background:linear-gradient(0deg, rgba(58,53,46,0.76) 0%, rgba(58,53,46,0) 52%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:20px">
+        <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:28px;color:#E7C78A;line-height:1.15">{{ bandText }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:38px 16px 0">
+    <div style="display:flex;align-items:center;gap:15px;margin-bottom:14px">
+      <img src="assets/about-brenda.jpg" alt="ברנדה, מלווה התפתחותית ומדריכת עיסוי תינוקות" loading="lazy" style="width:92px;height:92px;border-radius:999px;object-fit:cover;object-position:center 30%;flex-shrink:0;display:block" />
+      <div style="display:flex;flex-direction:column">
+        <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:26px;color:#818267;line-height:1.1">היי,</span>
+        <h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:30px;color:#A35C3D">אני ברנדה</h2>
+      </div>
+    </div>
+    <p style="margin:0 0 12px;font-size:14px;font-weight:700;line-height:1.55;color:#818267">מלווה התפתחותית מוסמכת · מדריכת עיסוי תינוקות</p>
+    <p style="margin:0;font-size:17px;line-height:1.8;color:#3A352E">נולדתי בארגנטינה, גרתי רוב חיי במדריד, והיום אני מלווה אמהות ותינוקות מהסטודיו שלי ברמת גן. "מימו" בספרדית זה "ליטוף", וזו בדיוק המהות של המרחב הזה: לתת לך ולבייבי מלא מימו, דרך מגע, תנועה, הבנה ותמיכה.</p>
+  </section>
+
+  <section style="padding:38px 16px 0">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <div style="background:#FFFDF8;border:1px solid #E6DFD3;border-radius:20px;overflow:hidden">
+          <button type="button" onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;gap:14px;text-align:right;background:transparent;border:0;cursor:pointer;padding:17px;min-height:56px;font-family:'Assistant',sans-serif">
+            <span style="flex:1;font-size:16.5px;font-weight:700;color:#3A352E">{{ f.q }}</span>
+            <span style="font-size:24px;line-height:1;color:#A35C3D">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.isOpen }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 17px 18px;font-size:15.5px;line-height:1.75;color:#5F5A4E">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="lead" style="margin:38px 0 0;padding:44px 16px;background:#A35C3D">
+    <h2 style="margin:0 0 10px;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:30px;line-height:1.2;color:#FFFDF8">{{ closeTitle }}</h2>
+    <p style="margin:0 0 20px;font-size:16.5px;line-height:1.7;color:#F0DCCF">{{ closeSub }}</p>
+    <div style="background:#FFFDF8;border-radius:26px;padding:22px">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:16px 4px;text-align:center">
+          <span style="font-family:'Gveret Levin','Gveret Levin AlefAlefAlef',cursive;font-size:34px;color:#A35C3D">תודה!</span>
+          <p style="margin:0;font-size:16.5px;line-height:1.7;color:#3A352E">קיבלתי את הפרטים ואחזור אלייך אישית, בדרך כלל באותו יום.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:13px">
+          <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:21px;line-height:1.3;color:#A35C3D">רוצה לשמוע קודם? השאירי פרטים</p>
+          <input placeholder="שם מלא" value="{{ fullName }}" onChange="{{ onName }}" autocomplete="name" style="width:100%;background:#fff;color:#3A352E;border:1px solid #DCD4C8;border-radius:16px;padding:16px;font-size:16px;font-family:'Assistant',sans-serif" />
+          <input placeholder="טלפון" type="tel" inputmode="tel" value="{{ phone }}" onChange="{{ onPhone }}" autocomplete="tel" style="width:100%;background:#fff;color:#3A352E;border:1px solid #DCD4C8;border-radius:16px;padding:16px;font-size:16px;font-family:'Assistant',sans-serif" />
+          <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size:13.5px;font-weight:700;color:#B4462E">{{ error }}</span>
+          </sc-if>
+          <button type="submit" style="width:100%;border:0;border-radius:999px;padding:18px;font-family:'Assistant',sans-serif;font-size:18px;font-weight:800;background:#A35C3D;color:#fff;cursor:pointer;min-height:58px">אני רוצה שתחזרי אליי</button>
+          <p style="margin:0;text-align:center;font-size:13px;color:#818267">אני חוזרת אלייך אישית, בלי דיוור ובלי ספאם</p>
+          <span style="height:1px;background:#EDE6DA"></span>
+          <a href="{{ waUrl }}" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:9px;font-size:15px;font-weight:700;text-decoration:none;color:#3A352E;min-height:44px">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:999px;background:#25D366;color:#fff;flex-shrink:0">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:13px;height:13px;display:block"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+            </span>
+            או שנדבר בוואטסאפ
+          </a>
+        </form>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer style="padding:28px 20px;background:#3A352E;color:#C6BDA0;display:flex;flex-direction:column;gap:8px">
+    <p style="margin:0;font-size:14.5px">הסטודיו של מימו · אבא אחימאיר 10, רמת גן (שיכון ותיקים)</p>
+    <a href="tel:+972533041277" style="display:flex;align-items:center;min-height:44px;font-size:14.5px;text-decoration:none;color:#E7C78A;font-weight:700">053-3041277</a>
+    <p style="margin:6px 0 0;font-size:12px;color:#A39A88">© 2026 מימו</p>
+  </footer>
+
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(250,248,244,0.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid #E6DFD3">
+    <a href="{{ registerLink }}" target="_blank" rel="noopener noreferrer" style="flex:1;text-align:center;background:#A35C3D;color:#fff;font-weight:800;font-size:16px;padding:16px 10px;border-radius:999px;text-decoration:none;min-height:54px;display:flex;align-items:center;justify-content:center">{{ stickyLabel }}</a>
+    <a href="{{ waUrl }}" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ" style="flex-shrink:0;width:54px;height:54px;border-radius:999px;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:27px;height:27px;display:block"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:932},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;swaddled&quot;,&quot;discoverers&quot;],&quot;default&quot;:&quot;swaddled&quot;,&quot;tsType&quot;:&quot;'swaddled' | 'discoverers'&quot;}}">
+const WA_BASE = 'https://wa.me/972533041277?text=';
+const REG = 'https://mimo-baby.co.il/';
+
+const BASE_FAQ = [
+  { q: 'איפה הסדנה מתקיימת?', a: 'בסטודיו של מימו, אבא אחימאיר 10, רמת גן (שיכון ותיקים). יש חניה באזור וגינה ירוקה שאפשר לשבת בה אחרי המפגש.' },
+  { q: 'מה אם הבייבי בוכה, רעב או נרדם?', a: 'טבעי לגמרי. עוצרות, מאכילות, מרגיעות וממשיכות בקצב שלו. הסדנה בנויה בדיוק בשביל זה.' },
+  { q: 'צריך להביא משהו?', a: 'רק טטרה גדולה, אותך והבייבי. מזרנים, פופים, כדורי פיזיו ואביזרים מחכים בסטודיו, וגם קפה ונשנושים ממני.' },
+  { q: 'מה אם אפספס מפגש?', a: 'קורה, וזה בסדר. כל מפגש מסוכם בקבוצת הוואטסאפ, ואפשר להשלים עד שני מפגשים עם קבוצה אחרת, על בסיס מקום פנוי.' },
+];
+
+const VARIANTS = {
+  swaddled: {
+    workshopName: 'סדנת עטופים',
+    heroImage: 'assets/lp-swaddled-hero.jpg',
+    bandImage: 'assets/lp-group-circle.jpg',
+    bandText: 'קבוצה קטנה, יחס אישי',
+    takeawayTitle: 'מה תיקחי איתך מסדנת עטופים',
+    ageLabel: 'מלידה עד 3.5 חודשים',
+    headline: 'החודשים הראשונים, בלי לנחש',
+    sub: 'סדנת עטופים היא 5 מפגשים בקבוצה קטנה ברמת גן, שבהם תלמדי להרגיע, להקל על גזים ולחזק את הגוף הקטן שלו. ותפגשי אמהות שעוברות בדיוק את מה שאת עוברת.',
+    price: '800 ₪', friendPrice: '720 ₪',
+    meta: '5 מפגשים של שעה וחצי',
+    ctaLabel: 'לשמור לי מקום בסדנה',
+    stickyLabel: 'לשמור לי מקום',
+    forYou: [
+      'הבייבי שלך מלידה ועד 3.5 חודשים',
+      'את רוצה להבין מה הוא צריך, ולא לנחש מול גוגל',
+      'גזים, בכי וקושי להירדם מוכרים לך מדי',
+      'את מחפשת אמהות שמבינות אותך, לא עוד קבוצת פייסבוק',
+    ],
+    notForYou: [
+      'את מחפשת אבחון או טיפול רפואי, לזה יש רופא',
+      'הבייבי שלך מעל 4 חודשים, אז סדנת מגלים מתאימה יותר',
+    ],
+    bullets: [
+      'הסתגלות הדרגתית מהרחם אל העולם, בקצב שלו',
+      'עידוד שכיבה על הבטן וחיזוק השרירים בלי מאבקים',
+      'כלים להרגעה, להרפיה ולהקלה על גזים, שעובדים גם ב-3 לפנות בוקר',
+      'שימוש בפוף, במנשא בד ובכדור פיזיו נכון לגיל',
+    ],
+    closeTitle: 'לא בטוחה שזה מתאים לכם?',
+    closeSub: 'השאירי שם וטלפון, אחזור אלייך אישית, נדבר על הבייבי ונחליט יחד. בלי התחייבות.',
+    waText: 'היי ברנדה! הגעתי מהאתר ואשמח לשמוע על סדנת עטופים',
+  },
+  discoverers: {
+    workshopName: 'סדנת מגלים',
+    heroImage: 'assets/lp-discoverers-hero.jpg',
+    bandImage: 'assets/lp-window-moms.jpg',
+    bandText: 'רגעים קטנים שנשארים איתך',
+    takeawayTitle: 'מה תיקחי איתך מסדנת מגלים',
+    ageLabel: 'מגיל 3 עד 6 חודשים',
+    headline: 'גיל 4 חודשים, והכל משתנה',
+    sub: 'סדנת מגלים היא 5 מפגשים בקבוצה קטנה ברמת גן, שילוו אותך בהתהפכות, בהכנת הגוף לזחילה ובקפיצת ההתפתחות הגדולה של הגיל הזה.',
+    price: '800 ₪', friendPrice: '720 ₪',
+    meta: '5 מפגשים של שעה וחצי',
+    ctaLabel: 'לשמור לי מקום בסדנה',
+    stickyLabel: 'לשמור לי מקום',
+    forYou: [
+      'הבייבי שלך בין 3 ל-6 חודשים',
+      'את מרגישה שהוא מוכן לעוד, ולא בטוחה איך לתמוך בו',
+      'ההתהפכות, קו האמצע והזחילה נשמעים לך כמו סינית',
+      'את רוצה זמן איכות אמיתי איתו, לא עוד מסך',
+    ],
+    notForYou: [
+      'את מחפשת אבחון או טיפול רפואי, לזה יש רופא',
+      'הבייבי שלך מתחת ל-3 חודשים, אז סדנת עטופים מתאימה יותר',
+    ],
+    bullets: [
+      'גיל 4 חודשים המופלא, וכל השינויים שמגיעים איתו',
+      'התהפכות מהבטן לגב ומהגב לבטן',
+      'הכנת הגוף לקראת זחילה, שלב אחרי שלב',
+      'מרקמים, משחקי תקשורת וחוויות תחושתיות בבית',
+    ],
+    closeTitle: 'לא בטוחה שזה מתאים לכם?',
+    closeSub: 'השאירי שם וטלפון, אחזור אלייך אישית, נדבר על הבייבי ונחליט יחד. בלי התחייבות.',
+    waText: 'היי ברנדה! הגעתי מהאתר ואשמח לשמוע על סדנת מגלים',
+  },
+};
+
+class Component extends DCLogic {
+  state = { openFaq: -1, fullName: '', phone: '', error: '', sent: false };
+
+  renderVals() {
+    const st = this.state;
+    const key = VARIANTS[this.props.variant] ? this.props.variant : 'swaddled';
+    const v = VARIANTS[key];
+    return {
+      ...v,
+      registerLink: REG,
+      isSwaddled: key === 'swaddled',
+      isDiscoverers: key === 'discoverers',
+      notDiscoverers: key !== 'discoverers',
+      waUrl: WA_BASE + encodeURIComponent(v.waText),
+      shots: ['assets/testimonial-wa-3.jpg', 'assets/testimonial-wa-4.jpg', 'assets/testimonial-wa-6.jpeg', 'assets/testimonial-wa-8.jpg'],
+      faqs: BASE_FAQ.map((f, i) => ({
+        ...f,
+        isOpen: st.openFaq === i,
+        sign: st.openFaq === i ? '−' : '+',
+        toggle: () => this.setState({ openFaq: st.openFaq === i ? -1 : i }),
+      })),
+      fullName: st.fullName,
+      phone: st.phone,
+      error: st.error,
+      hasError: !!st.error,
+      sent: st.sent,
+      notSent: !st.sent,
+      onName: (e) => this.setState({ fullName: e.target.value, error: '' }),
+      onPhone: (e) => this.setState({ phone: e.target.value, error: '' }),
+      submit: (e) => {
+        e.preventDefault();
+        if (!st.fullName.trim()) return this.setState({ error: 'נא למלא שם מלא' });
+        if (!/^[0-9+\-\s()]{9,}$/.test(st.phone.trim())) return this.setState({ error: 'נא למלא מספר טלפון תקין' });
+        this.setState({ sent: true });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
