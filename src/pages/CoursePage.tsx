@@ -4,7 +4,7 @@ import StickyBar from '../components/shared/StickyBar'
 import FaqAccordion from '../components/shared/FaqAccordion'
 import FitCard from '../components/shared/FitCard'
 import MimoLeaf from '../components/shared/MimoLeaf'
-import { track, setTrackingVariant } from '../lib/track'
+import { track, trackStandard, setTrackingVariant } from '../lib/track'
 import { REGISTER } from '../lib/registerLinks'
 
 import logoMimo from '../assets/logo-mimo.png'
@@ -51,7 +51,7 @@ const FAQS = [
   },
   {
     q: 'עשיתי כבר את הסדנה הפרונטלית, שווה לי?',
-    a: 'אם השתתפת בסדנה, את כבר יודעת את התוכן. הקורס נועד למי שלא יכולה להגיע לסטודיו.',
+    a: 'כן. תמיד טוב שכל המידע יהיה לך במקום אחד, והקורס נשמר אצלך לתמיד — לחזור אליו מתי שצריך, וגם לבייבי הבא.',
   },
 ]
 
@@ -64,7 +64,7 @@ const FOR_YOU = [
 
 const NOT_FOR_YOU = [
   'את מחפשת אבחון או טיפול רפואי, לזה יש רופא',
-  'כבר השתתפת בסדנת העיסוי הפרונטלית שלי',
+  'את מחפשת ליווי אישי ומענה בזמן אמת, לזה יש את הסדנה הפרונטלית',
 ]
 
 function BookIcon() {
@@ -89,8 +89,18 @@ export default function CoursePage() {
     document.title = 'עיסוי תינוקות | הקורס הדיגיטלי של מימו'
   }, [])
 
-  const buy = (placement: string) => () =>
+  const buy = (placement: string) => () => {
     track('workshop_register_click', { workshop: 'course', placement })
+    // Standard event so the course campaign has something real to optimise toward.
+    // Payment itself completes in the app (Morning), off this domain — this is the
+    // last signal we own, so it is the campaign's conversion event.
+    trackStandard('InitiateCheckout', {
+      content_name: 'course-massage',
+      value: 97,
+      currency: 'ILS',
+      placement,
+    })
+  }
 
   return (
     <Shell>
