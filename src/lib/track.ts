@@ -13,8 +13,37 @@ declare global {
 // itself. That's what lets the reports compare conversion between the two ages.
 let pageVariant = 'home'
 
+// Guard so React StrictMode's double-mount (and any re-render) can't double-count.
+let viewContentFired = false
+
 export function setTrackingVariant(variant: string) {
   pageVariant = variant
+  // Fire the STANDARD ViewContent event once per page load.
+  // Why this matters: the ad campaigns optimise toward ViewContent, and until
+  // now the site never fired it — so Meta was optimising toward an event with
+  // zero instances and had nothing to learn from. PageView alone is not enough.
+  if (!viewContentFired) {
+    viewContentFired = true
+    trackStandard('ViewContent', { content_name: variant })
+  }
+}
+
+// Standard Meta Pixel events (ViewContent, InitiateCheckout, Purchase...).
+// Distinct from track() below, which sends CUSTOM events via trackCustom.
+// Meta can only optimise delivery toward STANDARD events, so anything we want
+// the campaigns to bid on has to go through here.
+export function trackStandard(event: string, params?: Record<string, unknown>) {
+  try {
+    const payload = { variant: pageVariant, ...(params || {}) }
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('track', event, payload)
+    }
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', event, payload)
+    }
+  } catch {
+    // analytics must never break the page
+  }
 }
 
 export function track(event: string, params?: Record<string, unknown>) {
