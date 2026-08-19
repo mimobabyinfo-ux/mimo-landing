@@ -10,7 +10,7 @@ import { REGISTER } from '../lib/registerLinks'
 import logoMimo from '../assets/logo-mimo.png'
 import aboutBrenda from '../assets/about-brenda.jpg'
 import mimoGoose from '../assets/mimo-goose.png'
-import gallery2 from '../assets/gallery-2.jpg'
+import courseHero from '../assets/course-hero.jpg'
 
 const BUY = REGISTER.course
 const WA = `https://wa.me/972533041277?text=${encodeURIComponent(
@@ -104,10 +104,10 @@ export default function CoursePage() {
       <section className="px-4">
         <div className="overflow-hidden rounded-[32px]" style={{ background: '#EADBDD' }}>
           <img
-            src={gallery2}
-            alt="תינוק על הבטן בליווי הידיים של ברנדה"
+            src={courseHero}
+            alt="תינוק רגוע במהלך עיסוי"
             className="block w-full"
-            style={{ aspectRatio: '5 / 4', objectFit: 'cover', objectPosition: 'center 40%' }}
+            style={{ aspectRatio: '5 / 4', objectFit: 'cover', objectPosition: 'center 45%' }}
           />
         </div>
       </section>
