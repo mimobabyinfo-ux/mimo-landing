@@ -81,11 +81,26 @@ function stampWhatsAppLink(link: HTMLAnchorElement): void {
   try {
     const tag = adTag()
     if (!tag) return
-    const url = new URL(link.href)
-    const text = url.searchParams.get('text') || ''
-    if (text.includes(AD_SEPARATOR)) return // already stamped, e.g. a second click
-    url.searchParams.set('text', text + AD_SEPARATOR + tag)
-    link.href = url.toString()
+    const href = link.getAttribute('href') || ''
+    const qIndex = href.indexOf('?')
+    if (qIndex === -1) return // no prefilled message to append to; leave it alone
+
+    const base = href.slice(0, qIndex)
+    const parts = href.slice(qIndex + 1).split('&')
+    let stamped = false
+
+    // NOTE: deliberately NOT using URL/URLSearchParams here. Its toString()
+    // re-encodes every space as "+", and wa.me renders those literally — the
+    // whole greeting would reach her as "היי+ברנדה!". Hand-rolling keeps %20.
+    const next = parts.map((p) => {
+      if (!p.startsWith('text=')) return p
+      const current = decodeURIComponent(p.slice(5).replace(/\+/g, ' '))
+      if (current.includes(AD_SEPARATOR)) return p // already stamped
+      stamped = true
+      return 'text=' + encodeURIComponent(current + AD_SEPARATOR + tag)
+    })
+
+    if (stamped) link.setAttribute('href', base + '?' + next.join('&'))
   } catch {
     // a broken tag must never break the link to Brenda
   }
