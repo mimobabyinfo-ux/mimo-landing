@@ -16,12 +16,37 @@ function esc(value: unknown): string {
     .replace(/"/g, '&quot;')
 }
 
+// Ad attribution captured on the client (src/lib/attribution.ts) and forwarded
+// by submitLead. Every field is optional: an organic visitor simply has none.
+type Attribution = {
+  utm_source: string
+  utm_medium: string
+  utm_campaign: string
+  utm_content: string
+  utm_term: string
+  fbclid: string
+  landing_path: string
+  referrer: string
+  pageVariant: string
+}
+
 type Lead = {
   fullName: string
   phone: string
   email: string
   notes: string
   submittedAt: string
+  attribution: Attribution
+}
+
+// One human-readable line, e.g. "לידים || … || 17.05.26 · עטופים 03.09 קבוצה 2".
+// Falls back to the click id, then to the landing path, so a paid visitor is
+// never indistinguishable from an organic one.
+function adSummary(a: Attribution): string {
+  const parts = [a.utm_campaign, a.utm_content].filter(Boolean)
+  if (parts.length) return parts.join(' · ')
+  if (a.fbclid) return 'מודעה בתשלום (fbclid בלבד)'
+  return a.landing_path || 'אורגני'
 }
 
 // Email notification via Resend. Returns 'sent' | 'skipped' | 'failed'.
@@ -38,6 +63,7 @@ async function sendEmail(lead: Lead): Promise<'sent' | 'skipped' | 'failed'> {
       <p><strong>אימייל:</strong> ${esc(lead.email) || '—'}</p>
       <p><strong>הערות:</strong> ${esc(lead.notes) || '—'}</p>
       <hr style="border: none; border-top: 1px solid #DCD4C8; margin: 20px 0;" />
+      <p><strong>הגיעה מ:</strong> ${esc(adSummary(lead.attribution))}</p>
       <p style="color: #818267; font-size: 13px;">נשלח: ${esc(lead.submittedAt)}</p>
     </div>
   `
@@ -73,6 +99,20 @@ async function sendToCrm(lead: Lead): Promise<'sent' | 'failed'> {
         submittedAt: lead.submittedAt,
         source: 'mimo-landing',
         tag: 'ליד מהאתר',
+        // Ad attribution — without these the CRM cannot tell which ad (or
+        // whether any ad) produced a site lead, so the landing-page campaigns
+        // can only ever be judged by guesswork.
+        utm_source: lead.attribution.utm_source,
+        utm_medium: lead.attribution.utm_medium,
+        utm_campaign: lead.attribution.utm_campaign,
+        utm_content: lead.attribution.utm_content,
+        utm_term: lead.attribution.utm_term,
+        fbclid: lead.attribution.fbclid,
+        landing_path: lead.attribution.landing_path,
+        referrer: lead.attribution.referrer,
+        page_variant: lead.attribution.pageVariant,
+        // Pre-joined so a workflow can drop it straight into one field.
+        ad_summary: adSummary(lead.attribution),
       }),
     })
     return r.ok ? 'sent' : 'failed'
@@ -94,6 +134,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     email: body.email ?? '',
     notes: body.notes ?? '',
     submittedAt: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' }),
+    attribution: {
+      utm_source: body.utm_source ?? '',
+      utm_medium: body.utm_medium ?? '',
+      utm_campaign: body.utm_campaign ?? '',
+      utm_content: body.utm_content ?? '',
+      utm_term: body.utm_term ?? '',
+      fbclid: body.fbclid ?? '',
+      landing_path: body.landing_path ?? '',
+      referrer: body.referrer ?? '',
+      pageVariant: body.pageVariant ?? '',
+    },
   }
 
   // Fire both notifications independently — one failing never blocks the other.

@@ -1,3 +1,5 @@
+import { getAttribution } from './attribution'
+
 // Lightweight, defensive analytics helper.
 // Fires a Meta Pixel custom event when fbq is available; never throws.
 // NOTE: the standard "Lead" event still fires on /thank-you.html after a successful submit.
@@ -60,6 +62,35 @@ export function track(event: string, params?: Record<string, unknown>) {
   }
 }
 
+// Which ad brought her, as a short tag to append to the WhatsApp message.
+// Empty for organic visitors, so their message stays exactly as written.
+function adTag(): string {
+  const a = getAttribution()
+  const name = a.utm_content || a.utm_campaign
+  if (name) return name.slice(0, 80)
+  if (a.fbclid) return 'מודעה בתשלום'
+  return ''
+}
+
+// Stamp the ad name into the prefilled WhatsApp text, so a lead who taps the
+// button instead of filling the form is still attributable in the CRM.
+// The tag is APPENDED — the existing "הגעתי דרך האתר" phrase must stay intact
+// because the More Than workflow triggers on it with a "contains" match.
+const AD_SEPARATOR = ' · מקור: '
+function stampWhatsAppLink(link: HTMLAnchorElement): void {
+  try {
+    const tag = adTag()
+    if (!tag) return
+    const url = new URL(link.href)
+    const text = url.searchParams.get('text') || ''
+    if (text.includes(AD_SEPARATOR)) return // already stamped, e.g. a second click
+    url.searchParams.set('text', text + AD_SEPARATOR + tag)
+    link.href = url.toString()
+  } catch {
+    // a broken tag must never break the link to Brenda
+  }
+}
+
 // Global, delegation-based tracking for EVERY WhatsApp link on the page.
 // One document-level listener (capture phase) catches clicks on any <a href*="wa.me">,
 // including links added later — no need to wire onClick per component.
@@ -82,6 +113,8 @@ export function initWhatsAppClickTracking() {
           explicit ||
           (section?.id ? section.id : section?.tagName?.toLowerCase()) ||
           'page'
+        // Rewrite the href before the browser follows it (capture phase).
+        stampWhatsAppLink(link)
         track('whatsapp_click', { location })
       } catch {
         // analytics must never break the page
