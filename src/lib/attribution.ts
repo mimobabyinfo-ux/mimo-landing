@@ -85,3 +85,49 @@ export function getAttribution(): Attribution {
     return EMPTY
   }
 }
+
+/**
+ * Append the stored first-touch attribution to an outbound URL, so the ad
+ * identity survives the hop to the app (mimo-baby.co.il). Never throws.
+ */
+export function withAttribution(url: string): string {
+  try {
+    const a = getAttribution()
+    const u = new URL(url)
+    const pairs: Array<[string, string | null]> = [
+      ['utm_source', a.utm_source],
+      ['utm_medium', a.utm_medium],
+      ['utm_campaign', a.utm_campaign],
+      ['utm_content', a.utm_content],
+      ['utm_term', a.utm_term],
+      ['fbclid', a.fbclid],
+    ]
+    for (const [k, v] of pairs) if (v && !u.searchParams.has(k)) u.searchParams.set(k, v)
+    return u.toString()
+  } catch {
+    return url
+  }
+}
+
+/**
+ * Call once on boot. Rewrites, at click time, every <a> that leads to the app
+ * so it carries the stored utm_* / fbclid. Covers current and future links
+ * (register buttons, sticky bars, price cards) without touching each page.
+ */
+export function initOutboundAttribution(): void {
+  try {
+    document.addEventListener(
+      'click',
+      (e) => {
+        const el = (e.target as Element | null)?.closest?.('a[href]')
+        if (!el) return
+        const href = el.getAttribute('href') ?? ''
+        if (!href.startsWith('https://mimo-baby.co.il')) return
+        el.setAttribute('href', withAttribution(href))
+      },
+      true,
+    )
+  } catch {
+    // attribution must never break the page
+  }
+}
