@@ -655,7 +655,7 @@ export default function HomePage() {
             className="mt-1 w-full rounded-full text-center text-[18px] font-extrabold no-underline"
             style={{ background: '#E7C78A', color: '#3A352E', padding: 18, minHeight: 56 }}
           >
-            לרכישה · 97 ₪ ←
+            לרכישה · 68 ₪ במקום 97 ←
           </a>
           <span className="self-center text-sm" style={{ color: '#5F5A4E' }}>
             תשלום אחד. בלי מנוי, בלי תאריך תפוגה.
