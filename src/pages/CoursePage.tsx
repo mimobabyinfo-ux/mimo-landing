@@ -96,7 +96,7 @@ export default function CoursePage() {
     // last signal we own, so it is the campaign's conversion event.
     trackStandard('InitiateCheckout', {
       content_name: 'course-massage',
-      value: 68,
+      value: 97,
       currency: 'ILS',
       placement,
     })
@@ -149,7 +149,7 @@ export default function CoursePage() {
           className="rounded-full text-center text-[19px] font-extrabold no-underline"
           style={{ background: '#E7C78A', color: '#3A352E', padding: 19, minHeight: 58 }}
         >
-          לרכישה · 68 ₪ במקום 97 ←
+          לרכישה · 97 ₪ ←
         </a>
         <div className="flex flex-wrap justify-center gap-2">
           {['גישה מיידית', 'מהטלפון', 'שלך לתמיד'].map((c) => (
@@ -302,7 +302,7 @@ export default function CoursePage() {
             className="relative m-0 font-display text-[32px] font-bold leading-[1.25]"
             style={{ color: '#A35C3D' }}
           >
-            68 ₪ במקום 97. לכבוד החגים, עד 3.10.
+            97 ₪. פעם אחת. שלך לתמיד.
           </h2>
           <p
             className="m-0 max-w-[380px] text-[16.5px] leading-[1.7]"
@@ -346,7 +346,7 @@ export default function CoursePage() {
         </p>
       </footer>
 
-      <StickyBar href={BUY} label="לרכישת הקורס · 68 ₪ במקום 97" waUrl={WA} />
+      <StickyBar href={BUY} label="לרכישת הקורס · 97 ₪" waUrl={WA} />
     </Shell>
   )
 }
