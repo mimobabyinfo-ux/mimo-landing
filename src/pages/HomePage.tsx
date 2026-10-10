@@ -128,7 +128,7 @@ const EXTRAS = [
   {
     title: 'ליווי פרטני בבית',
     short: 'מפגש של שעה אצלך בבית, אני מגיעה אלייך',
-    price: '400 ₪',
+    price: '500 ₪',
     link: REGISTER.private,
   },
   { title: 'מפגש אבות', short: 'מרחב מיוחד לאבות טריים', price: '150 ₪', link: REGISTER.dads },
