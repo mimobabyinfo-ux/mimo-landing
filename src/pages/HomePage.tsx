@@ -56,7 +56,7 @@ const WORKSHOPS: Workshop[] = [
     title: 'סדנת עטופים · ליווי התפתחותי',
     age: 'מלידה עד 3.5 חודשים',
     meta: '5 מפגשים של שעה וחצי · קבוצה של עד 8 אמהות',
-    price: '800 ₪',
+    price: '949 ₪',
     priceNote: 'לכל הסדנה',
     link: REGISTER.swaddled,
     bullets: [
@@ -79,7 +79,7 @@ const WORKSHOPS: Workshop[] = [
     title: 'סדנת מגלים · ליווי התפתחותי',
     age: 'מגיל 3/3.5 עד 6 חודשים',
     meta: '5 מפגשים של שעה וחצי · קבוצה של עד 8 אמהות',
-    price: '800 ₪',
+    price: '949 ₪',
     priceNote: 'לכל הסדנה',
     link: REGISTER.discoverers,
     bullets: [
@@ -104,7 +104,7 @@ const WORKSHOPS: Workshop[] = [
     title: 'סדנת עיסוי תינוקות',
     age: 'מלידה עד טרום זחילה',
     meta: '3 מפגשים של שעה ורבע · קבוצה של עד 7 אמהות',
-    price: '450 ₪',
+    price: '550 ₪',
     priceNote: 'לכל הסדנה',
     link: REGISTER.massage,
     bullets: [
@@ -131,7 +131,7 @@ const EXTRAS = [
     price: '500 ₪',
     link: REGISTER.private,
   },
-  { title: 'מפגש אבות', short: 'מרחב מיוחד לאבות טריים', price: '150 ₪', link: REGISTER.dads },
+  { title: 'מפגש אבות', short: 'מרחב מיוחד לאבות טריים', price: '190 ₪', link: REGISTER.dads },
   { title: 'מתנת לידה', short: 'הפינוק המושלם לחברה שזה עתה ילדה', price: 'בתיאום', link: WA_GENERAL },
 ]
 
@@ -171,12 +171,12 @@ const SHOTS = [waShot3, waShot4, waShot5, waShot6, waShot7, waShot8]
 const ON_PHOTO_SHADOW = '0 1px 14px rgba(58,53,46,0.9)'
 
 const PRODUCTS = [
-  { image: prodMarakas, title: 'מרקס ערמונים', desc: 'גירוי שמיעתי עדין לחיזוק האחיזה והקשב', price: '₪60' },
-  { image: prodRasanEtz, title: 'רעשן מעץ', desc: 'רעשן טבעי לאחיזה ראשונית ומשחק חושי', price: '₪30' },
-  { image: prodRasanSratim, title: 'רעשן עם סרטים', desc: 'צבעים ומרקמים לעידוד התבוננות ומעקב', price: '₪20' },
-  { image: prodPof, title: 'פוף 110/80', desc: 'מרחב רך ובטוח לשכיבה על הבטן ולמשחק', price: '₪270' },
-  { image: prodArnabi, title: 'ארנבי של מימו', desc: 'בובת ארנב רכה ומלטפת, חבר ראשון לבייבי', price: '₪40' },
-  { image: prodTik, title: 'תיק חיתולים של מימו', desc: 'תיק נוח ומרווח ליציאות עם התינוק', price: '₪60' },
+  { image: prodMarakas, title: 'מרקס ערמונים', desc: 'גירוי שמיעתי עדין לחיזוק האחיזה והקשב', price: '₪70' },
+  { image: prodRasanEtz, title: 'רעשן מעץ', desc: 'רעשן טבעי לאחיזה ראשונית ומשחק חושי', price: '₪40' },
+  { image: prodRasanSratim, title: 'רעשן עם סרטים', desc: 'צבעים ומרקמים לעידוד התבוננות ומעקב', price: '₪30' },
+  { image: prodPof, title: 'פוף 110/80', desc: 'מרחב רך ובטוח לשכיבה על הבטן ולמשחק', price: '₪280' },
+  { image: prodArnabi, title: 'ארנבי של מימו', desc: 'בובת ארנב רכה ומלטפת, חבר ראשון לבייבי', price: '₪50' },
+  { image: prodTik, title: 'תיק חיתולים של מימו', desc: 'תיק נוח ומרווח ליציאות עם התינוק', price: '₪70' },
 ]
 
 const FAQS = [
@@ -655,7 +655,7 @@ export default function HomePage() {
             className="mt-1 w-full rounded-full text-center text-[18px] font-extrabold no-underline"
             style={{ background: '#E7C78A', color: '#3A352E', padding: 18, minHeight: 56 }}
           >
-            לרכישה · 97 ₪ ←
+            לרכישה · 115 ₪ ←
           </a>
           <span className="self-center text-sm" style={{ color: '#5F5A4E' }}>
             תשלום אחד. בלי מנוי, בלי תאריך תפוגה.
