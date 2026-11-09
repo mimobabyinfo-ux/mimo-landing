@@ -593,46 +593,37 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Hero. 9.11.26: Brenda sits at the bottom right of the photo, which is
+          exactly where the headline used to sit over it. The tag and the
+          headline now live under the photo, so she is fully visible. */}
       <section id="top" className="px-4 pt-3.5">
-        <div className="relative overflow-hidden rounded-[34px]" style={{ background: '#EADBDD' }}>
+        <div className="overflow-hidden rounded-[34px]" style={{ background: '#EADBDD' }}>
           <img
             src={heroBrenda}
             alt="ברנדה מוקפת בתינוקות בסדנת התפתחות"
             className="block w-full"
-            style={{ aspectRatio: '4 / 3.4', objectFit: 'cover', objectPosition: 'center 55%' }}
+            style={{ aspectRatio: '4 / 3', objectFit: 'cover', objectPosition: 'center bottom' }}
           />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(0deg, rgba(58,53,46,0.86) 0%, rgba(58,53,46,0.42) 38%, rgba(58,53,46,0) 66%)',
-            }}
-          />
-          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 px-[22px] py-6">
-            <span
-              className="self-start rounded-full px-[13px] py-1.5 text-[12.5px] font-bold"
-              style={{ color: '#3A352E', background: '#E7C78A', letterSpacing: '.3px' }}
-            >
-              בית עוטף ומלטף · רמת גן
-            </span>
-            {/* The design says 36px, but that was set in a serif. Varela Round runs
-                wider, and anything above 30px breaks the second line onto a third
-                that climbs out of the dark part of the gradient. Copy from 9.11.26,
-                same line as the Instagram and hoo.be bio. */}
-            <h1
-              className="m-0 font-display text-[30px] font-bold leading-[1.15] min-[420px]:text-[34px]"
-              style={{ color: '#FFFDF8', textShadow: ON_PHOTO_SHADOW }}
-            >
-              בעולם מוצף עצות,
-              <br />
-              ידע נותן <span style={{ color: '#E7C78A' }}>ביטחון</span>
-            </h1>
-          </div>
+        </div>
+        <div className="flex flex-col gap-3 px-1 pt-5">
+          <span
+            className="self-start rounded-full px-[13px] py-1.5 text-[12.5px] font-bold"
+            style={{ color: '#3A352E', background: '#E7C78A', letterSpacing: '.3px' }}
+          >
+            בית עוטף ומלטף · רמת גן
+          </span>
+          <h1
+            className="m-0 font-display text-[30px] font-bold leading-[1.2] min-[420px]:text-[34px]"
+            style={{ color: '#3A352E' }}
+          >
+            בעולם מוצף עצות,
+            <br />
+            ידע נותן <span style={{ color: '#A35C3D' }}>ביטחון</span>
+          </h1>
         </div>
       </section>
 
-      <section className="flex flex-col gap-3.5 px-4 pt-5">
+      <section className="flex flex-col gap-3.5 px-4 pt-3">
         <p className="m-0 text-[18px] leading-[1.7]" style={{ color: '#3A352E', textWrap: 'pretty' }}>
           במימו את לומדת להכיר את הבייבי שלך, מרגישה בטוחה יותר ומקשיבה לאינטואיציה שלך, יחד עם
           אמהות שעוברות בדיוק את מה שאת עוברת.
