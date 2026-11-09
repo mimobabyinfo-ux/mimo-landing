@@ -638,7 +638,7 @@ export default function HomePage() {
           אמהות שעוברות בדיוק את מה שאת עוברת.
         </p>
         <div className="flex flex-wrap gap-2">
-          {['מלווה התפתחותית מוסמכת', '+200 אמהות', 'קבוצות של עד 8'].map((c) => (
+          {['מלווה התפתחותית מוסמכת', '+500 אמהות', 'קבוצות של עד 8'].map((c) => (
             <span
               key={c}
               className="rounded-full px-3.5 py-2 text-[13px] font-semibold"

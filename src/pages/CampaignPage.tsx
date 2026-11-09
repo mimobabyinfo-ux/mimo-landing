@@ -154,7 +154,7 @@ export default function CampaignPage() {
           </a>
 
           <div className="flex flex-wrap justify-center gap-[7px]">
-            {['קבוצה של עד 8 אמהות', '+200 אמהות', 'מלווה מוסמכת'].map((c) => (
+            {['קבוצה של עד 8 אמהות', '+500 אמהות', 'מלווה מוסמכת'].map((c) => (
               <span
                 key={c}
                 className="rounded-full px-3 py-1.5 text-[12.5px] font-semibold"
