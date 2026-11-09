@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Shell from '../components/shared/Shell'
 import StickyBar from '../components/shared/StickyBar'
 import LeadForm from '../components/shared/LeadForm'
@@ -7,6 +7,8 @@ import NextCohortChip, { useNextCohort } from '../components/shared/NextCohortCh
 import MimoLeaf from '../components/shared/MimoLeaf'
 import { track } from '../lib/track'
 import { REGISTER } from '../lib/registerLinks'
+import { usePriceInfo, priceText } from '../lib/workshopPrices'
+import { supabase } from '../lib/supabase'
 
 import logoMimo from '../assets/logo-mimo.png'
 import heroBrenda from '../assets/hero-brenda-babies.jpg'
@@ -37,6 +39,9 @@ const WA = 'https://wa.me/972533041277'
 const WA_GENERAL = `${WA}?text=${encodeURIComponent('היי ברנדה! הגעתי דרך האתר ואשמח לשמוע פרטים על הסדנאות')}`
 const WA_PROMO = `${WA}?text=${encodeURIComponent('היי ברנדה! אנחנו חברות שרוצות להירשם יחד לסדנה ולקבל את ההנחה')}`
 const WA_ORDER = `${WA}?text=${encodeURIComponent('היי ברנדה! הגעתי דרך האתר ואשמח להזמין מוצר משלים')}`
+// Mimo's community WhatsApp group, the same link as on hoo.be/mimobaby.
+const WA_COMMUNITY = 'https://chat.whatsapp.com/C21YZ4oAa36D3EXkV1NvqB'
+const APP_URL = 'https://mimo-baby.co.il'
 const MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('אבא אחימאיר 10, רמת גן')
 
@@ -213,6 +218,7 @@ const FAQS = [
 
 const NAV = [
   { href: '#services', label: 'סדנאות' },
+  { href: '#community', label: 'קהילה' },
   { href: '#course', label: 'הקורס הדיגיטלי' },
   { href: '#testimonials', label: 'המלצות' },
   { href: '#about', label: 'מי אני' },
@@ -222,6 +228,14 @@ const NAV = [
 function WorkshopCard({ w }: { w: Workshop }) {
   const [open, setOpen] = useState(false)
   const cohort = useNextCohort(w.link)
+  const priceInfo = usePriceInfo(w.link)
+  // A workshop whose public registration is closed in the app (e.g. baby
+  // massage, opened on demand) goes to WhatsApp instead of a register page
+  // that would not let her in.
+  const viaWhatsapp = priceInfo?.publicRegistration === false
+  const href = viaWhatsapp
+    ? `${WA}?text=${encodeURIComponent(`היי ברנדה! הגעתי דרך האתר ואשמח להירשם ל${w.title.split(' · ')[0]}`)}`
+    : w.link
 
   return (
     <div
@@ -247,7 +261,7 @@ function WorkshopCard({ w }: { w: Workshop }) {
 
       <div className="mt-3.5 flex items-baseline gap-2">
         <span className="font-display text-[32px] font-black" style={{ color: '#A35C3D' }}>
-          {w.price}
+          {priceText(priceInfo, w.price)}
         </span>
         <span className="text-[13.5px]" style={{ color: '#818267' }}>
           {w.priceNote}
@@ -289,16 +303,246 @@ function WorkshopCard({ w }: { w: Workshop }) {
       </button>
 
       <a
-        href={w.link}
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => track('workshop_register_click', { workshop: w.title })}
+        data-wa-location={viaWhatsapp ? 'workshop-card' : undefined}
+        onClick={() => track('workshop_register_click', { workshop: w.title, via: viaWhatsapp ? 'whatsapp' : 'app' })}
         className="mt-4 rounded-full text-center text-[17px] font-extrabold no-underline"
         style={{ background: '#A35C3D', color: '#fff', padding: 17, minHeight: 54 }}
       >
-        להרשמה לסדנה
+        {viaWhatsapp ? 'להרשמה בוואטסאפ' : 'להרשמה לסדנה'}
       </a>
     </div>
+  )
+}
+
+function ExtraRow({ e }: { e: (typeof EXTRAS)[number] }) {
+  const info = usePriceInfo(e.link)
+  return (
+    <a
+      href={e.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => track('workshop_register_click', { workshop: e.title })}
+      className="flex items-center justify-between gap-3.5 rounded-[20px] px-[17px] py-[15px] no-underline"
+      style={{ background: '#FFFDF8', border: '1px solid #EDE6DA', minHeight: 56 }}
+    >
+      <span className="flex flex-col gap-[3px]">
+        <span className="text-[15.5px] font-extrabold" style={{ color: '#3A352E' }}>
+          {e.title}
+        </span>
+        <span className="text-[13px]" style={{ color: '#818267' }}>
+          {e.short}
+        </span>
+      </span>
+      <span className="whitespace-nowrap text-[15.5px] font-black" style={{ color: '#A35C3D' }}>
+        {priceText(info, e.price)}
+      </span>
+    </a>
+  )
+}
+
+function CourseBuyButton() {
+  const info = usePriceInfo(REGISTER.course)
+  return (
+    <a
+      href="/course"
+      onClick={() => track('workshop_register_click', { workshop: 'course' })}
+      className="mt-1 w-full rounded-full text-center text-[18px] font-extrabold no-underline"
+      style={{ background: '#E7C78A', color: '#3A352E', padding: 18, minHeight: 56 }}
+    >
+      לרכישה · {priceText(info, '115 ₪')} ←
+    </a>
+  )
+}
+
+// ── Community (9.11.26) ─────────────────────────────────────────────────────
+// What the mothers actually use in the app is the events board and the
+// workshops, not the tracker, so the page now says so.
+
+type PublicEvent = { id: string; title: string; emoji: string | null; event_date: string; start_time: string | null }
+
+/** Next three open community events, straight from the app through the
+ *  public RPC `get_public_events` (title, date, price only). Renders nothing
+ *  until they arrive, or if there are none. */
+function useUpcomingEvents(): PublicEvent[] {
+  const [events, setEvents] = useState<PublicEvent[]>([])
+  useEffect(() => {
+    if (!supabase) return
+    let cancelled = false
+    supabase.rpc('get_public_events').then(({ data, error }) => {
+      if (cancelled || error || !data) return
+      const rows = (data as (PublicEvent & { is_open: boolean })[]).filter((r) => r.is_open).slice(0, 3)
+      setEvents(rows)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+  return events
+}
+
+function ddmm(date: string): string {
+  const [, m, d] = date.split('-')
+  return `${parseInt(d, 10)}.${parseInt(m, 10)}`
+}
+
+const ICON_PROPS = {
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.8,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+  'aria-hidden': true,
+  className: 'block h-[22px] w-[22px]',
+}
+
+const COMMUNITY_CARDS = [
+  {
+    title: 'אירועים כל חודש',
+    line: 'הרצאות, סדנאות ומפגשים לאמהות ולתינוקות',
+    icon: (
+      <svg {...ICON_PROPS}>
+        <rect x="3.5" y="5" width="17" height="15.5" rx="3" />
+        <path d="M3.5 10h17M8 3v4M16 3v4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'תכני הסדנאות',
+    line: 'סיכומים וסרטונים מכל מפגש',
+    icon: (
+      <svg {...ICON_PROPS}>
+        <rect x="3" y="5" width="18" height="14" rx="3" />
+        <path d="M10.5 9.5v5l4-2.5-4-2.5Z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'קהילת אמהות',
+    line: 'להכיר אמהות מהשכונה עם תינוק באותו גיל',
+    icon: (
+      <svg {...ICON_PROPS}>
+        <circle cx="9" cy="8.5" r="3" />
+        <circle cx="16.5" cy="9.5" r="2.4" />
+        <path d="M3.5 19c.6-3 2.8-4.8 5.5-4.8s4.9 1.8 5.5 4.8M14.8 14.6c2.6-.3 4.9 1.2 5.6 4.4" />
+      </svg>
+    ),
+  },
+]
+
+function CommunitySection() {
+  const events = useUpcomingEvents()
+  return (
+    <section id="community" className="relative overflow-hidden px-4 pb-12 pt-11">
+      <MimoLeaf
+        variant="sky-1"
+        size={120}
+        rotate={-28}
+        style={{ position: 'absolute', left: -36, top: 24, opacity: 0.35 }}
+      />
+      <div className="relative mb-6 flex flex-col items-center gap-2 text-center">
+        <span className="font-script text-[18px] leading-none" style={{ color: '#818267' }}>
+          קהילת מימו
+        </span>
+        <h2 className="m-0 font-display text-[29px] font-bold" style={{ color: '#A35C3D' }}>
+          את לא לבד בדרך
+        </h2>
+        <p className="m-0 text-[16.5px] leading-[1.75]" style={{ color: '#3A352E', textWrap: 'pretty' }}>
+          כל חודש מחכה לך לוח אירועים חדש ברמת גן: הרצאות עם אנשי מקצוע, תנועה אחרי לידה, מפגשים
+          חברתיים ועוד. הכל נמצא באפליקציה של מימו, יחד עם התכנים מהסדנאות וקהילת אמהות שנמצאות
+          בדיוק בשלב שלך.
+        </p>
+      </div>
+
+      <div className="relative flex flex-col gap-2.5">
+        {COMMUNITY_CARDS.map((c) => (
+          <div
+            key={c.title}
+            className="flex items-center gap-3.5 rounded-[22px] px-[17px] py-[15px]"
+            style={{ background: '#FFFDF8', border: '1px solid #EDE6DA' }}
+          >
+            <span
+              className="flex shrink-0 items-center justify-center rounded-full"
+              style={{ width: 44, height: 44, background: '#E7C78A55', color: '#A35C3D' }}
+            >
+              {c.icon}
+            </span>
+            <span className="flex flex-col gap-[3px]">
+              <span className="text-[15.5px] font-extrabold" style={{ color: '#3A352E' }}>
+                {c.title}
+              </span>
+              <span className="text-[13.5px] leading-[1.45]" style={{ color: '#818267' }}>
+                {c.line}
+              </span>
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {events.length > 0 && (
+        <div
+          className="relative mt-4 flex flex-col gap-2 rounded-[24px] p-[18px]"
+          style={{ background: '#EADBDD' }}
+        >
+          <p className="m-0 mb-1 text-[15px] font-extrabold" style={{ color: '#3A352E' }}>
+            בקרוב בקהילה
+          </p>
+          {events.map((ev) => (
+            <a
+              key={ev.id}
+              href={`${APP_URL}/?event=${ev.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('community_event_click', { event: ev.title })}
+              className="flex items-center justify-between gap-3 rounded-[16px] px-[15px] py-3 no-underline"
+              style={{ background: '#FFFDF8', minHeight: 50 }}
+            >
+              <span className="min-w-0 text-[15px] font-semibold" style={{ color: '#3A352E' }}>
+                {ev.emoji ? `${ev.emoji} ` : ''}
+                {ev.title.trim()}
+              </span>
+              <span className="whitespace-nowrap text-[13.5px] font-bold" style={{ color: '#A35C3D' }}>
+                {ddmm(ev.event_date)}
+                {ev.start_time ? ` · ${ev.start_time.slice(0, 5)}` : ''}
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div className="relative mt-5 flex flex-col gap-2.5">
+        <a
+          href={APP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => track('community_app_click')}
+          className="rounded-full text-center text-[18px] font-extrabold no-underline"
+          style={{ background: '#A35C3D', color: '#fff', padding: 18, minHeight: 56 }}
+        >
+          להצטרפות לאפליקציה
+        </a>
+        <a
+          href={WA_COMMUNITY}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-wa-location="community-group"
+          onClick={() => track('community_whatsapp_click')}
+          className="rounded-full text-center text-[17px] font-bold no-underline"
+          style={{
+            background: '#FFFDF8',
+            border: '1px solid #E6DFD3',
+            color: '#3A352E',
+            padding: 16,
+            minHeight: 52,
+          }}
+        >
+          לקבוצת הוואטסאפ של מימו
+        </a>
+      </div>
+    </section>
   )
 }
 
@@ -373,15 +617,16 @@ export default function HomePage() {
               בית עוטף ומלטף · רמת גן
             </span>
             {/* The design says 36px, but that was set in a serif. Varela Round runs
-                wider, and anything above 30px breaks "הקול הכי חשוב הוא שלך" onto a
-                third line that climbs out of the dark part of the gradient. */}
+                wider, and anything above 30px breaks the second line onto a third
+                that climbs out of the dark part of the gradient. Copy from 9.11.26,
+                same line as the Instagram and hoo.be bio. */}
             <h1
               className="m-0 font-display text-[30px] font-bold leading-[1.15] min-[420px]:text-[34px]"
               style={{ color: '#FFFDF8', textShadow: ON_PHOTO_SHADOW }}
             >
               בעולם מוצף עצות,
               <br />
-              הקול הכי חשוב <span style={{ color: '#E7C78A' }}>הוא שלך</span>
+              ידע נותן <span style={{ color: '#E7C78A' }}>ביטחון</span>
             </h1>
           </div>
         </div>
@@ -389,7 +634,8 @@ export default function HomePage() {
 
       <section className="flex flex-col gap-3.5 px-4 pt-5">
         <p className="m-0 text-[18px] leading-[1.7]" style={{ color: '#3A352E', textWrap: 'pretty' }}>
-          במימו את מתחברת חזרה לאינטואיציה שלך, יחד עם אמהות שעוברות בדיוק את מה שאת עוברת.
+          במימו את לומדת להכיר את הבייבי שלך, מרגישה בטוחה יותר ומקשיבה לאינטואיציה שלך, יחד עם
+          אמהות שעוברות בדיוק את מה שאת עוברת.
         </p>
         <div className="flex flex-wrap gap-2">
           {['מלווה התפתחותית מוסמכת', '+200 אמהות', 'קבוצות של עד 8'].map((c) => (
@@ -531,30 +777,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col gap-2.5">
             {EXTRAS.map((e) => (
-              <a
-                key={e.title}
-                href={e.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track('workshop_register_click', { workshop: e.title })}
-                className="flex items-center justify-between gap-3.5 rounded-[20px] px-[17px] py-[15px] no-underline"
-                style={{ background: '#FFFDF8', border: '1px solid #EDE6DA', minHeight: 56 }}
-              >
-                <span className="flex flex-col gap-[3px]">
-                  <span className="text-[15.5px] font-extrabold" style={{ color: '#3A352E' }}>
-                    {e.title}
-                  </span>
-                  <span className="text-[13px]" style={{ color: '#818267' }}>
-                    {e.short}
-                  </span>
-                </span>
-                <span
-                  className="whitespace-nowrap text-[15.5px] font-black"
-                  style={{ color: '#A35C3D' }}
-                >
-                  {e.price}
-                </span>
-              </a>
+              <ExtraRow key={e.title} e={e} />
             ))}
           </div>
         </div>
@@ -579,6 +802,8 @@ export default function HomePage() {
           </a>
         </div>
       </section>
+
+      <CommunitySection />
 
       {/* Digital course */}
       <section
@@ -649,14 +874,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <a
-            href="/course"
-            onClick={() => track('workshop_register_click', { workshop: 'course' })}
-            className="mt-1 w-full rounded-full text-center text-[18px] font-extrabold no-underline"
-            style={{ background: '#E7C78A', color: '#3A352E', padding: 18, minHeight: 56 }}
-          >
-            לרכישה · 115 ₪ ←
-          </a>
+          <CourseBuyButton />
           <span className="self-center text-sm" style={{ color: '#5F5A4E' }}>
             תשלום אחד. בלי מנוי, בלי תאריך תפוגה.
           </span>
@@ -1078,6 +1296,7 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-3.5">
             {[
               { href: '#services', label: 'סדנאות' },
+              { href: '#community', label: 'קהילה' },
               { href: '/course', label: 'הקורס הדיגיטלי' },
               { href: '#testimonials', label: 'המלצות' },
               { href: '#about', label: 'אודות' },
